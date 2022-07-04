@@ -6,6 +6,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DeveloperController;
+use App\Http\Controllers\PortofolioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +33,8 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register.s
 
 /* Route::get('/home', [homeController::class, 'index'])->middleware('auth', 'User')->name('home'); */
 
-Route::resource('user', UserController::class)->middleware('auth', 'User');
-Route::resource('developer', DeveloperController::class)->middleware('auth', 'Developer');
+Route::resource('user', UserController::class)->middleware('auth', 'user');
+Route::resource('developer', DeveloperController::class)->middleware('auth', 'developer');
+
+/* Portofolio */
+Route::get('/portofolio', [PortofolioController::class, 'index'])->middleware('auth', 'user')->name('portofolio');

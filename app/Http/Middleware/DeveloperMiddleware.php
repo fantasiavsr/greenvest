@@ -20,6 +20,6 @@ class UserMiddleware
         if (Auth::user()->level == "Developer") {
             return $next($request);
         };
-        return redirect('/');
+        return redirect('login');
     }
 }

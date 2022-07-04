@@ -12,9 +12,9 @@
     <hr class="sidebar-divider my-2">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
+    <li class="nav-item {{ (request()->is('user')) ? 'active' : '' }}">
         <a class="nav-link" href="{{ 'user' }}"
-            style="color: #4FBEAB; background-color:#F9FAFC;  border-right: 8px solid #4FBEAB;">
+            @if ($title === 'Dashboard') style="color: #4FBEAB; background-color:#F9FAFC;  border-right: 8px solid #4FBEAB;" @endif>
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -27,28 +27,35 @@
         Investment
     </div>
 
-    <!-- Nav Item -->
-    <li class="nav-item">
-        <a class="nav-link " href="#">
+    <!-- Nav Item - Portofolio -->
+    <li class="nav-item {{ (request()->is('portofolio')) ? 'active' : '' }}">
+        <a class="nav-link " href="{{ 'portofolio' }}"
+            @if ($title === 'Portofolio') style="color: #4FBEAB; background-color:#F9FAFC;  border-right: 8px solid #4FBEAB;" @endif>
             <i class="fas fa-fw fa-cog"></i>
             <span>Portofolio</span>
         </a>
     </li>
 
-    <!-- Nav Item -->
-    <li class="nav-item">
+    <!-- Nav Item - Transaksi -->
+    <li
+        class="nav-item {{ (request()->is('transaksi*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
             aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-wrench"></i>
             <span>Transaksi</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Green Investment:</h6>
-                <a class="collapse-item" href="#">Green Sukuk</a>
-                <a class="collapse-item" href="#">Green Bond</a>
-                <a class="collapse-item" href="#">Green Taxonomy</a>
+                <a class="collapse-item {{ $title === 'Transaksi | Green Sukuk' ? 'active' : '' }}" href="#"
+                    @if ($title === 'Transaksi | Green Sukuk') style="color: #4FBEAB; background-color:#F9FAFC;  border-right: 8px solid #4FBEAB;" @endif>Green
+                    Sukuk</a>
+                <a class="collapse-item {{ $title === 'Transaksi | Green Bond' ? 'active' : '' }}" href="#"
+                    @if ($title === 'Transaksi | Green Bond') style="color: #4FBEAB; background-color:#F9FAFC;  border-right: 8px solid #4FBEAB;" @endif>Green
+                    Bond</a>
+                <a class="collapse-item {{ $title === 'Transaksi | Green Taxonomy' ? 'active' : '' }}" href="#"
+                    @if ($title === 'Transaksi | Green Taxonomy') style="color: #4FBEAB; background-color:#F9FAFC;  border-right: 8px solid #4FBEAB;" @endif>Green
+                    Taxonomy</a>
             </div>
         </div>
     </li>
