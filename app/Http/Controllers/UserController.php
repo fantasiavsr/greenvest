@@ -25,7 +25,7 @@ class UserController extends Controller
                 'user' => $user,
             ]);
         } else if ($level == "User") {
-            return view('pages.user.test', compact('user'), [
+            return view('pages.user.index', compact('user'), [
                 'title' => "Dashboard",
                 'user' => $user,
                 'submenu' => "no",

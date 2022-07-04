@@ -7,11 +7,11 @@ var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ["Direct", "Referral", "Social"],
+    labels: ["Balance", "Outcome", "Income"],
     datasets: [{
-      data: [55, 30, 15],
-      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
-      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+      data: [15, 35, 50],
+      backgroundColor: ['#4FBEAB', '#FFB020', '#378AEC'],
+      hoverBackgroundColor: ['#46A192', '#DF9B20', '#3681DA'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
     }],
   },
