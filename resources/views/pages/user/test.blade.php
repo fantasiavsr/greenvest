@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,7 +19,9 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('demo/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
-    <!-- Custom styles for DataTable->
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for DataTable-->
     <link href="{{ asset('demo/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 </head>
 
@@ -41,7 +42,7 @@
             </a>
 
             <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+            <hr class="sidebar-divider my-2">
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
@@ -56,40 +57,31 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Investment
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
+            <!-- Nav Item -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link " href="#" >
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+                    <span>Portofolio</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
-                    </div>
-                </div>
             </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
+            <!-- Nav Item -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
+                    <span>Transaksi</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                        <h6 class="collapse-header">Green Investment:</h6>
+                        <a class="collapse-item" href="#">Green Sukuk</a>
+                        <a class="collapse-item" href="#">Green Bond</a>
+                        <a class="collapse-item" href="#">Green Taxonomy</a>
                     </div>
                 </div>
             </li>
@@ -99,42 +91,22 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                Utilites
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
+            <!-- Nav Item -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link collapsed" href="#">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
+                    <span>Pengaturan</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
             </li>
 
-            <!-- Nav Item - Charts -->
+            <!-- Nav Item -->
             <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                    <span>Akun Saya</span></a>
             </li>
 
             <!-- Divider -->
@@ -146,13 +118,13 @@
             </div>
 
             <!-- Sidebar Message -->
-            <div class="sidebar-card d-none d-lg-flex">
+            {{-- <div class="sidebar-card d-none d-lg-flex">
                 <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
                 <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components,
                     and more!</p>
                 <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to
                     Pro!</a>
-            </div>
+            </div> --}}
 
         </ul>
         <!-- End of Sidebar -->
@@ -167,7 +139,7 @@
                 <nav class="navbar navbar-expand navbar-light topbar static-top" style="background-color: #EDEFF5">
 
                     <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <button id="sidebarToggleTop" class="btn d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
 
@@ -369,22 +341,22 @@
                 </nav>
                 <!-- End of Topbar -->
 
-                <div class="container-fluid pt-4" style="background-color: #EDEFF5">
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <!-- Add Ons -->
+                <div class="container-fluid pt-2 pb-1" style="background-color: #EDEFF5">
+                    <div class="d-sm-flex align-items-center justify-content-between">
 
                         <!-- Card Example -->
                         <div class="col mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card shadow-custom-sm h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">Rp2.487.600</div>
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            <div class="text-xs font-weight-bold text-uppercase mb-1">
                                                 Total Income
                                             </div>
                                         </div>
                                         <div class="col-auto">
-
                                             <img class="img" src="{{ asset('img/gv-logo.png') }}" alt=""
                                                 style="height: 100%;width:100%;object-fit: cover;">
                                         </div>
@@ -395,16 +367,17 @@
 
                         <!-- Card Example -->
                         <div class="col mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card shadow-custom-sm h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">Rp320.000</div>
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            <div class="text-xs font-weight-bold text-uppercase mb-1">
                                                 Current Balance</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            <img class="img" src="{{ asset('img/wallet.png') }}" alt=""
+                                                style="height: 100%;width:100%;object-fit: cover;">
                                         </div>
                                     </div>
                                 </div>
@@ -413,17 +386,18 @@
 
                         <!-- Card Example -->
                         <div class="col mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card shadow-custom-sm h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
 
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">2 Years</div>
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            <div class="text-xs font-weight-bold text-uppercase mb-1">
                                                 Since Joined </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                            <img class="img" src="{{ asset('img/peoples.png') }}"
+                                                alt="" style="height: 100%;width:100%;object-fit: cover;">
                                         </div>
                                     </div>
                                 </div>
@@ -436,79 +410,9 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                    </div> --}}
-
-                    <!-- Content Row -->
-                    {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-
-                        <!-- Card Example -->
-                        <div class="col mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Rp2.487.600</div>
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Total Income
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-
-                                            <img class="img" src="{{ asset('img/gv-logo.png') }}" alt=""
-                                                style="height: 100%;width:100%;object-fit: cover;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card Example -->
-                        <div class="col mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Rp320.000</div>
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Current Balance</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card Example -->
-                        <div class="col mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">2 Years</div>
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Since Joined </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div> --}}
-
-                    {{-- Edit Row 1 --}}
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Portofolio Info</h1>
+                    {{-- Sub Title --}}
+                    <div class="d-sm-flex align-items-center justify-content-between pt-2 mt-4 mb-4">
+                        <h1 class="h3 mb-0 text-gray-800 ">Portofolio Info</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -516,11 +420,11 @@
 
                         <!-- Card -->
                         <div class="col d-flex">
-                            <div class="card shadow mb-4" style="width:100%">
+                            <div class="card shadow-custom mb-4" style="width:100%">
                                 <!-- Card Header + Dropdown -->
-                                <div
+                                {{-- <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                                    <h6 class="m-0 font-weight-bold">Earnings Overview</h6>
 
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button"
@@ -538,13 +442,12 @@
                                             <a class="dropdown-item" href="#">Something else here</a>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     {{-- <div class="chart-area">
                                         <canvas id="myAreaChart"></canvas>
                                     </div> --}}
-
                                     <div class="table-responsive">
 
                                         <table class="table table-hover table-borderless" id="dataTable"
@@ -619,19 +522,21 @@
                                                         <a class="link-info" href="">Detail</a>
                                                     </td>
                                                 </tr>
-
-
                                             </tbody>
                                         </table>
 
                                     </div>
                                 </div>
+                                <!-- Card Footer -->
+                                <div class="card-footer flex-row align-items-center text-center">
+                                    <a href="#">Lihat Semua</a>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Pie Chart -->
+                        <!-- Card -->
                         <div class="col d-flex">
-                            <div class="card shadow mb-4" style="width:100%">
+                            <div class="card shadow-custom mb-4" style="width:100%">
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -651,17 +556,16 @@
                                             <a class="dropdown-item" href="#">Something else here</a>
                                         </div>
                                     </div> --}}
-                                    <button class="btn text-light px-4"
-                                        style="background-color: #4FBEAB; width: 100%">
+                                    <button class="btn text-light " style="background-color: #4FBEAB; width: 100%">
                                         Total
                                     </button>
-                                    <button class="btn btn-light px-4" style=" width: 100%">
+                                    <button class="btn btn-light " style=" width: 100%">
                                         Balance
                                     </button>
-                                    <button class="btn btn-light px-4" style=" width: 100%">
+                                    <button class="btn btn-light " style=" width: 100%">
                                         Outcome
                                     </button>
-                                    <button class="btn btn-light px-4" style=" width: 100%">
+                                    <button class="btn btn-light " style=" width: 100%">
                                         Income
                                     </button>
 
@@ -669,15 +573,15 @@
 
                                 <!-- Card Body -->
                                 <div class="card-body py-3 ">
-                                    <div class="row">
-                                        <div class="col">
+                                    <div class="row pt-3">
+                                        <div class="col-md-3">
                                             <div class="pt-4 pb-2">
                                                 <canvas id="myPieChart"></canvas>
                                             </div>
                                         </div>
                                         <div class="col ">
                                             <div>
-                                                <h4 class="small font-weight-bold">Server Migration <span
+                                                <h4 class="small font-weight-bold">Balance<span
                                                         class="float-right">20%</span></h4>
                                                 <div class="progress mb-4">
                                                     <div class="progress-bar bg-success" role="progressbar"
@@ -685,7 +589,7 @@
                                                         aria-valuemax="100"></div>
                                                 </div>
 
-                                                <h4 class="small font-weight-bold">Server Migration <span
+                                                <h4 class="small font-weight-bold">Outcome<span
                                                         class="float-right">20%</span></h4>
                                                 <div class="progress mb-4">
                                                     <div class="progress-bar bg-danger" role="progressbar"
@@ -693,7 +597,7 @@
                                                         aria-valuemax="100"></div>
                                                 </div>
 
-                                                <h4 class="small font-weight-bold">Server Migration <span
+                                                <h4 class="small font-weight-bold">Income<span
                                                         class="float-right">20%</span></h4>
                                                 <div class="progress mb-4">
                                                     <div class="progress-bar bg-primary" role="progressbar"
@@ -703,21 +607,128 @@
                                             </div>
                                         </div>
                                     </div>
-
-
-
-
-
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Sub Title -->
+                    <div class="d-sm-flex align-items-center justify-content-between mt-4 mb-4">
+                        <h1 class="h3 mb-0 text-gray-800 ">List Transaksi</h1>
+                    </div>
+
                     <!-- Content Row -->
                     <div class="row">
 
+                        <div class="col">
+                            <div class="card shadow-custom mb-4" style="width:100%">
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <tbody>
+                                                {{-- @foreach ($data as $item) --}}
+                                                <tr class="">
+                                                    <td>
+                                                        <img class="avatar me-2"
+                                                            src="{{ asset('img/item-sample1.png') }}"
+                                                            alt="">
+                                                    </td>
+                                                    <td>
+                                                        Adidas-AM Indeks IDX45
+                                                    </td>
+                                                    <td>
+                                                        1 Year Return 20.36%
+                                                    </td>
+                                                    <td>
+                                                        Expense Ratio 2.36%
+                                                    </td>
+                                                    <td>
+                                                        Total AUM 1.27T
+                                                    </td>
+                                                    <td>
+                                                        <a class="link-info" href="">Detail</a>
+                                                    </td>
+                                                </tr>
+                                                {{-- @endforeach --}}
+                                                <tr>
+                                                    <td>
+                                                        <img class="avatar me-2"
+                                                            src="{{ asset('img/item-sample2.png') }}"
+                                                            alt="">
+                                                    </td>
+                                                    <td>
+                                                        Adidas-AM Indeks IDX45
+                                                    </td>
+                                                    <td>
+                                                        1 Year Return 20.36%
+                                                    </td>
+                                                    <td>
+                                                        Expense Ratio 2.36%
+                                                    </td>
+                                                    <td>
+                                                        Total AUM 1.27T
+                                                    </td>
+                                                    <td>
+                                                        <a class="link-info" href="">Detail</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <img class="avatar me-2"
+                                                            src="{{ asset('img/item-sample2.png') }}"
+                                                            alt="">
+                                                    </td>
+                                                    <td>
+                                                        Adidas-AM Indeks IDX45
+                                                    </td>
+                                                    <td>
+                                                        1 Year Return 20.36%
+                                                    </td>
+                                                    <td>
+                                                        Expense Ratio 2.36%
+                                                    </td>
+                                                    <td>
+                                                        Total AUM 1.27T
+                                                    </td>
+                                                    <td>
+                                                        <a class="link-info" href="">Detail</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <img class="avatar me-2"
+                                                            src="{{ asset('img/item-sample3.png') }}"
+                                                            alt="">
+                                                    </td>
+                                                    <td>
+                                                        Adidas-AM Indeks IDX45
+                                                    </td>
+                                                    <td>
+                                                        1 Year Return 20.36%
+                                                    </td>
+                                                    <td>
+                                                        Expense Ratio 2.36%
+                                                    </td>
+                                                    <td>
+                                                        Total AUM 1.27T
+                                                    </td>
+                                                    <td>
+                                                        <a class="link-info" href="">Detail</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- Card Footer -->
+                                <div class="card-footer flex-row align-items-center text-center">
+                                    <a href="#">Lihat Semua</a>
+                                </div>
+                            </div>
+                        </div>
                         <!-- Content Column -->
-                        <div class="col-lg-6 mb-4">
+                        {{-- <div class="col-lg-6 mb-4">
 
                             <!-- Project Card Example -->
                             <div class="card shadow mb-4">
@@ -826,9 +837,9 @@
                                 </div>
                             </div>
 
-                        </div>
+                        </div> --}}
 
-                        <div class="col-lg-6 mb-4">
+                        {{-- <div class="col-lg-6 mb-4">
 
                             <!-- Illustrations -->
                             <div class="card shadow mb-4">
@@ -838,7 +849,7 @@
                                 <div class="card-body">
                                     <div class="text-center">
                                         <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                            src="img/undraw_posting_photo.svg" alt="...">
+                                            src="{{ asset('demo/img/undraw_posting_photo.svg') }}" alt="...">
                                     </div>
                                     <p>Add some quality, svg illustrations to your project courtesy of <a
                                             target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
@@ -865,7 +876,7 @@
                                 </div>
                             </div>
 
-                        </div>
+                        </div> --}}
                     </div>
 
                 </div>
