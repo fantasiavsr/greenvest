@@ -3,8 +3,81 @@
 @section('content')
     @include('Partials.navbar3')
 
+    {{-- Add-Ons --}}
+    <main class="pt-3 pb-0" style="background-color: #EDEFF5; margin-left:260px;">
+        <div class="container" style=" margin-top:20px; padding-bottom:1px">
+            <div class="row">
+                <div class="col">
+                    <div class="card shadow-sm rounded-3">
+                        <div class="card-body">
+                            <div class="row py-2">
+                                <div class="col col-md-3">
+                                    <img class="img-fluid" src="{{ asset('img/gv-logo.png') }}" alt="">
+                                </div>
+                                <div class="col">
+                                    <div class="row">
+                                        <h2 class="py-0 px-0">
+                                            Rp2.487.600
+                                        </h2>
+                                        <p class="py-0 px-0" style="line-height: 0px;">
+                                            Total Income
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm rounded-3">
+                        <div class="card-body">
+                            <div class="row py-2">
+                                <div class="col col-md-3">
+                                    <img class="img-fluid" src="{{ asset('img/gv-logo.png') }}" alt="">
+                                </div>
+                                <div class="col">
+                                    <div class="row">
+                                        <h2 class="py-0 px-0">
+                                            Rp2.487.600
+                                        </h2>
+                                        <p class="py-0 px-0" style="line-height: 0px;">
+                                            Total Income
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm rounded-3">
+                        <div class="card-body">
+                            <div class="row py-2">
+                                <div class="col col-md-3">
+                                    <img class="img-fluid" src="{{ asset('img/gv-logo.png') }}" alt="">
+                                </div>
+                                <div class="col">
+                                    <div class="row">
+                                        <h2 class="py-0 px-0">
+                                            Rp2.487.600
+                                        </h2>
+                                        <p class="py-0 px-0" style="line-height: 0px;">
+                                            Total Income
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
     <!--Main layout-->
-    <main class="bg-light" style="margin-top: 58px; margin-left:260px; margin-right: 60px">
+    <main class="bg-light" style="margin-top: 58px; margin-left:260px; margin-right: 0px">
 
         <div class="container pt-4">
 
@@ -13,8 +86,6 @@
                     <h3 class="" style="font-weight: 400">Portofolio Info</h3>
                 </div>
             </div>
-
-            <br>
 
             <div class="row">
 
@@ -293,6 +364,7 @@
         </div>
 
     </main>
+
     <script src="{{ asset('admin/vendor/jquery/jquery-3.3.1.min.js') }}"></script>
     <!-- bootstap bundle js -->
     <script src="{{ asset('admin/vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>

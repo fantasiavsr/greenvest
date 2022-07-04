@@ -13,17 +13,22 @@
                         style="height: 24px">
                 </div>
 
+                {{-- {{ $user->nama_lengkap }} --}}
+
                 {{-- </ul> --}}
                 <ul class="navbar-nav ml-auto navbar-right-top">
+
+                    {{--  <a class="nav-link" href="">{{ $user->nama_lengkap }}</a> --}}
+
                     <li class="nav-item dropdown nav-user">
                         <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                src="{{ asset('admin/images/avatar-1.jpg') }}" alt=""
+                                src="{{ asset('img/item-sample2.png') }}" alt=""
                                 class="user-avatar-md rounded-circle"></a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
                             aria-labelledby="navbarDropdownMenuLink2">
                             <div class="nav-user-info">
-                                <h5 class="mb-0 text-white nav-user-name">Hello</h5>
+                                <h5 class="mb-0 text-white nav-user-name">{{ $user->nama_lengkap }}</h5>
                             </div>
                             <a class="dropdown-item" href="#">
                                 <i class="fas fa-power-off mr-2"></i>Logout</a>
