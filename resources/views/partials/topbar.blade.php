@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand navbar-light topbar static-top"
-    style="{{ request()->is('transaksi*') ? 'background-color: #F9FAFC' : 'background-color: #EDEFF5' }}">
+    style="{{ request()->is('user') ? 'background-color: #EDEFF5' : 'background-color: #F9FAFC' }}">
 
     <!-- Sidebar Toggle (Topbar) -->
     <button id="sidebarToggleTop" class="btn d-md-none rounded-circle mr-3">
@@ -168,10 +168,10 @@
 
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">
-            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+            <a class="nav-link dropdown-toggle " href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ $user->nama_lengkap }}</span>
-                <img class="img-profile rounded-circle" src="{{ asset('img/item-sample2.png') }}">
+                <img class="img-profile rounded-circle shadow-custom-green" src="{{ asset('img/item-sample2.png') }}">
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -181,11 +181,7 @@
                 </a>
                 <a class="dropdown-item" href="#">
                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Settings
-                </a>
-                <a class="dropdown-item" href="#">
-                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Activity Log
+                    Pengaturan
                 </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">

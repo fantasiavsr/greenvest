@@ -121,7 +121,7 @@
 
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center pt-4 text-center">
                     <a href="{{ route('register') }}">
-                        <button type="button" class="btn btn-md rounded-pill px-4 py-3 me-sm-3 text-light fw-bold"
+                        <button type="button" class="btn btn-md rounded-pill px-4 py-3 me-sm-3 text-light fw-bold shadow-custom-green   "
                             style="background-color: #4FBEAB;">Join Now For Free</button>
                     </a>
 

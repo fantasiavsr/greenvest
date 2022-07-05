@@ -6,7 +6,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        @include('Partials.sidebar')
+        @include('Partials.sidebardev')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -34,7 +34,7 @@
 
                     {{-- Sub Title --}}
                     <div class="d-sm-flex align-items-center justify-content-between pt-2 mt-4 mb-4">
-                        <h1 class="h3 mb-0 text-gray-800 ">Portofolio Info</h1>
+                        <h1 class="h3 mb-0 text-gray-800 ">Ini Developer</h1>
                     </div>
 
                     <!-- Content Row -->

@@ -31,7 +31,7 @@
 
                         {{-- <input type="hidden" id="role" name="role" value="0"> --}}
                         <!-- Submit button -->
-                        <button type="submit" class="btn btn-lg mt-4 px-5 mb-4 text-light"
+                        <button type="submit" class="btn btn-lg mt-4 px-5 mb-4 text-light shadow-custom-green"
                             style="background-color: #4FBEAB; width: 100%">Login</button>
 
                         <!-- Register buttons -->

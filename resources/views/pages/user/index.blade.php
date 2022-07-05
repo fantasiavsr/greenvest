@@ -93,7 +93,7 @@
                         <h1 class="h3 mb-0 text-gray-800 ">Portofolio Info</h1>
                     </div>
 
-                    <!-- Content Row -->
+                    <!-- Content Row - Portofolio Info -->
                     <div class="row">
 
                         <!-- Card -->
@@ -134,7 +134,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="">Detail</a>
+                                                        <a class="link-info" href="{{ route('item.detail') }}">Detail</a>
                                                     </td>
                                                 </tr>
                                                 {{-- @endforeach --}}
@@ -276,7 +276,7 @@
                         <h1 class="h3 mb-0 text-gray-800 ">List Transaksi</h1>
                     </div>
 
-                    <!-- Content Row -->
+                    <!-- Content Row - List Transaksi -->
                     <div class="row">
 
                         <div class="col">
@@ -285,6 +285,17 @@
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Nama</th>
+                                                    <th>Jenis Transaksi</th>
+                                                    <th>Jenis Produk</th>
+                                                    <th>Total</th>
+                                                    <th>Pemasukan/Pengeluaram</th>
+                                                    <th>Tanggal</th>
+                                                </tr>
+                                            </thead>
                                             <tbody>
                                                 {{-- @foreach ($data as $item) --}}
                                                 <tr class="">
@@ -297,83 +308,95 @@
                                                         Adidas-AM Indeks IDX45
                                                     </td>
                                                     <td>
-                                                        1 Year Return 20.36%
+                                                        Green Taxonomy
                                                     </td>
                                                     <td>
-                                                        Expense Ratio 2.36%
+                                                        Saham
                                                     </td>
                                                     <td>
-                                                        Total AUM 1.27T
+                                                        Rp31.000
+                                                    </td>
+                                                    <td class="text-success">
+                                                        INCOME
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="">Detail</a>
+                                                        15 Juni, 2022
                                                     </td>
                                                 </tr>
                                                 {{-- @endforeach --}}
-                                                <tr>
+                                                <tr class="">
                                                     <td>
                                                         <img class="avatar me-2"
-                                                            src="{{ asset('img/item-sample2.png') }}"
+                                                            src="{{ asset('img/item-sample1.png') }}"
                                                             alt="">
                                                     </td>
                                                     <td>
                                                         Adidas-AM Indeks IDX45
                                                     </td>
                                                     <td>
-                                                        1 Year Return 20.36%
+                                                        Green Taxonomy
                                                     </td>
                                                     <td>
-                                                        Expense Ratio 2.36%
+                                                        Saham
                                                     </td>
                                                     <td>
-                                                        Total AUM 1.27T
+                                                        Rp30.000
+                                                    </td>
+                                                    <td class="text-success">
+                                                        INCOME
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="">Detail</a>
+                                                        28 Mei, 2022
                                                     </td>
                                                 </tr>
-                                                <tr>
+                                                <tr class="">
                                                     <td>
                                                         <img class="avatar me-2"
-                                                            src="{{ asset('img/item-sample2.png') }}"
+                                                            src="{{ asset('img/item-sample1.png') }}"
                                                             alt="">
                                                     </td>
                                                     <td>
                                                         Adidas-AM Indeks IDX45
                                                     </td>
                                                     <td>
-                                                        1 Year Return 20.36%
+                                                        Green Taxonomy
                                                     </td>
                                                     <td>
-                                                        Expense Ratio 2.36%
+                                                        Saham
                                                     </td>
                                                     <td>
-                                                        Total AUM 1.27T
+                                                        Rp30.000
+                                                    </td>
+                                                    <td class="text-success">
+                                                        INCOME
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="">Detail</a>
+                                                        29 April, 2022
                                                     </td>
                                                 </tr>
-                                                <tr>
+                                                <tr class="">
                                                     <td>
                                                         <img class="avatar me-2"
-                                                            src="{{ asset('img/item-sample3.png') }}"
+                                                            src="{{ asset('img/item-sample1.png') }}"
                                                             alt="">
                                                     </td>
                                                     <td>
                                                         Adidas-AM Indeks IDX45
                                                     </td>
                                                     <td>
-                                                        1 Year Return 20.36%
+                                                        Green Taxonomy
                                                     </td>
                                                     <td>
-                                                        Expense Ratio 2.36%
+                                                        Saham
                                                     </td>
                                                     <td>
-                                                        Total AUM 1.27T
+                                                        Rp150.000
+                                                    </td>
+                                                    <td class="text-danger">
+                                                        OUTCOME
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="">Detail</a>
+                                                        26 April, 2022
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -382,7 +405,7 @@
                                 </div>
                                 <!-- Card Footer -->
                                 <div class="card-footer flex-row align-items-center text-center">
-                                    <a href="#">Lihat Semua</a>
+                                    <a href="{{ route('transaksi.list') }}">Lihat Semua</a>
                                 </div>
                             </div>
                         </div>

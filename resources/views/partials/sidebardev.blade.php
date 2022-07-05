@@ -19,7 +19,7 @@
             <span>Dashboard</span></a>
     </li>
 
-    <!-- Divider -->
+    {{-- <!-- Divider -->
     <hr class="sidebar-divider">
 
     <!-- Heading -->
@@ -57,7 +57,7 @@
                     @if ($title === 'Transaksi | Green Taxonomy') style="color: #4FBEAB; background-color:#F9FAFC;  border-right: 8px solid #4FBEAB;" @endif>Green
                     Taxonomy</a>
                 <h6 class="collapse-header">Lainnya:</h6>
-                <a class="collapse-item {{ $title === 'Transaksi | List Transaksi' ? 'active' : '' }}" href="{{ route('transaksi.list') }}"
+                <a class="collapse-item {{ $title === 'Transaksi | List Transaksi' ? 'active' : '' }}" href="#"
                     @if ($title === 'Transaksi | List Transaksi') style="color: #4FBEAB; background-color:#F9FAFC;  border-right: 8px solid #4FBEAB;" @endif>
                     List Transaksi</a>
             </div>
@@ -65,7 +65,7 @@
     </li>
 
     <!-- Divider -->
-    <hr class="sidebar-divider">
+    <hr class="sidebar-divider"> --}}
 
     <!-- Heading - Utilites -->
     <div class="sidebar-heading">

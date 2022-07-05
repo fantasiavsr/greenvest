@@ -40,4 +40,13 @@ class TransaksiController extends Controller
             'user' => $user,
         ]);
     }
+
+    public function listtransaksi()
+    {
+        $user = Auth::user();
+        return view('pages.user.transaksi.list-transaksi.index', [
+            'title' => "Transaksi | List Transaksi",
+            'user' => $user,
+        ]);
+    }
 }

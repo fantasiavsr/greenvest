@@ -26,7 +26,7 @@
 
                         <!-- Card -->
                         <div class="col d-flex">
-                            <div class="card shadow-custom mb-4" style="width:100%" {{-- style="background-color: #4FBEAB" --}}>
+                            <div class="card shadow-custom-green mb-4" style="width:100%" {{-- style="background-color: #4FBEAB" --}}>
                                 <!-- Card Body -->
                                 <div class="card-body text-light" style="background-color: #4FBEAB">
                                     {{-- <div class="chart-area">
