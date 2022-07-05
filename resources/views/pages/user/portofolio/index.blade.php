@@ -1,7 +1,6 @@
 @extends('layouts.core')
 
 @section('content')
-
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -19,261 +18,12 @@
                 @include('Partials.topbar')
                 <!-- End of Topbar -->
 
-                <!-- Add Ons -->
-                <div class="container-fluid pt-2 pb-1" style="background-color: #EDEFF5">
-                    <div class="d-sm-flex align-items-center justify-content-between">
-
-                        <!-- Card Example -->
-                        <div class="col mb-4">
-                            <div class="card shadow-custom-sm h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Rp2.487.600</div>
-                                            <div class="text-xs font-weight-bold text-uppercase mb-1">
-                                                Total Income
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <img class="img" src="{{ asset('img/gv-logo.png') }}" alt=""
-                                                style="height: 100%;width:100%;object-fit: cover;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card Example -->
-                        <div class="col mb-4">
-                            <div class="card shadow-custom-sm h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Rp320.000</div>
-                                            <div class="text-xs font-weight-bold text-uppercase mb-1">
-                                                Current Balance</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <img class="img" src="{{ asset('img/wallet.png') }}" alt=""
-                                                style="height: 100%;width:100%;object-fit: cover;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card Example -->
-                        <div class="col mb-4">
-                            <div class="card shadow-custom-sm h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">2 Years</div>
-                                            <div class="text-xs font-weight-bold text-uppercase mb-1">
-                                                Since Joined </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <img class="img" src="{{ asset('img/peoples.png') }}"
-                                                alt="" style="height: 100%;width:100%;object-fit: cover;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
                     {{-- Sub Title --}}
                     <div class="d-sm-flex align-items-center justify-content-between pt-2 mt-4 mb-4">
-                        <h1 class="h3 mb-0 text-gray-800 ">Portofolio Info</h1>
-                    </div>
-
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <!-- Card -->
-                        <div class="col d-flex">
-                            <div class="card shadow-custom mb-4" style="width:100%">
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    {{-- <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div> --}}
-                                    <div class="table-responsive">
-
-                                        <table class="table table-hover table-borderless" id="dataTable"
-                                            width="100%" cellspacing="0" style="">
-                                            {{-- <thead>
-                                                <tr>
-                                                    <th>Data</th>
-                                                    <th>Data</th>
-                                                    <th>Data</th>
-                                                </tr>
-                                            </thead> --}}
-                                            <tbody>
-                                                {{-- @foreach ($data as $item) --}}
-                                                <tr>
-                                                    <td>
-                                                        <img class="avatar me-2"
-                                                            src="{{ asset('img/item-sample1.png') }}"
-                                                            alt="">
-                                                    </td>
-                                                    <td>
-                                                        <div class="col">
-                                                            <div class="row fw-bold">
-                                                                Adidas-AM Indeks IDX45
-                                                            </div>
-                                                            <div class="row text-start fw-lighter text-muted">
-                                                                1 Year Return 20.36% | Total AUM 1.27T
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <a class="link-info" href="">Detail</a>
-                                                    </td>
-                                                </tr>
-                                                {{-- @endforeach --}}
-                                                <tr>
-                                                    <td>
-                                                        <img class="avatar me-2"
-                                                            src="{{ asset('img/item-sample2.png') }}"
-                                                            alt="">
-                                                    </td>
-                                                    <td>
-                                                        <div class="col">
-                                                            <div class="row fw-bold">
-                                                                Adidas-AM Indeks IDX45
-                                                            </div>
-                                                            <div class="row text-start fw-lighter text-muted">
-                                                                1 Year Return 20.36% | Total AUM 1.27T
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <a class="link-info" href="">Detail</a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <img class="avatar me-2"
-                                                            src="{{ asset('img/item-sample3.png') }}"
-                                                            alt="">
-                                                    </td>
-                                                    <td>
-                                                        <div class="col">
-                                                            <div class="row fw-bold">
-                                                                Adidas-AM Indeks IDX45
-                                                            </div>
-                                                            <div class="row text-start fw-lighter text-muted">
-                                                                1 Year Return 20.36% | Total AUM 1.27T
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <a class="link-info" href="">Detail</a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-
-                                    </div>
-                                </div>
-                                <!-- Card Footer -->
-                                <div class="card-footer flex-row align-items-center text-center">
-                                    <a href="#">Lihat Semua</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card -->
-                        <div class="col d-flex">
-                            <div class="card shadow-custom mb-4" style="width:100%">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    {{-- <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button"
-                                            id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div> --}}
-                                    <button class="btn text-light " style="background-color: #4FBEAB; width: 100%">
-                                        Total
-                                    </button>
-                                    <button class="btn btn-light " style=" width: 100%">
-                                        Balance
-                                    </button>
-                                    <button class="btn btn-light " style=" width: 100%">
-                                        Outcome
-                                    </button>
-                                    <button class="btn btn-light " style=" width: 100%">
-                                        Income
-                                    </button>
-
-                                </div>
-
-                                <!-- Card Body -->
-                                <div class="card-body py-3 ">
-                                    <div class="row pt-3">
-                                        <div class="col-md-3">
-                                            <div class="pt-4 pb-2">
-                                                <canvas id="myPieChart"></canvas>
-                                            </div>
-                                        </div>
-                                        <div class="col ">
-                                            <div>
-                                                <h4 class="small font-weight-bold">Balance<span
-                                                        class="float-right">15%</span></h4>
-                                                <div class="progress mb-4">
-                                                    <div class="progress-bar" role="progressbar"
-                                                        style="width: 15%; background-color:#4FBEAB"
-                                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                    </div>
-                                                </div>
-
-                                                <h4 class="small font-weight-bold">Outcome<span
-                                                        class="float-right">35%</span></h4>
-                                                <div class="progress mb-4">
-                                                    <div class="progress-bar" role="progressbar"
-                                                        style="width: 35%; background-color:#FFB020"
-                                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                    </div>
-                                                </div>
-
-                                                <h4 class="small font-weight-bold">Income<span
-                                                        class="float-right">50%</span></h4>
-                                                <div class="progress mb-4">
-                                                    <div class="progress-bar" role="progressbar"
-                                                        style="width: 50%; background-color:#378AEC"
-                                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Sub Title -->
-                    <div class="d-sm-flex align-items-center justify-content-between mt-4 mb-4">
-                        <h1 class="h3 mb-0 text-gray-800 ">List Transaksi</h1>
+                        <h1 class="h3 mb-0 text-gray-800 ">Portofolio</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -284,26 +34,46 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table table-hover">
+                                        <table class="table table-hover" id="dataTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama</th>
+                                                    <th>CAGR 1Y</th>
+                                                    <th>Drawdown 1Y</th>
+                                                    <th>Expense Ratio</th>
+                                                    <th>Total AUM</th>
+                                                    <th>Jenis Produk</th>
+                                                    <th>Total Return 1Y</th>
+                                                    <th>Aksi</th>
+                                                </tr>
                                             <tbody>
                                                 {{-- @foreach ($data as $item) --}}
                                                 <tr class="">
                                                     <td>
-                                                        <img class="avatar me-2"
-                                                            src="{{ asset('img/item-sample1.png') }}"
+                                                        <img class="avatar me-2" src="{{ asset('img/item-sample1.png') }}"
                                                             alt="">
                                                     </td>
                                                     <td>
                                                         Adidas-AM Indeks IDX45
                                                     </td>
                                                     <td>
-                                                        1 Year Return 20.36%
+                                                        +20.26%
                                                     </td>
                                                     <td>
-                                                        Expense Ratio 2.36%
+                                                        -10.05%
                                                     </td>
                                                     <td>
-                                                        Total AUM 1.27T
+                                                        1.05%
+                                                    </td>
+                                                    <td>
+                                                        1.27T
+                                                    </td>
+                                                    <td>
+                                                        Saham
+                                                    </td>
+                                                    <td>
+                                                        +20.20%
                                                     </td>
                                                     <td>
                                                         <a class="link-info" href="">Detail</a>
@@ -312,65 +82,29 @@
                                                 {{-- @endforeach --}}
                                                 <tr>
                                                     <td>
-                                                        <img class="avatar me-2"
-                                                            src="{{ asset('img/item-sample2.png') }}"
+                                                        <img class="avatar me-2" src="{{ asset('img/item-sample3.png') }}"
                                                             alt="">
                                                     </td>
                                                     <td>
-                                                        Adidas-AM Indeks IDX45
+                                                        BNI-AM Dana Lancar Syariah
                                                     </td>
                                                     <td>
-                                                        1 Year Return 20.36%
+                                                        -9.05%
                                                     </td>
                                                     <td>
-                                                        Expense Ratio 2.36%
+                                                        1.05%
                                                     </td>
                                                     <td>
-                                                        Total AUM 1.27T
+                                                        1.05%
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="">Detail</a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <img class="avatar me-2"
-                                                            src="{{ asset('img/item-sample2.png') }}"
-                                                            alt="">
+                                                        1.28T
                                                     </td>
                                                     <td>
-                                                        Adidas-AM Indeks IDX45
+                                                        Saham
                                                     </td>
                                                     <td>
-                                                        1 Year Return 20.36%
-                                                    </td>
-                                                    <td>
-                                                        Expense Ratio 2.36%
-                                                    </td>
-                                                    <td>
-                                                        Total AUM 1.27T
-                                                    </td>
-                                                    <td>
-                                                        <a class="link-info" href="">Detail</a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <img class="avatar me-2"
-                                                            src="{{ asset('img/item-sample3.png') }}"
-                                                            alt="">
-                                                    </td>
-                                                    <td>
-                                                        Adidas-AM Indeks IDX45
-                                                    </td>
-                                                    <td>
-                                                        1 Year Return 20.36%
-                                                    </td>
-                                                    <td>
-                                                        Expense Ratio 2.36%
-                                                    </td>
-                                                    <td>
-                                                        Total AUM 1.27T
+                                                        +19.00%
                                                     </td>
                                                     <td>
                                                         <a class="link-info" href="">Detail</a>
@@ -380,14 +114,15 @@
                                         </table>
                                     </div>
                                 </div>
-                                <!-- Card Footer -->
+                               {{--  <!-- Card Footer -->
                                 <div class="card-footer flex-row align-items-center text-center">
                                     <a href="#">Lihat Semua</a>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
 
                     </div>
+
 
                 </div>
                 <!-- /.container-fluid -->
@@ -411,13 +146,13 @@
     <!-- Logout Modal-->
     @include('Partials.logoutmodal')
 
+
     {{-- Custom DataTables --}}
-    <script>
+    {{-- <script>
         $('table').dataTable({
             searching: false,
             paging: false,
             info: false
         });
-    </script>
-
+    </script> --}}
 @endsection

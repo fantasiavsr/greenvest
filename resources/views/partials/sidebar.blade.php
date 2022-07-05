@@ -29,7 +29,7 @@
 
     <!-- Nav Item - Portofolio -->
     <li class="nav-item {{ (request()->is('portofolio')) ? 'active' : '' }}">
-        <a class="nav-link " href="{{ 'portofolio' }}"
+        <a class="nav-link " href="{{ route('portofolio') }}"
             @if ($title === 'Portofolio') style="color: #4FBEAB; background-color:#F9FAFC;  border-right: 8px solid #4FBEAB;" @endif>
             <i class="fas fa-fw fa-cog"></i>
             <span>Portofolio</span>
@@ -44,18 +44,22 @@
             <i class="fas fa-fw fa-wrench"></i>
             <span>Transaksi</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapseUtilities" class="collapse {{ (request()->is('transaksi*')) ? 'show' : '' }}" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Green Investment:</h6>
-                <a class="collapse-item {{ $title === 'Transaksi | Green Sukuk' ? 'active' : '' }}" href="#"
-                    @if ($title === 'Transaksi | Green Sukuk') style="color: #4FBEAB; background-color:#F9FAFC;  border-right: 8px solid #4FBEAB;" @endif>Green
-                    Sukuk</a>
-                <a class="collapse-item {{ $title === 'Transaksi | Green Bond' ? 'active' : '' }}" href="#"
+                <a class="collapse-item {{ $title === 'Transaksi | Green Bond' ? 'active' : '' }}" href="{{ route('transaksi.greenbond') }}"
                     @if ($title === 'Transaksi | Green Bond') style="color: #4FBEAB; background-color:#F9FAFC;  border-right: 8px solid #4FBEAB;" @endif>Green
                     Bond</a>
-                <a class="collapse-item {{ $title === 'Transaksi | Green Taxonomy' ? 'active' : '' }}" href="#"
+                <a class="collapse-item {{ $title === 'Transaksi | Green Sukuk' ? 'active' : '' }}" href="{{ route('transaksi.greensukuk') }}#"
+                    @if ($title === 'Transaksi | Green Sukuk') style="color: #4FBEAB; background-color:#F9FAFC;  border-right: 8px solid #4FBEAB;" @endif>Green
+                    Sukuk</a>
+                <a class="collapse-item {{ $title === 'Transaksi | Green Taxonomy' ? 'active' : '' }}" href="{{ route('transaksi.greentaxonomy') }}"
                     @if ($title === 'Transaksi | Green Taxonomy') style="color: #4FBEAB; background-color:#F9FAFC;  border-right: 8px solid #4FBEAB;" @endif>Green
                     Taxonomy</a>
+                <h6 class="collapse-header">Lainnya:</h6>
+                <a class="collapse-item {{ $title === 'Transaksi | List Transaksi' ? 'active' : '' }}" href="#"
+                    @if ($title === 'Transaksi | List Transaksi') style="color: #4FBEAB; background-color:#F9FAFC;  border-right: 8px solid #4FBEAB;" @endif>
+                    List Transaksi</a>
             </div>
         </div>
     </li>

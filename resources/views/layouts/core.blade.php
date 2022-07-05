@@ -23,11 +23,13 @@
 
     <!-- Custom styles for DataTable-->
     <link href="{{ asset('demo/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
 
     @yield('content')
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('demo/vendor/jquery/jquery.min.js') }}"></script>
@@ -52,6 +54,19 @@
 
     <script src="{{ asset('demo/js/demo/datatables-demo.js') }}""></script>
 
+    {{-- Custom DataTables --}}
+    <script>
+        $('table').dataTable({
+            searching: true,
+            paging: true,
+            info: true,
+            pageLength: 5,
+            lengthMenu: [
+                [5, 10, 25, 50, 100],
+                [5, 10, 25, 50, 100]
+            ]
+        });
+    </script>
 </body>
 
 </html>

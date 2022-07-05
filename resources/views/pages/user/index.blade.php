@@ -185,7 +185,7 @@
                                 </div>
                                 <!-- Card Footer -->
                                 <div class="card-footer flex-row align-items-center text-center">
-                                    <a href="#">Lihat Semua</a>
+                                    <a href="{{ 'portofolio' }}">Lihat Semua</a>
                                 </div>
                             </div>
                         </div>

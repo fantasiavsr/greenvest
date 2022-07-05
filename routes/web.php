@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DeveloperController;
 use App\Http\Controllers\PortofolioController;
+use App\Http\Controllers\TransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,4 +38,8 @@ Route::resource('user', UserController::class)->middleware('auth', 'user');
 Route::resource('developer', DeveloperController::class)->middleware('auth', 'developer');
 
 /* Portofolio */
-Route::get('/portofolio', [PortofolioController::class, 'index'])->middleware('auth', 'user')->name('portofolio');
+Route::get('portofolio', [PortofolioController::class, 'index'])->middleware('auth', 'user')->name('portofolio');
+/* Transaksi */
+Route::get('transaksi green-bond', [TransaksiController::class, 'greenbond'])->middleware('auth', 'user')->name('transaksi.greenbond');
+Route::get('transaksi green-sukuk', [TransaksiController::class, 'greensukuk'])->middleware('auth', 'user')->name('transaksi.greensukuk');
+Route::get('transaksi green-taxonomy', [TransaksiController::class, 'greentaxonomy'])->middleware('auth', 'user')->name('transaksi.greentaxonomy');
