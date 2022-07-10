@@ -7,7 +7,7 @@ var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ["Balance", "Outcome", "Income"],
+    labels: ["Saldo", "Pengeluaran", "Penghasilan"],
     datasets: [{
       data: [15, 35, 50],
       backgroundColor: ['#4FBEAB', '#FFB020', '#378AEC'],

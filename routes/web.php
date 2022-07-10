@@ -51,6 +51,14 @@ Route::get('transaksi list-transaksi', [TransaksiController::class, 'listtransak
 /* Item */
 Route::get('item detail', [ItemController::class, 'indextest'])->middleware('auth', 'user')->name('item.detail');
 /* Route::get('item detail/{id}', [ItemController::class, 'index'])->middleware('auth', 'user')->name('item.detail'); */
+Route::get('item simulasi', [ItemController::class, 'simulasitest'])->middleware('auth', 'user')->name('item.simulasi');
+Route::get('item simulasi2', [ItemController::class, 'simulasitest2'])->middleware('auth', 'user')->name('item.simulasi2');
+/* Route::get('item simulasi/{id}', [ItemController::class, 'simulasi'])->middleware('auth', 'user')->name('item.simulasi'); */
+Route::get('item banding', [ItemController::class, 'bandingtest'])->middleware('auth', 'user')->name('item.banding');
+/* Route::get('item banding/{id}', [ItemController::class, 'banding'])->middleware('auth', 'user')->name('item.banding'); */
+Route::get('item beli', [ItemController::class, 'belitest'])->middleware('auth', 'user')->name('item.beli');
+/* Route::get('item beli/{id}', [ItemController::class, 'belig'])->middleware('auth', 'user')->name('item.beli'); */
+
 
 /* Route::get('/admin-item', [adminController::class, 'index'])->middleware('auth', 'isAdmin');
 Route::delete('/admin-item/{id}', [adminController::class, 'deleteItem']);

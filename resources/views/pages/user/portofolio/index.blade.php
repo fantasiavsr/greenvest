@@ -45,7 +45,8 @@
                                                     <th>Total AUM</th>
                                                     <th>Jenis Produk</th>
                                                     <th>Total Return 1Y</th>
-                                                    <th>Aksi</th>
+                                                    <th>Detail</th>
+                                                    <th>Jual</th>
                                                 </tr>
                                             <tbody>
                                                 {{-- @foreach ($data as $item) --}}
@@ -76,7 +77,10 @@
                                                         +20.20%
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="">Detail</a>
+                                                        <a class="link-info" href="{{ route('item.detail') }}">Detail</a>
+                                                    </td>
+                                                    <td>
+                                                        <a class="link-info" href="{{ route('item.detail') }}">Jual</a>
                                                     </td>
                                                 </tr>
                                                 {{-- @endforeach --}}
@@ -107,7 +111,10 @@
                                                         +19.00%
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="">Detail</a>
+                                                        <a class="link-info" href="{{ route('item.detail') }}">Detail</a>
+                                                    </td>
+                                                    <td>
+                                                        <a class="link-info" href="{{ route('item.detail') }}">Jual</a>
                                                     </td>
                                                 </tr>
                                             </tbody>

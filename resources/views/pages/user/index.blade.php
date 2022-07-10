@@ -10,10 +10,10 @@
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content-wrapper" class="d-flex flex-column" >
 
             <!-- Main Content -->
-            <div id="content">
+            <div id="content" >
 
                 <!-- Topbar -->
                 @include('Partials.topbar')
@@ -31,7 +31,7 @@
                                         <div class="col mr-2">
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">Rp2.487.600</div>
                                             <div class="text-xs font-weight-bold text-uppercase mb-1">
-                                                Total Income
+                                                Total Penghasilan
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -51,7 +51,7 @@
                                         <div class="col mr-2">
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">Rp320.000</div>
                                             <div class="text-xs font-weight-bold text-uppercase mb-1">
-                                                Current Balance</div>
+                                                Saldo Saya</div>
                                         </div>
                                         <div class="col-auto">
                                             <img class="img" src="{{ asset('img/wallet.png') }}" alt=""
@@ -68,10 +68,9 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">2 Years</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">2 TAHUN</div>
                                             <div class="text-xs font-weight-bold text-uppercase mb-1">
-                                                Since Joined </div>
+                                               Semenjak Bergabung</div>
                                         </div>
                                         <div class="col-auto">
                                             <img class="img" src="{{ asset('img/peoples.png') }}"
@@ -86,7 +85,7 @@
                 </div>
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid" >
 
                     {{-- Sub Title --}}
                     <div class="d-sm-flex align-items-center justify-content-between pt-2 mt-4 mb-4">
@@ -155,7 +154,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="">Detail</a>
+                                                        <a class="link-info" href="{{ route('item.detail') }}">Detail</a>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -175,7 +174,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="">Detail</a>
+                                                        <a class="link-info" href="{{ route('item.detail') }}">Detail</a>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -216,15 +215,14 @@
                                         Total
                                     </button>
                                     <button class="btn btn-light " style=" width: 100%">
-                                        Balance
+                                        Saldo
                                     </button>
                                     <button class="btn btn-light " style=" width: 100%">
-                                        Outcome
+                                        Pengeluaran
                                     </button>
                                     <button class="btn btn-light " style=" width: 100%">
-                                        Income
+                                        Penghasilan
                                     </button>
-
                                 </div>
 
                                 <!-- Card Body -->
@@ -235,9 +233,9 @@
                                                 <canvas id="myPieChart"></canvas>
                                             </div>
                                         </div>
-                                        <div class="col ">
+                                        <div class="col">
                                             <div>
-                                                <h4 class="small font-weight-bold">Balance<span
+                                                <h4 class="small font-weight-bold">Saldo<span
                                                         class="float-right">15%</span></h4>
                                                 <div class="progress mb-4">
                                                     <div class="progress-bar" role="progressbar"
@@ -246,7 +244,7 @@
                                                     </div>
                                                 </div>
 
-                                                <h4 class="small font-weight-bold">Outcome<span
+                                                <h4 class="small font-weight-bold">Pengeluaran<span
                                                         class="float-right">35%</span></h4>
                                                 <div class="progress mb-4">
                                                     <div class="progress-bar" role="progressbar"
@@ -255,7 +253,7 @@
                                                     </div>
                                                 </div>
 
-                                                <h4 class="small font-weight-bold">Income<span
+                                                <h4 class="small font-weight-bold">Penghasilan<span
                                                         class="float-right">50%</span></h4>
                                                 <div class="progress mb-4">
                                                     <div class="progress-bar" role="progressbar"

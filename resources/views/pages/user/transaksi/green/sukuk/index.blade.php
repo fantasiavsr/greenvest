@@ -45,7 +45,7 @@
                                         </div>
                                         <div class="col-xl-9 col-lg-7">
                                             <h5 style="font-weight: 600">
-                                                ‘Berikut adalah Green Finance terbaik dengan mematuhi prinsip SYARIAH
+                                                ‘Berikut adalah Green Finance terbaik dengan mematuhi prinsip SYARIAH,
                                                 Silakan pilih satu yang sesuai keinginan anda.’
                                             </h5>
                                         </div>

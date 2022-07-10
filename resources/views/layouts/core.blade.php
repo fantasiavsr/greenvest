@@ -47,6 +47,7 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('demo/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('demo/js/demo/chart-pie-demo.js') }}"></script>
+    <script src="{{ asset('demo/js/demo/chart-test.js') }}"></script>
 
     <!-- DataTables scripts -->
     <script src="{{ asset('demo/vendor/datatables/jquery.dataTables.min.js') }}"></script>

@@ -6,7 +6,7 @@
     <div class="main">
 
         {{-- HERO --}}
-        <div class="text-secondary px-4 py-5 text-center" style="background-color: #30445C">
+        <div class="text-secondary px-4 py-5 text-center bg-dark" {{-- style="background-color: #30445C" --}}>
             <div class="py-5">
                 {{-- <img src="img/clogo-wht-brand.png" class="img-fluid pb-5" alt="" style="width: 670px"> --}}
                 <h1 class="display-5 fw-bold text-white pb-3">Welcome to Greenvest</h1>
@@ -99,20 +99,20 @@
 
             <div class="container pt-5 pb-5 text-center justify-content-center px-5">
 
-                <div class="container row justify-content-center text-center px-5 pb-4">
+                <div class="container row justify-content-center text-center pb-4">
                     <h2 class="display-6 fw-bold">Easy-to Use and Reliable Apps</h2>
-                    <p class="fs-5 fw-light mb-4 text-dark px-5">Aplikasi di desain senyaman mungkin bagi pengguna
+                    <p class="fs-5 fw-light text-dark">Aplikasi didesain senyaman mungkin bagi pengguna
                     </p>
                 </div>
 
                 <div class="row">
                     <div class="col"></div>
-                    <div class="col-md-13">
-                        <div class="justify-content-center text-center px-5 mx-5 pb-5">
-                            <img class="img-fluid px-5 mx-5" src="{{ asset('img/home-3.png') }}" alt="">
+                    <div class="col-md-12" style="width: 100%">
+                        <div class="justify-content-center text-center pb-5">
+                            <img class="img-fluid" src="{{ asset('img/home-3.png') }}" alt="">
                         </div>
                     </div>
-                    <div class="col"></div>-
+                    <div class="col"></div>
                 </div>
 
                 <div class="row justify-content-center text-center pt-3">

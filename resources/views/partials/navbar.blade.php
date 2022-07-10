@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg navbar-dark pt-4 pb-3" style="background-color: #30445C">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark pt-4 pb-3" {{-- style="background-color: #30445C" --}}>
     <div class="container">
 
         <a class="navbar-brand" href="/home"><img class="" src="{{ asset('img/gv-light.png') }}" alt="" width="100%"

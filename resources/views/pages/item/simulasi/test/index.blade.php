@@ -31,22 +31,6 @@
                         </h1>
                     </div>
 
-                    <!-- Content Row - Chart -->
-                    {{-- <div class="row">
-
-                        <div class="col">
-                            <div class="card shadow-custom mb-4" style="width:100%">
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div> --}}
-
                     <div class="row">
                         <div class="col">
                             <div class="card shadow-custom mb-4" style="width:100%">
@@ -54,8 +38,8 @@
                                 <div class="card-body">
                                     <form action="">
                                         <div class="form-outline mb-4">
-                                            <label class="form-label">Masukkan jumlah investasi</label>
-                                            <input type="text" name="jumInves" id="jumInves" class="form-control"
+                                            <label class="form-label">Investasi Tiap Bulan</label>
+                                            <input type="text" name="t" id="" class="form-control"
                                                 autofocus required value="Rp 1.500.000">
                                         </div>
                                         {{-- <input type="hidden" id="role" name="role" value="0"> --}}
@@ -65,13 +49,13 @@
                                                 {{-- <button type="submit" class="btn btn-lg mt-2 px-5 mb-4 text-light"
                                                     style="background-color: #4FBEAB; width:100%">Rutin Tiap Bulan
                                                 </button> --}}
-                                                <a href="{{ route('item.simulasi') }}" class="btn btn-lg mt-2 px-5 mb-4 text-light"
-                                                    style="background-color: #4FBEAB; ">Hitung</a>
+                                                <a href="{{ route('item.simulasi') }}" class="btn btn-lg mt-2 px-5 mb-4"
+                                                    style="background-color: #F9FAFC; width:100%">Rutin Tiap Bulan</a>
                                             </div>
-                                            {{-- <div class="col">
-                                                <a href="{{ route('item.simulasi2') }}" class="btn btn-lg mt-2 px-5 mb-4"
-                                                    style="background-color: #F9FAFC; width:100%">Nabung Sekali</a>
-                                            </div> --}}
+                                            <div class="col">
+                                                <a href="{{ route('item.simulasi2') }}" class="btn btn-lg mt-2 px-5 mb-4 text-light"
+                                                    style="background-color: #4FBEAB; width:100%">Nabung Sekali</a>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
@@ -93,7 +77,7 @@
 
                                     <div class="row">
                                         <div class="col">
-                                            <h1 class="text-gray-900" style="font-weight: 600;">Rp 18.476.000</h1>
+                                            <h1 class="text-gray-900" style="font-weight: 600;">Rp 1.639.000</h1>
                                         </div>
                                     </div>
 

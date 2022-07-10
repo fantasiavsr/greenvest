@@ -18,7 +18,43 @@ class ItemController extends Controller
     {
         $user = Auth::user();
         return view('pages.item.index', [
-            'title' => "",
+            'title' => "Item Detail",
+            'user' => $user,
+        ]);
+    }
+
+    public function simulasitest()
+    {
+        $user = Auth::user();
+        return view('pages.item.simulasi.index', [
+            'title' => "Simulasi",
+            'user' => $user,
+        ]);
+    }
+
+    public function simulasitest2()
+    {
+        $user = Auth::user();
+        return view('pages.item.simulasi.test.index', [
+            'title' => "Simulasi",
+            'user' => $user,
+        ]);
+    }
+
+    public function bandingtest()
+    {
+        $user = Auth::user();
+        return view('pages.item.perbandingan.index', [
+            'title' => "Perbandingan",
+            'user' => $user,
+        ]);
+    }
+
+    public function belitest()
+    {
+        $user = Auth::user();
+        return view('pages.item.beli.index', [
+            'title' => "Beli",
             'user' => $user,
         ]);
     }

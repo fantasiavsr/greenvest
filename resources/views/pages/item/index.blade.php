@@ -26,9 +26,9 @@
                         <h1 class="h3 pb-2 mb-0 text-gray-800" style="font-weight:700; font-size:42px">Adidas-AM Indeks IDX45
                         </h1>
                         <div class="pb-2">
-                            <a href="#" class="btn btn-lg shadow-custom-alt mt-2 text-light"
+                            <a href="{{ route('item.simulasi') }}" class="btn btn-lg shadow-custom-alt mt-2 text-light"
                                 style="background-color: #30445C"> Simulasi</a>
-                            <a href="#" class="btn btn-lg shadow-custom-green mt-2 text-light"
+                            <a href="{{ route('item.beli') }}" class="btn btn-lg shadow-custom-green mt-2 text-light"
                                 style="background-color: #4FBEAB"> Beli</a>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                                         </div>
 
                                         <div class="col-xl-2 pt-2">
-                                            <a href="#" class="btn btn-light mt-2" style="width:100%">Bandingkan</a>
+                                            <a href="{{ route('item.banding') }}" class="btn btn-light mt-2" style="width:100%">Bandingkan</a>
                                             <div class="text-center pt-3">
                                                 <a href="#" class="text-light">
                                                     <i class="fas fa-fw fa-question"></i>
@@ -111,7 +111,7 @@
 
                     </div>
 
-                    <!-- Content Row - Hero Green -->
+                    <!-- Content Row - Asset -->
                     <div class="row mt-2">
 
                         <!-- Card - Manaher Investasi-->
@@ -248,7 +248,7 @@
                                     </div>
 
                                     <div class="card-footer flex-row align-items-center text-center">
-                                        <a href="{{ 'portofolio' }}">Lihat Semua</a>
+                                        <a href="#">Lihat Semua</a>
                                     </div>
                                 </div>
                             </div>
