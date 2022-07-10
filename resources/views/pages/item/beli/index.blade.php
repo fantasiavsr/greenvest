@@ -36,7 +36,7 @@
                         <!-- Card -->
                         <div class="col-xl-4">
 
-                            <!-- Sub Card -->
+                            <!-- Sub Card - Saldo Saya -->
                             <div class="card shadow-custom mb-4" style="width:100%">
                                 <div class="card-header">
                                     <div class=" align-items-center justify-content-between">
@@ -49,7 +49,7 @@
                                         <canvas id="myAreaChart"></canvas>
                                     </div> --}}
                                     <div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">Rp320.000</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">Rp{{ $saldo->saldo }}</div>
                                         {{-- <div class="text-xs font-weight-bold text-uppercase mb-1">
                                             Saldo Akun</div> --}}
                                     </div>
@@ -60,7 +60,7 @@
                                 </div> --}}
                             </div>
 
-                            <!-- Sub Card -->
+                            <!-- Sub Card - Bank -->
                             <div class="card shadow-custom mb-4" style="width:100%">
                                 <div class="card-header">
                                     <div class=" align-items-center justify-content-between">
@@ -69,9 +69,6 @@
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    {{-- <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div> --}}
                                     <div class="table-responsive">
 
                                         <table class="table table-hover table-borderless" id="dataTable" width="100%"
@@ -84,46 +81,32 @@
                                                 </tr>
                                             </thead> --}}
                                             <tbody>
-                                                {{-- @foreach ($data as $item) --}}
-                                                <tr>
-                                                    <td>
-                                                        <img class="avatar me-2" src="{{ asset('img/item-b1.png') }}"
-                                                            alt="">
-                                                    </td>
-                                                    <td>
-                                                        <div class="col">
-                                                            <div class="row fw-bold">
-                                                                Bank of Indonesia
+                                                @foreach ($bank as $item)
+                                                    <tr>
+                                                        <td>
+                                                            <img class="avatar me-2" @php
+                                                                if ($item->bank_name == Str::contains($item->bank_name, 'Indonesia')) {
+                                                                    echo 'src="'.asset('img/item-b2.png').'"';
+                                                                } else {
+                                                                    echo 'src="'.asset('img/item-b1.png').'"';
+                                                                }
+                                                            @endphp>
+                                                        </td>
+                                                        <td>
+                                                            <div class="col">
+                                                                <div class="row fw-bold">
+                                                                    {{ $item->bank_name }}
+                                                                </div>
+                                                                <div class="row text-start fw-lighter text-muted">
+                                                                    {{ $item->no_rekening }}
+                                                                </div>
                                                             </div>
-                                                            <div class="row text-start fw-lighter text-muted">
-                                                                5300 7227 XXXX XX51
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <a class="link-info" href="{{ route('item.detail') }}">Detail</a>
-                                                    </td>
-                                                </tr>
-                                                {{-- @endforeach --}}
-                                                <tr>
-                                                    <td>
-                                                        <img class="avatar me-2" src="{{ asset('img/item-b2.png') }}"
-                                                            alt="">
-                                                    </td>
-                                                    <td>
-                                                        <div class="col">
-                                                            <div class="row fw-bold">
-                                                                Bank International
-                                                            </div>
-                                                            <div class="row text-start fw-lighter text-muted">
-                                                                5300 7227 XXXX XX51
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <a class="link-info" href="{{ route('item.detail') }}">Detail</a>
-                                                    </td>
-                                                </tr>
+                                                        </td>
+                                                        <td>
+                                                            <a class="link-info" href="#">Detail</a>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
 
@@ -135,7 +118,7 @@
                                 </div> --}}
                             </div>
 
-                            <!-- Sub Card -->
+                            <!-- Sub Card - Riwayat Transaksi -->
                             <div class="card shadow-custom mb-4" style="width:100%">
                                 <div class="card-header">
                                     <div class=" align-items-center justify-content-between">
@@ -259,10 +242,9 @@
                                             <select class="form-control" aria-label="Default select example" autofocus
                                                 required>
                                                 <option selected value="Saldo">Saldo Saya</option>
-                                                {{-- @foreach ($collection as $item) --}}
-                                                <option value="Bank of Indonesia">Bank of Indonesia</option>
-                                                {{-- @endforeach --}}
-                                                <option value=">Bank International">Bank International</option>>
+                                                @foreach ($bank as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->bank_name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         <div class="form-outline mb-4">

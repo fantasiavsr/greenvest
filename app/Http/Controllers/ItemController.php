@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Bank;
+use App\Models\Saldo_saya;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -53,9 +55,13 @@ class ItemController extends Controller
     public function belitest()
     {
         $user = Auth::user();
+        $saldo = Saldo_saya::where('user_id', $user->id)->first();
+        $bank = Bank::where('user_id', $user->id)->get();
         return view('pages.item.beli.index', [
             'title' => "Beli",
             'user' => $user,
+            'saldo' => $saldo,
+            'bank' => $bank,
         ]);
     }
 }

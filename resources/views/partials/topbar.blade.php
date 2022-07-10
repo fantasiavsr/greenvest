@@ -57,8 +57,8 @@
             </a>
             <!-- Dropdown - Alerts -->
             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="alertsDropdown" style="background-color: #">
-                <h6 class="dropdown-header">
+                aria-labelledby="alertsDropdown" >
+                <h6 class="dropdown-header" style="background-color: #4FBEAB; border-color: #4FBEAB">
                     Alerts Center
                 </h6>
                 <a class="dropdown-item d-flex align-items-center" href="#">

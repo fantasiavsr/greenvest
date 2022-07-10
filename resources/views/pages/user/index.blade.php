@@ -49,7 +49,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Rp320.000</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Rp{{ $saldo->saldo }}</div>
                                             <div class="text-xs font-weight-bold text-uppercase mb-1">
                                                 Saldo Saya</div>
                                         </div>
@@ -68,7 +68,12 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">2 TAHUN</div>
+                                            @php
+                                                $join = \Carbon\Carbon::parse($user->created_at);
+                                                $now = \Carbon\Carbon::now();
+                                                $diff = $join->diffInDays($now);
+                                            @endphp
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $diff }} Hari</div>
                                             <div class="text-xs font-weight-bold text-uppercase mb-1">
                                                Semenjak Bergabung</div>
                                         </div>
