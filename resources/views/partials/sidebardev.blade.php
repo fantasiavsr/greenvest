@@ -12,8 +12,8 @@
     <hr class="sidebar-divider my-2">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item {{ (request()->is('user')) ? 'active' : '' }}">
-        <a class="nav-link" href="{{ 'user' }}"
+    <li class="nav-item {{ (request()->is('dashboard')) ? 'active' : '' }}">
+        <a class="nav-link" href="{{ 'dashboard' }}"
             @if ($title === 'Dashboard') style="color: #4FBEAB; background-color:#F9FAFC;  border-right: 8px solid #4FBEAB;" @endif>
             <i class="fas fa-fw fa-home"></i>
             <span>Dashboard</span></a>

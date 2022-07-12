@@ -77,10 +77,10 @@
                                                         +20.20%
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="{{ route('item.detail') }}">Detail</a>
+                                                        <a class="link-info" href="{{ route('item.detailtest') }}">Detail</a>
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="{{ route('item.detail') }}">Jual</a>
+                                                        <a class="link-info" href="{{ route('item.detailtest') }}">Jual</a>
                                                     </td>
                                                 </tr>
                                                 {{-- @endforeach --}}
@@ -111,10 +111,10 @@
                                                         +19.00%
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="{{ route('item.detail') }}">Detail</a>
+                                                        <a class="link-info" href="{{ route('item.detailtest') }}">Detail</a>
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="{{ route('item.detail') }}">Jual</a>
+                                                        <a class="link-info" href="{{ route('item.detailtest') }}">Jual</a>
                                                     </td>
                                                 </tr>
                                             </tbody>

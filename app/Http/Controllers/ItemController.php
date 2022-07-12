@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Bank;
+use App\Models\green;
+use App\Models\produk_green;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -18,16 +20,34 @@ class ItemController extends Controller
     public function indextest()
     {
         $user = Auth::user();
+        return view('pages.item.indextest', [
+            'title' => "Item Detail",
+            'user' => $user,
+        ]);
+    }
+
+    public function index($id)
+    {
+        $user = Auth::user();
+        $produk_green = produk_green::where('id', $id)->first();
+
+        /* Switch Requirements */
+        $switch = produk_green::where('perusahaan', $produk_green->perusahaan)
+            ->where('id', '!=' , $produk_green->id)
+            ->get();
+
         return view('pages.item.index', [
             'title' => "Item Detail",
             'user' => $user,
+            'produk_green' => $produk_green,
+            'switch' => $switch,
         ]);
     }
 
     public function simulasitest()
     {
         $user = Auth::user();
-        return view('pages.item.simulasi.index', [
+        return view('pages.item.simulasi.indextest', [
             'title' => "Simulasi",
             'user' => $user,
         ]);
@@ -45,7 +65,7 @@ class ItemController extends Controller
     public function bandingtest()
     {
         $user = Auth::user();
-        return view('pages.item.perbandingan.index', [
+        return view('pages.item.perbandingan.indextest', [
             'title' => "Perbandingan",
             'user' => $user,
         ]);
@@ -55,7 +75,7 @@ class ItemController extends Controller
     {
         $user = Auth::user();
         $bank = Bank::where('user_id', $user->id)->get();
-        return view('pages.item.beli.index', [
+        return view('pages.item.beli.indextest', [
             'title' => "Beli",
             'user' => $user,
             'bank' => $bank,

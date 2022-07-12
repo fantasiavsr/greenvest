@@ -81,7 +81,7 @@
                                             @php
                                                 $join = \Carbon\Carbon::parse($user->created_at);
                                                 $now = \Carbon\Carbon::now();
-                                                $diff1 = $join->diffInDays($now);                                                                                                                                                      
+                                                $diff1 = $join->diffInDays($now);
                                                                                                                                                                                                                                                                   $diff2 = $join->diffInHours($now);
                                                 $diff3 = $join->diffInMinutes($now);
                                                 $diff4 = $join->diffInSeconds($now);
@@ -153,7 +153,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="{{ route('item.detail') }}">Detail</a>
+                                                        <a class="link-info" href="{{ route('item.detailtest') }}">Detail</a>
                                                     </td>
                                                 </tr>
                                                 {{-- @endforeach --}}
@@ -173,7 +173,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="{{ route('item.detail') }}">Detail</a>
+                                                        <a class="link-info" href="{{ route('item.detailtest') }}">Detail</a>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -192,7 +192,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="{{ route('item.detail') }}">Detail</a>
+                                                        <a class="link-info" href="{{ route('item.detailtest') }}">Detail</a>
                                                     </td>
                                                 </tr>
                                             </tbody>

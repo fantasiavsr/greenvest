@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class produk_green extends Model
 {
     use HasFactory;
+
+    public function green(){
+        return $this->belongsTo(green::class, 'green_id');
+    }
 }

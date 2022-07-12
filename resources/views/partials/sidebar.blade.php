@@ -13,7 +13,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item {{ (request()->is('user')) ? 'active' : '' }}">
-        <a class="nav-link" href="{{ 'user' }}"
+        <a class="nav-link" href="{{ route('user.index') }}"
             @if ($title === 'Dashboard') style="color: #4FBEAB; background-color:#F9FAFC;  border-right: 8px solid #4FBEAB;" @endif>
             <i class="fas fa-fw fa-home"></i>
             <span>Dashboard</span></a>

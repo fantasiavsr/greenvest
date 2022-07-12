@@ -6,6 +6,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DeveloperController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\ItemController;
@@ -40,6 +41,7 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register.s
 Route::resource('user', UserController::class)->middleware('auth', 'user');
 /* Route::resource('developer', DeveloperController::class)->middleware('auth', 'developer'); */
 
+/* Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth', 'user')->name('dashboard'); */
 /* Portofolio */
 Route::get('portofolio', [PortofolioController::class, 'index'])->middleware('auth', 'user')->name('portofolio');
 /* Transaksi */
@@ -49,14 +51,14 @@ Route::get('transaksi green-taxonomy', [TransaksiController::class, 'greentaxono
 Route::get('transaksi list-transaksi', [TransaksiController::class, 'listtransaksi'])->middleware('auth', 'user')->name('transaksi.list');
 
 /* Item */
-Route::get('item detail', [ItemController::class, 'indextest'])->middleware('auth', 'user')->name('item.detail');
-/* Route::get('item detail/{id}', [ItemController::class, 'index'])->middleware('auth', 'user')->name('item.detail'); */
-Route::get('item simulasi', [ItemController::class, 'simulasitest'])->middleware('auth', 'user')->name('item.simulasi');
-Route::get('item simulasi2', [ItemController::class, 'simulasitest2'])->middleware('auth', 'user')->name('item.simulasi2');
+Route::get('item detail', [ItemController::class, 'indextest'])->middleware('auth', 'user')->name('item.detailtest');
+Route::get('item detail/{id}', [ItemController::class, 'index'])->middleware('auth', 'user')->name('item.detail');
+Route::get('item simulasi', [ItemController::class, 'simulasitest'])->middleware('auth', 'user')->name('item.simulasitest');
+Route::get('item simulasi2', [ItemController::class, 'simulasitest2'])->middleware('auth', 'user')->name('item.simulasitest2');
 /* Route::get('item simulasi/{id}', [ItemController::class, 'simulasi'])->middleware('auth', 'user')->name('item.simulasi'); */
-Route::get('item banding', [ItemController::class, 'bandingtest'])->middleware('auth', 'user')->name('item.banding');
+Route::get('item banding', [ItemController::class, 'bandingtest'])->middleware('auth', 'user')->name('item.bandingtest');
 /* Route::get('item banding/{id}', [ItemController::class, 'banding'])->middleware('auth', 'user')->name('item.banding'); */
-Route::get('item beli', [ItemController::class, 'belitest'])->middleware('auth', 'user')->name('item.beli');
+Route::get('item beli', [ItemController::class, 'belitest'])->middleware('auth', 'user')->name('item.belitest');
 /* Route::get('item beli/{id}', [ItemController::class, 'belig'])->middleware('auth', 'user')->name('item.beli'); */
 
 

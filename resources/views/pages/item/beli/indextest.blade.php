@@ -24,7 +24,7 @@
                     {{-- Sub Title --}}
                     <div class="d-sm-flex align-items-center justify-content-between pt-2 mt-1 mb-4">
                         <h1 class="h3 pb-2 mb-0 " style="font-weight:700; font-size:32px">
-                            <a href="{{ route('item.detail') }}" class="text-gray-400"
+                            <a href="{{ route('item.detailtest') }}" class="text-gray-400"
                                 style="text-decoration: none">Adidas-AM Indeks IDX45</a>
                             <span><i class="fa fa-sm fa-angle-right text-gray-900" aria-hidden="true"></i></span>
                             <span class="text-gray-900">Beli</span>
@@ -135,7 +135,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="{{ route('item.detail') }}">Detail</a>
+                                                        <a class="link-info" href="{{ route('item.detailtest') }}">Detail</a>
                                                     </td>
                                                 </tr>
                                                 {{-- @endforeach --}}
@@ -155,7 +155,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="{{ route('item.detail') }}">Detail</a>
+                                                        <a class="link-info" href="{{ route('item.detailtest') }}">Detail</a>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -174,7 +174,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="{{ route('item.detail') }}">Detail</a>
+                                                        <a class="link-info" href="{{ route('item.detailtest') }}">Detail</a>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -193,7 +193,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="{{ route('item.detail') }}">Detail</a>
+                                                        <a class="link-info" href="{{ route('item.detailtest') }}">Detail</a>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -250,7 +250,7 @@
                                                 {{-- <button type="submit" class="btn btn-lg mt-2 px-5 mb-4 text-light"
                                                     style="background-color: #4FBEAB; width:100%">Rutin Tiap Bulan
                                                 </button> --}}
-                                                <a href="{{ route('item.detail') }}" class="btn btn-lg mt-2 px-5 mb-4"
+                                                <a href="{{ route('item.detailtest') }}" class="btn btn-lg mt-2 px-5 mb-4"
                                                     style="background-color: #F9FAFC; width:100%">Cancel</a>
                                             </div>
                                             <div class="col">

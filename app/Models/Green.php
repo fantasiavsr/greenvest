@@ -10,4 +10,8 @@ class green extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function produk_green(){
+        return $this->hasMany(produk_green::class);
+    }
 }
