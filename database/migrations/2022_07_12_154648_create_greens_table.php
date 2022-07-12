@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('greens', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->integer('min_pembelian');
             $table->timestamps();
         });
     }

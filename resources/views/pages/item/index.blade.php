@@ -69,8 +69,7 @@
                                                     <thead>
                                                         <thead>
                                                             <tr>
-                                                                <th>Return 1Y</th>
-                                                                <th>Expense Ratio</th>
+                                                                <th>1 Year Return</th>
                                                                 <th>Total AUM</th>
                                                                 <th>Jenis Produk</th>
                                                                 <th>Tingkat Risiko</th>
@@ -81,7 +80,6 @@
                                                     <tbody">
                                                         <tr>
                                                             <td>+20.26%</td>
-                                                            <td>1.05%</td>
                                                             <td>1.27T</td>
                                                             <td>Saham</td>
                                                             <td>Tinggi</td>

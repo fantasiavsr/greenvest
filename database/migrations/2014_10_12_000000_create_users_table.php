@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama_lengkap');
             $table->string('username');
             $table->string('nohp');
-            $table->string('level');
+            $table->enum('level', ['User', 'Admin', 'Developer']);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
