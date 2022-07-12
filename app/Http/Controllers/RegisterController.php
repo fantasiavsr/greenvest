@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Saldo_saya;
 use App\Models\User;
 
 use Illuminate\Http\Request;
@@ -30,7 +32,12 @@ class registerController extends Controller
         /* $validateData['password'] = bcrypt($validateData['password']); */
         $validateData['password'] = Hash::make($validateData['password']);
 
-        User::create($validateData);
+        $created = User::create($validateData);
+
+        Saldo_saya::create([
+            'user_id' => $created['id'],
+            'saldo' => 0,
+        ]);
 
         return redirect()->route('login')
         ->with('success', 'User Successfully Added');

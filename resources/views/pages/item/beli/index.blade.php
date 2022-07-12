@@ -107,6 +107,16 @@
                                                         </td>
                                                     </tr>
                                                 @endforeach
+                                                @if (count($bank) == 0)
+                                                    <tr>
+                                                        <td colspan="3" class="text-center">
+                                                            <div class="text-muted">
+                                                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                                                Belum ada akun bank yang terdaftar.
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endif
                                             </tbody>
                                         </table>
 

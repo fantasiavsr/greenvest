@@ -71,9 +71,12 @@
                                             @php
                                                 $join = \Carbon\Carbon::parse($user->created_at);
                                                 $now = \Carbon\Carbon::now();
-                                                $diff = $join->diffInDays($now);
+                                                $diff1 = $join->diffInDays($now);
+                                                $diff2 = $join->diffInHours($now);
+                                                $diff3 = $join->diffInMinutes($now);
+                                                $diff4 = $join->diffInSeconds($now);
                                             @endphp
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $diff }} Hari</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $diff1 }} Hari <span class="" style="font-weight: 100; font-size:70%">{{ $diff2 }}:{{ $diff3 }}:{{ $diff4 }}</span> </div>
                                             <div class="text-xs font-weight-bold text-uppercase mb-1">
                                                Semenjak Bergabung</div>
                                         </div>
