@@ -69,8 +69,7 @@
                                                     <thead>
                                                         <thead>
                                                             <tr>
-                                                                <th>CAGR 1Y</th>
-                                                                <th>Drawdown 1Y</th>
+                                                                <th>Return 1Y</th>
                                                                 <th>Expense Ratio</th>
                                                                 <th>Total AUM</th>
                                                                 <th>Jenis Produk</th>
@@ -82,7 +81,6 @@
                                                     <tbody">
                                                         <tr>
                                                             <td>+20.26%</td>
-                                                            <td>-10.05%</td>
                                                             <td>1.05%</td>
                                                             <td>1.27T</td>
                                                             <td>Saham</td>
@@ -157,55 +155,6 @@
 
                         </div>
 
-                        <!-- Card - Alokasi Aset -->
-                        <div class="col d-flex">
-
-                            <div class="col">
-                                <h4 class=" text-gray-800 ">Alokasi Aset</h4>
-                                <div class="card shadow-custom mb-3" style="width:100%" {{-- style="background-color: #4FBEAB" --}}>
-                                    <!-- Card Body -->
-                                    <div class="card-body">
-
-                                        <div class="row d-flex px-3">
-                                            <div class="col">
-                                                <h4 class="small font-weight-bold">Kas & Deposito<span
-                                                        class="float-right">6%</span>
-                                                </h4>
-                                                <div class="progress mb-2">
-                                                    <div class="progress-bar" role="progressbar"
-                                                        style="width: 6%; background-color:#4FBEAB" aria-valuenow="20"
-                                                        aria-valuemin="0" aria-valuemax="100">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="card shadow-custom mb-4" style="width:100%" {{-- style="background-color: #4FBEAB" --}}>
-                                    <!-- Card Body -->
-                                    <div class="card-body">
-
-                                        <div class="row d-flex px-3">
-                                            <div class="col">
-                                                <h4 class="small font-weight-bold">Saham<span
-                                                        class="float-right">94%</span>
-                                                </h4>
-                                                <div class="progress mb-2">
-                                                    <div class="progress-bar" role="progressbar"
-                                                        style="width: 94%; background-color:#4FBEAB" aria-valuenow="20"
-                                                        aria-valuemin="0" aria-valuemax="100">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
 
                         <!-- Card - Data Switching-->
                         <div class="col d-flex">

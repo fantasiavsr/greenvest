@@ -47,8 +47,4 @@ class User extends Authenticatable
     public function Bank(){
         return $this->hasMany(Bank::class);
     }
-
-    public function Saldo_saya(){
-        return $this->hasMany(Saldo_saya::class);
-    }
 }

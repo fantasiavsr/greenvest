@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Bank;
-use App\Models\Saldo_saya;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -20,9 +19,11 @@ class UserController extends Controller
     {
         /* dd(Auth::user()); */
         $user = Auth::user();
-        $saldo = Saldo_saya::where('user_id', $user->id)->first();
+        /* $saldo = Saldo_saya::where('user_id', $user->id)->first(); */
         $bank = Bank::where('user_id', $user->id)->get();
+        $bank_default = Bank::where('user_id', $user->id)->first();
         $level = Auth::user()->level;
+        /* dd($level); */
         if ($level == "Admin") {
             return view('pages.admin.index', compact('user'), [
                 'title' => "Dashboard",
@@ -32,7 +33,8 @@ class UserController extends Controller
             return view('pages.user.index', compact('user'), [
                 'title' => "Dashboard",
                 'user' => $user,
-                'saldo' => $saldo,
+                /* 'saldo' => $saldo, */
+                'bankdef' => $bank_default,
                 'bank' => $bank,
                 'submenu' => "no",
             ]);

@@ -1,7 +1,6 @@
 @extends('layouts.core')
 
 @section('content')
-
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -10,10 +9,10 @@
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column" >
+        <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
-            <div id="content" >
+            <div id="content">
 
                 <!-- Topbar -->
                 @include('Partials.topbar')
@@ -49,9 +48,20 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Rp{{ $saldo->saldo }}</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                @if (count($bank) == 0)
+                                                    Belum ada akun bank yang terdaftar.
+                                                @else
+                                                    {{ $bankdef->saldo }}
+                                                @endif
+                                            </div>
                                             <div class="text-xs font-weight-bold text-uppercase mb-1">
-                                                Saldo Saya</div>
+                                                   @if (count($bank) == 0)
+                                                    Klik untuk input akun bank.
+                                                @else
+                                                    {{ $bankdef->bank_name }}
+                                                @endif
+                                            </div>
                                         </div>
                                         <div class="col-auto">
                                             <img class="img" src="{{ asset('img/wallet.png') }}" alt=""
@@ -67,22 +77,25 @@
                             <div class="card shadow-custom-sm h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
+                                           <div class="col mr-2">
                                             @php
                                                 $join = \Carbon\Carbon::parse($user->created_at);
                                                 $now = \Carbon\Carbon::now();
-                                                $diff1 = $join->diffInDays($now);
-                                                $diff2 = $join->diffInHours($now);
+                                                $diff1 = $join->diffInDays($now);                                                                                                                                                      
+                                                                                                                                                                                                                                                                  $diff2 = $join->diffInHours($now);
                                                 $diff3 = $join->diffInMinutes($now);
                                                 $diff4 = $join->diffInSeconds($now);
                                             @endphp
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $diff1 }} Hari <span class="" style="font-weight: 100; font-size:70%">{{ $diff2 }}:{{ $diff3 }}:{{ $diff4 }}</span> </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $diff1 }} Hari
+                                                <span class=""
+                                                    style="font-weight: 100; font-size:70%">{{-- {{ $diff2 }}:{{ $diff3 }}:{{ $diff4 }} --}}</span>
+                                            </div>
                                             <div class="text-xs font-weight-bold text-uppercase mb-1">
-                                               Semenjak Bergabung</div>
+                                                Semenjak Bergabung</div>
                                         </div>
                                         <div class="col-auto">
-                                            <img class="img" src="{{ asset('img/peoples.png') }}"
-                                                alt="" style="height: 100%;width:100%;object-fit: cover;">
+                                            <img class="img" src="{{ asset('img/peoples.png') }}" alt=""
+                                                style="height: 100%;width:100%;object-fit: cover;">
                                         </div>
                                     </div>
                                 </div>
@@ -93,7 +106,7 @@
                 </div>
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid" >
+                <div class="container-fluid">
 
                     {{-- Sub Title --}}
                     <div class="d-sm-flex align-items-center justify-content-between pt-2 mt-4 mb-4">
@@ -113,8 +126,8 @@
                                     </div> --}}
                                     <div class="table-responsive">
 
-                                        <table class="table table-hover table-borderless" id="dataTable"
-                                            width="100%" cellspacing="0" style="">
+                                        <table class="table table-hover table-borderless" id="dataTable" width="100%"
+                                            cellspacing="0" style="">
                                             {{-- <thead>
                                                 <tr>
                                                     <th>Data</th>
@@ -126,8 +139,7 @@
                                                 {{-- @foreach ($data as $item) --}}
                                                 <tr>
                                                     <td>
-                                                        <img class="avatar me-2"
-                                                            src="{{ asset('img/item-sample1.png') }}"
+                                                        <img class="avatar me-2" src="{{ asset('img/item-sample1.png') }}"
                                                             alt="">
                                                     </td>
                                                     <td>
@@ -147,8 +159,7 @@
                                                 {{-- @endforeach --}}
                                                 <tr>
                                                     <td>
-                                                        <img class="avatar me-2"
-                                                            src="{{ asset('img/item-sample2.png') }}"
+                                                        <img class="avatar me-2" src="{{ asset('img/item-sample2.png') }}"
                                                             alt="">
                                                     </td>
                                                     <td>
@@ -168,8 +179,7 @@
                                                 <tr>
                                                     <td>
                                                         <img class="avatar me-2"
-                                                            src="{{ asset('img/item-sample3.png') }}"
-                                                            alt="">
+                                                            src="{{ asset('img/item-sample3.png') }}" alt="">
                                                     </td>
                                                     <td>
                                                         <div class="col">
@@ -201,8 +211,7 @@
                         <div class="col d-flex">
                             <div class="card shadow-custom mb-4" style="width:100%">
                                 <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     {{-- <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button"
@@ -247,8 +256,8 @@
                                                         class="float-right">15%</span></h4>
                                                 <div class="progress mb-4">
                                                     <div class="progress-bar" role="progressbar"
-                                                        style="width: 15%; background-color:#4FBEAB"
-                                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                        style="width: 15%; background-color:#4FBEAB" aria-valuenow="20"
+                                                        aria-valuemin="0" aria-valuemax="100">
                                                     </div>
                                                 </div>
 
@@ -256,8 +265,8 @@
                                                         class="float-right">35%</span></h4>
                                                 <div class="progress mb-4">
                                                     <div class="progress-bar" role="progressbar"
-                                                        style="width: 35%; background-color:#FFB020"
-                                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                        style="width: 35%; background-color:#FFB020" aria-valuenow="20"
+                                                        aria-valuemin="0" aria-valuemax="100">
                                                     </div>
                                                 </div>
 
@@ -265,8 +274,8 @@
                                                         class="float-right">50%</span></h4>
                                                 <div class="progress mb-4">
                                                     <div class="progress-bar" role="progressbar"
-                                                        style="width: 50%; background-color:#378AEC"
-                                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                        style="width: 50%; background-color:#378AEC" aria-valuenow="20"
+                                                        aria-valuemin="0" aria-valuemax="100">
                                                     </div>
                                                 </div>
                                             </div>
@@ -307,8 +316,7 @@
                                                 <tr class="">
                                                     <td>
                                                         <img class="avatar me-2"
-                                                            src="{{ asset('img/item-sample1.png') }}"
-                                                            alt="">
+                                                            src="{{ asset('img/item-sample1.png') }}" alt="">
                                                     </td>
                                                     <td>
                                                         Adidas-AM Indeks IDX45
@@ -333,8 +341,7 @@
                                                 <tr class="">
                                                     <td>
                                                         <img class="avatar me-2"
-                                                            src="{{ asset('img/item-sample1.png') }}"
-                                                            alt="">
+                                                            src="{{ asset('img/item-sample1.png') }}" alt="">
                                                     </td>
                                                     <td>
                                                         Adidas-AM Indeks IDX45
@@ -358,8 +365,7 @@
                                                 <tr class="">
                                                     <td>
                                                         <img class="avatar me-2"
-                                                            src="{{ asset('img/item-sample1.png') }}"
-                                                            alt="">
+                                                            src="{{ asset('img/item-sample1.png') }}" alt="">
                                                     </td>
                                                     <td>
                                                         Adidas-AM Indeks IDX45
@@ -383,8 +389,7 @@
                                                 <tr class="">
                                                     <td>
                                                         <img class="avatar me-2"
-                                                            src="{{ asset('img/item-sample1.png') }}"
-                                                            alt="">
+                                                            src="{{ asset('img/item-sample1.png') }}" alt="">
                                                     </td>
                                                     <td>
                                                         Adidas-AM Indeks IDX45
@@ -448,5 +453,4 @@
             info: false
         });
     </script>
-
 @endsection

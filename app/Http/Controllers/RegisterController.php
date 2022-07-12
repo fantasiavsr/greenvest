@@ -34,10 +34,10 @@ class registerController extends Controller
 
         $created = User::create($validateData);
 
-        Saldo_saya::create([
+        /* Saldo_saya::create([
             'user_id' => $created['id'],
             'saldo' => 0,
-        ]);
+        ]); */
 
         return redirect()->route('login')
         ->with('success', 'User Successfully Added');

@@ -36,30 +36,6 @@
                         <!-- Card -->
                         <div class="col-xl-4">
 
-                            <!-- Sub Card - Saldo Saya -->
-                            <div class="card shadow-custom mb-4" style="width:100%">
-                                <div class="card-header">
-                                    <div class=" align-items-center justify-content-between">
-                                        <h1 class="h4 mb-0 text-gray-800 ">Saldo Saya</h1>
-                                    </div>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    {{-- <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div> --}}
-                                    <div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">Rp{{ $saldo->saldo }}</div>
-                                        {{-- <div class="text-xs font-weight-bold text-uppercase mb-1">
-                                            Saldo Akun</div> --}}
-                                    </div>
-                                </div>
-                                <!-- Card Footer -->
-                                {{-- <div class="card-footer flex-row align-items-center text-center">
-                                    <a href="{{ 'portofolio' }}">Lihat Semua</a>
-                                </div> --}}
-                            </div>
-
                             <!-- Sub Card - Bank -->
                             <div class="card shadow-custom mb-4" style="width:100%">
                                 <div class="card-header">
