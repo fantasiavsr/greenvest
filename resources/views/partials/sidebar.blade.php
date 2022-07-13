@@ -44,7 +44,7 @@
             <i class="fas fa-fw fa-credit-card"></i>
             <span>Transaksi</span>
         </a>
-        <div id="collapseUtilities" class="collapse {{ (request()->is('transaksi*')) ? 'show' : '' }}" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapseUtilities" class="collapse {{ (request()->is('transaksi*')) ? 'show' : '' }} {{ (request()->is('item*')) ? 'show' : '' }}" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Green Investment:</h6>
                 <a class="collapse-item {{ $title === 'Transaksi | Green Bond' ? 'active' : '' }}" href="{{ route('transaksi.greenbond') }}"

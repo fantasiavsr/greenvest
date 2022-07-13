@@ -227,9 +227,9 @@
                                                 autofocus required> --}}
                                             <select class="form-control" aria-label="Default select example" autofocus
                                                 required>
-                                                <option selected value="Saldo">Saldo Saya</option>
+                                                {{-- <option selected value="">Saldo Saya</option> --}}
                                                 @foreach ($bank as $item)
-                                                    <option value="{{ $item->id }}">{{ $item->bank_name }}</option>
+                                                    <option value="{{ $item->id }}">{{ $item->bank_name }} | Saldo: Rp{{ $item->saldo }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
