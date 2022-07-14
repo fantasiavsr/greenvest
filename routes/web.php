@@ -41,6 +41,9 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register.s
 Route::resource('user', UserController::class)->middleware('auth', 'user');
 /* Route::resource('developer', DeveloperController::class)->middleware('auth', 'developer'); */
 
+/* dummy bankdef - user dashboard */
+Route::post('bankdef/{id}', [UserController::class, 'bankdefupdate'])->name('bankdef.bankdefupdate');
+
 /* Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth', 'user')->name('dashboard'); */
 /* Portofolio */
 Route::get('portofolio', [PortofolioController::class, 'index'])->middleware('auth', 'user')->name('portofolio');
@@ -62,7 +65,7 @@ Route::get('item banding', [ItemController::class, 'bandingtest'])->middleware('
 /* Route::get('item banding/{id}', [ItemController::class, 'banding'])->middleware('auth', 'user')->name('item.banding'); */
 
 Route::get('item beli', [ItemController::class, 'belitest'])->middleware('auth', 'user')->name('item.belitest');
-/* Route::get('item beli/{id}', [ItemController::class, 'belig'])->middleware('auth', 'user')->name('item.beli'); */
+Route::get('item beli/{id}', [ItemController::class, 'beli'])->middleware('auth', 'user')->name('item.beli');
 
 
 /* Route::get('/admin-item', [adminController::class, 'index'])->middleware('auth', 'isAdmin');

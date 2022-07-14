@@ -31,6 +31,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">Rp2.487.600</div>
                                             <div class="text-xs font-weight-bold text-uppercase mb-1">
                                                 Total Penghasilan
+                                                <a href="{{ route('user.index') }}" class="btn btn-sm"><i class="fa fa-retweet" aria-hidden="true"></i></a>
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -52,16 +53,32 @@
                                                 @if (count($bank) == 0)
                                                     Belum ada akun bank yang terdaftar.
                                                 @else
-                                                    {{ $bankdef->saldo }}
+                                                    Rp{{ number_format($bankdef->bank->saldo) }}
                                                 @endif
                                             </div>
                                             <div class="text-xs font-weight-bold text-uppercase mb-1">
-                                                   @if (count($bank) == 0)
-                                                    Klik untuk input akun bank.
-                                                @else
-                                                    {{ $bankdef->bank_name }}
-                                                @endif
+                                                <form action="{{ route('bankdef.bankdefupdate', ['id' => $bankdef->id]) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @if (count($bank) == 0)
+                                                    <a href="">
+                                                        Klik untuk input akun bank.
+                                                    </a>
+                                                    @else
+                                                        Saldo Bank :
+                                                        <input type="hidden" name="user_id" value="{{ $user->id }}">
+                                                        <select name="bank_id" id="">
+                                                            @foreach ($bank as $item)
+                                                                <option value="{{ $item->id }}"
+                                                                    @if ($bankdef->bank_id == $item->id) selected @endif>
+                                                                    {{ $item->bank_name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        <button class="btn btn-sm"><i class="fa fa-retweet" aria-hidden="true"></i></button>
+                                                    @endif
+                                                </form>
                                             </div>
+
                                         </div>
                                         <div class="col-auto">
                                             <img class="img" src="{{ asset('img/wallet.png') }}" alt=""
@@ -77,12 +94,12 @@
                             <div class="card shadow-custom-sm h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
-                                           <div class="col mr-2">
+                                        <div class="col mr-2">
                                             @php
                                                 $join = \Carbon\Carbon::parse($user->created_at);
                                                 $now = \Carbon\Carbon::now();
                                                 $diff1 = $join->diffInDays($now);
-                                                                                                                                                                                                                                                                  $diff2 = $join->diffInHours($now);
+                                                $diff2 = $join->diffInHours($now);
                                                 $diff3 = $join->diffInMinutes($now);
                                                 $diff4 = $join->diffInSeconds($now);
                                             @endphp
@@ -91,7 +108,9 @@
                                                     style="font-weight: 100; font-size:70%">{{-- {{ $diff2 }}:{{ $diff3 }}:{{ $diff4 }} --}}</span>
                                             </div>
                                             <div class="text-xs font-weight-bold text-uppercase mb-1">
-                                                Semenjak Bergabung</div>
+                                                Semenjak Bergabung
+                                                <a href="{{ route('user.index') }}" class="btn btn-sm"><i class="fa fa-retweet" aria-hidden="true"></i></a>
+                                            </div>
                                         </div>
                                         <div class="col-auto">
                                             <img class="img" src="{{ asset('img/peoples.png') }}" alt=""
@@ -153,14 +172,15 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="{{ route('item.detailtest') }}">Detail</a>
+                                                        <a class="link-info"
+                                                            href="{{ route('item.detailtest') }}">Detail</a>
                                                     </td>
                                                 </tr>
                                                 {{-- @endforeach --}}
                                                 <tr>
                                                     <td>
-                                                        <img class="avatar me-2" src="{{ asset('img/item-sample2.png') }}"
-                                                            alt="">
+                                                        <img class="avatar me-2"
+                                                            src="{{ asset('img/item-sample2.png') }}" alt="">
                                                     </td>
                                                     <td>
                                                         <div class="col">
@@ -173,7 +193,8 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="{{ route('item.detailtest') }}">Detail</a>
+                                                        <a class="link-info"
+                                                            href="{{ route('item.detailtest') }}">Detail</a>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -192,7 +213,8 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <a class="link-info" href="{{ route('item.detailtest') }}">Detail</a>
+                                                        <a class="link-info"
+                                                            href="{{ route('item.detailtest') }}">Detail</a>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -444,6 +466,8 @@
 
     <!-- Logout Modal-->
     @include('Partials.logoutmodal')
+
+    <script></script>
 
     {{-- Custom DataTables --}}
     <script>

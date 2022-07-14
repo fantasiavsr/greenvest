@@ -29,7 +29,7 @@
                         <div class="pb-2">
                             <a href="{{ route('item.simulasitest') }}" class="btn btn-lg shadow-custom-alt mt-2 text-light"
                                 style="background-color: #30445C"> Simulasi</a>
-                            <a href="{{ route('item.belitest') }}" class="btn btn-lg shadow-custom-green mt-2 text-light"
+                            <a href="{{ route('item.beli', ['id'=>$produk_green->id,]) }}" class="btn btn-lg shadow-custom-green mt-2 text-light"
                                 style="background-color: #4FBEAB"> Beli</a>
                         </div>
                     </div>
@@ -43,6 +43,11 @@
                                 <div class="card-body">
                                     <div class="chart-area">
                                         <canvas id="myAreaChart"></canvas>
+                                        @if (!isset($charttest))
+                                        <div class="text-center">
+                                            Tidak ada data.
+                                        </div>
+                                        @endif
                                     </div>
                                 </div>
                                 {{-- <!-- Card Footer -->
@@ -125,7 +130,7 @@
                                             Minimal Pembelian
                                         </div>
                                         <div class="row d-flex px-3" style="font-weight: bolder">
-                                            {{ $produk_green->min_pembelian_produk }}
+                                            Rp{{ number_format($produk_green->min_pembelian_produk) }}
                                         </div>
 
                                         <div class="row d-flex px-3 pt-2">

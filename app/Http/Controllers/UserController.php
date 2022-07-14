@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Bank;
+use App\Models\dummy_bankdef;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -21,7 +22,7 @@ class UserController extends Controller
         $user = Auth::user();
         /* $saldo = Saldo_saya::where('user_id', $user->id)->first(); */
         $bank = Bank::where('user_id', $user->id)->get();
-        $bank_default = Bank::where('user_id', $user->id)->first();
+        $bank_default = dummy_bankdef::where('user_id', $user->id)->first();
         $level = Auth::user()->level;
         /* dd($level); */
         if ($level == "Admin") {
@@ -151,5 +152,16 @@ class UserController extends Controller
         $user->delete();
         return redirect()->route('user.index')
             ->with('success', 'User Successfully Deleted');
+    }
+
+    public function bankdefupdate(Request $request)
+    {
+        $flights = dummy_bankdef::find($request->id);
+        $flights->user_id = $request->user_id;
+        $flights->bank_id = $request->bank_id;
+
+        $flights->save();
+
+        return redirect('user');
     }
 }

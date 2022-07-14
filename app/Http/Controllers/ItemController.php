@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Bank;
 use App\Models\green;
 use App\Models\produk_green;
+use App\Models\charttest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -30,6 +31,7 @@ class ItemController extends Controller
     {
         $user = Auth::user();
         $produk_green = produk_green::where('id', $id)->first();
+        $charttest = charttest::where('produk_green_id', $id)->first();
 
         /* Switch Requirements */
         $switch = produk_green::where('perusahaan', $produk_green->perusahaan)
@@ -41,6 +43,7 @@ class ItemController extends Controller
             'user' => $user,
             'produk_green' => $produk_green,
             'switch' => $switch,
+            'charttest' => $charttest,
         ]);
     }
 
@@ -79,6 +82,19 @@ class ItemController extends Controller
             'title' => "Beli",
             'user' => $user,
             'bank' => $bank,
+        ]);
+    }
+
+    public function beli($id)
+    {
+        $user = Auth::user();
+        $bank = Bank::where('user_id', $user->id)->get();
+        $produk_green = produk_green::where('id', $id)->first();
+        return view('pages.item.beli.index', [
+            'title' => "Beli",
+            'user' => $user,
+            'bank' => $bank,
+            'produk_green' => $produk_green,
         ]);
     }
 }

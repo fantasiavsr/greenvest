@@ -12,4 +12,8 @@ class produk_green extends Model
     public function green(){
         return $this->belongsTo(green::class, 'green_id');
     }
+
+    public function charttest(){
+        return $this->hasMany(charttest::class, 'produk_green_id');
+    }
 }

@@ -13,4 +13,8 @@ class Bank extends Model
     public function user(){
         return $this->belongsTo(user::class, 'user_id');
     }
+
+    public function dummy_bankdef(){
+        return $this->hasMany(dummy_bankdef::class);
+    }
 }
