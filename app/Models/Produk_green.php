@@ -16,4 +16,8 @@ class produk_green extends Model
     public function charttest(){
         return $this->hasMany(charttest::class, 'produk_green_id');
     }
+
+    public function produk_image(){
+        return $this->hasMany(produk_image::class, 'produk_green_id');
+    }
 }

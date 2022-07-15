@@ -33,8 +33,200 @@
 
                     <!-- Content Row -->
                     <div class="row">
-                        <!-- Card -->
-                        <div class="col-xl-4">
+
+                        <!-- Col -->
+                        <div class="col-xl-8">
+                            <div class="card shadow-custom mb-4" style="width:100%">
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <div class=" align-items-center justify-content-between">
+                                        <h1 class="h4 mb-0 text-gray-800 ">Pembayaran</h1>
+                                    </div>
+                                </div>
+
+                                <!-- Card Body -->
+                                <div class="card-body py-3 ">
+                                    <form action="">
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label">Pilih Metode Bayar</label>
+                                            {{-- <input type="text" name="text" id="username" class="form-control"
+                                                autofocus required> --}}
+                                            <select class="form-control" aria-label="Default select example" autofocus
+                                                required>
+                                                <option selected value="{{ $greenvest->id }}">Saldo Greenvest | Saldo:
+                                                    Rp{{ number_format($greenvest->saldo, 0, ',', '.') }}</option>
+                                                @foreach ($metodebayar as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->bank_name }}
+                                                        @if ($item->bank_name == 'LinkAja' || $item->bank_name == 'GoPay')
+                                                            | Saldo: Rp{{ number_format($item->saldo, 0, ',', '.') }}
+                                                        @endif
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label">Pesan</label>
+                                            <input type="text" name="username" id="username" class="form-control"
+                                                autofocus required>
+                                        </div>
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label">Total Bayar</label>
+                                            <input type="text" name="username" id="username" class="form-control"
+                                                autofocus required
+                                                placeholder="Minimal Pembelian Rp{{ number_format($produk_green->min_pembelian_produk, 0, ',', '.') }}">
+                                        </div>
+                                        {{-- <input type="hidden" id="role" name="role" value="0"> --}}
+                                        <!-- Submit button -->
+                                        <div class="row">
+                                            <div class="col">
+                                                {{-- <button type="submit" class="btn btn-lg mt-2 px-5 mb-4 text-light"
+                                                    style="background-color: #4FBEAB; width:100%">Rutin Tiap Bulan
+                                                </button> --}}
+                                                <a href="{{ route('item.detail', ['id' => $produk_green->id]) }}" class="btn btn-lg mt-2 px-5 mb-4"
+                                                    style="background-color: #F9FAFC; width:100%">Cancel</a>
+                                            </div>
+                                            <div class="col">
+                                                <a href="#" class="btn btn-lg mt-2 px-5 mb-4 text-light"
+                                                    style="background-color: #4FBEAB; width:100%" href="#"
+                                                    data-toggle="modal" data-target="#beliModal">Beli</a>
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Col -->
+                        <div class="col">
+
+                            <!-- Sub Card - GreenVest -->
+                            <div class="card shadow-custom mb-4" style="width:100%">
+                                <div class="card-header">
+                                    <div class=" align-items-center justify-content-between">
+                                        <h1 class="h4 mb-0 text-gray-800 ">Saldo GreenVest</h1>
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="table-responsive">
+
+                                        <table class="table table-hover table-borderless" id="dataTable" width="100%"
+                                            cellspacing="0" style="">
+                                            {{-- <thead>
+                                                <tr>
+                                                    <th>Data</th>
+                                                    <th>Data</th>
+                                                    <th>Data</th>
+                                                </tr>
+                                            </thead> --}}
+                                            <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="col">
+                                                                <div class="row"
+                                                                    style="font-size: 14px; font-weight:bolder">
+                                                                    {{ $greenvest->bank_name }}
+                                                                </div>
+                                                                <div class="row text-start text-muted"
+                                                                    style="font-size: 14px">
+                                                                    {{ substr($greenvest->no_rekening, 0, 3) . '******' . substr($greenvest->no_rekening, strlen($greenvest->no_rekening) - 3, 3) }}
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            Rp{{ number_format($greenvest->saldo, 0, ',', '.') }}
+                                                        </td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                                <!-- Card Footer -->
+                                {{-- <div class="card-footer flex-row align-items-center text-center">
+                                    <a href="{{ 'portofolio' }}">Lihat Semua</a>
+                                </div> --}}
+                            </div>
+
+                            <!-- Sub Card - EWallet -->
+                            <div class="card shadow-custom mb-4" style="width:100%">
+                                <div class="card-header">
+                                    <div class=" align-items-center justify-content-between">
+                                        <h1 class="h4 mb-0 text-gray-800 ">Akun E-Wallet</h1>
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="table-responsive">
+
+                                        <table class="table table-hover table-borderless" id="dataTable" width="100%"
+                                            cellspacing="0" style="">
+                                            {{-- <thead>
+                                                <tr>
+                                                    <th>Data</th>
+                                                    <th>Data</th>
+                                                    <th>Data</th>
+                                                </tr>
+                                            </thead> --}}
+                                            <tbody>
+                                                @foreach ($ewallet as $item)
+                                                    <tr>
+                                                        <td>
+                                                            <img class="avatar rounded-circle me-2" @php
+                                                                if ($item->bank_name == Str::contains($item->bank_name, 'BRIVA')) {
+                                                                    echo 'src="'.asset('img/bank/BRIVA.png').'"';
+                                                                } elseif ($item->bank_name == Str::contains($item->bank_name, 'BSI')) {
+                                                                    echo 'src="'.asset('img/bank/BSI.jpg').'"';
+                                                                } elseif ($item->bank_name == Str::contains($item->bank_name, 'Mandiri')) {
+                                                                    echo 'src="'.asset('img/bank/Mandiri.png').'"';
+                                                                } elseif ($item->bank_name == Str::contains($item->bank_name, 'BNI')) {
+                                                                    echo 'src="'.asset('img/bank/BNI.png').'"';
+                                                                } elseif ($item->bank_name == Str::contains($item->bank_name, 'LinkAja')) {
+                                                                    echo 'src="'.asset('img/bank/LinkAja.png').'"';
+                                                                } elseif ($item->bank_name == Str::contains($item->bank_name, 'GoPay')) {
+                                                                    echo 'src="'.asset('img/bank/GoPay.png').'"';
+                                                                } else {
+                                                                    echo 'src="'.asset('img/item-b1.png').'"';
+                                                                }
+                                                            @endphp>
+                                                        </td>
+                                                        <td>
+                                                            <div class="col">
+                                                                <div class="row"
+                                                                    style="font-size: 14px; font-weight:bolder">
+                                                                    {{ $item->bank_name }}
+                                                                </div>
+                                                                <div class="row text-start text-muted"
+                                                                    style="font-size: 14px">
+                                                                    {{ substr($item->no_rekening, 0, 3) . '******' . substr($item->no_rekening, strlen($item->no_rekening) - 3, 3) }}
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <a class="link-info" href="#">Detail</a>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                                @if (count($ewallet) == 0)
+                                                    <tr>
+                                                        <td colspan="3" class="text-center" style="font-size: 14px">
+                                                            <div class="text-muted">
+                                                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                                                Belum ada akun e-wallet yang terdaftar.
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endif
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                                <!-- Card Footer -->
+                                {{-- <div class="card-footer flex-row align-items-center text-center">
+                                    <a href="{{ 'portofolio' }}">Lihat Semua</a>
+                                </div> --}}
+                            </div>
 
                             <!-- Sub Card - Bank -->
                             <div class="card shadow-custom mb-4" style="width:100%">
@@ -69,6 +261,10 @@
                                                                     echo 'src="'.asset('img/bank/Mandiri.png').'"';
                                                                 } elseif ($item->bank_name == Str::contains($item->bank_name, 'BNI')) {
                                                                     echo 'src="'.asset('img/bank/BNI.png').'"';
+                                                                } elseif ($item->bank_name == Str::contains($item->bank_name, 'LinkAja')) {
+                                                                    echo 'src="'.asset('img/bank/LinkAja.png').'"';
+                                                                } elseif ($item->bank_name == Str::contains($item->bank_name, 'GoPay')) {
+                                                                    echo 'src="'.asset('img/bank/GoPay.png').'"';
                                                                 } else {
                                                                     echo 'src="'.asset('img/item-b1.png').'"';
                                                                 }
@@ -76,11 +272,13 @@
                                                         </td>
                                                         <td>
                                                             <div class="col">
-                                                                <div class="row fw-bold">
+                                                                <div class="row"
+                                                                    style="font-size: 14px; font-weight:bolder">
                                                                     {{ $item->bank_name }}
                                                                 </div>
-                                                                <div class="row text-start fw-lighter text-muted">
-                                                                    {{ $item->no_rekening }}
+                                                                <div class="row text-start text-muted"
+                                                                    style="font-size: 14px">
+                                                                    {{ substr($item->no_rekening, 0, 3) . '******' . substr($item->no_rekening, strlen($item->no_rekening) - 3, 3) }}
                                                                 </div>
                                                             </div>
                                                         </td>
@@ -91,9 +289,10 @@
                                                 @endforeach
                                                 @if (count($bank) == 0)
                                                     <tr>
-                                                        <td colspan="3" class="text-center">
+                                                        <td colspan="3" class="text-center" style="font-size: 14px">
                                                             <div class="text-muted">
-                                                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                                                <i class="fa fa-exclamation-circle"
+                                                                    aria-hidden="true"></i>
                                                                 Belum ada akun bank yang terdaftar.
                                                             </div>
                                                         </td>
@@ -127,8 +326,8 @@
                                                 {{-- @foreach ($data as $item) --}}
                                                 <tr>
                                                     <td>
-                                                        <img class="avatar me-2" src="{{ asset('img/item-sample1.png') }}"
-                                                            alt="">
+                                                        <img class="avatar me-2"
+                                                            src="{{ asset('img/item-sample1.png') }}" alt="">
                                                     </td>
                                                     <td>
                                                         <div class="col">
@@ -148,8 +347,8 @@
                                                 {{-- @endforeach --}}
                                                 <tr>
                                                     <td>
-                                                        <img class="avatar me-2" src="{{ asset('img/item-sample1.png') }}"
-                                                            alt="">
+                                                        <img class="avatar me-2"
+                                                            src="{{ asset('img/item-sample1.png') }}" alt="">
                                                     </td>
                                                     <td>
                                                         <div class="col">
@@ -168,8 +367,8 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <img class="avatar me-2" src="{{ asset('img/item-sample1.png') }}"
-                                                            alt="">
+                                                        <img class="avatar me-2"
+                                                            src="{{ asset('img/item-sample1.png') }}" alt="">
                                                     </td>
                                                     <td>
                                                         <div class="col">
@@ -216,66 +415,9 @@
                                     <a href="{{ route('transaksi.list') }}">Lihat Semua</a>
                                 </div>
                             </div>
+
                         </div>
 
-                        <!-- Card -->
-                        <div class="col">
-                            <div class="card shadow-custom mb-4" style="width:100%">
-                                <!-- Card Header - Dropdown -->
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <div class=" align-items-center justify-content-between">
-                                        <h1 class="h4 mb-0 text-gray-800 ">Pembayaran</h1>
-                                    </div>
-                                </div>
-
-                                <!-- Card Body -->
-                                <div class="card-body py-3 ">
-                                    <form action="">
-                                        <div class="form-outline mb-4">
-                                            <label class="form-label">Pilih Metode Bayar</label>
-                                            {{-- <input type="text" name="text" id="username" class="form-control"
-                                                autofocus required> --}}
-                                            <select class="form-control" aria-label="Default select example" autofocus
-                                                required>
-                                                {{-- <option selected value="">Saldo Saya</option> --}}
-                                                @foreach ($bank as $item)
-                                                    <option value="{{ $item->id }}">{{ $item->bank_name }} | Saldo:
-                                                        Rp{{ $item->saldo }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="form-outline mb-4">
-                                            <label class="form-label">Pesan</label>
-                                            <input type="text" name="username" id="username" class="form-control"
-                                                autofocus required>
-                                        </div>
-                                        <div class="form-outline mb-4">
-                                            <label class="form-label">Total Bayar</label>
-                                            <input type="text" name="username" id="username" class="form-control"
-                                                autofocus required>
-                                        </div>
-                                        {{-- <input type="hidden" id="role" name="role" value="0"> --}}
-                                        <!-- Submit button -->
-                                        <div class="row">
-                                            <div class="col">
-                                                {{-- <button type="submit" class="btn btn-lg mt-2 px-5 mb-4 text-light"
-                                                    style="background-color: #4FBEAB; width:100%">Rutin Tiap Bulan
-                                                </button> --}}
-                                                <a href="{{ route('item.detailtest') }}"
-                                                    class="btn btn-lg mt-2 px-5 mb-4"
-                                                    style="background-color: #F9FAFC; width:100%">Cancel</a>
-                                            </div>
-                                            <div class="col">
-                                                <a href="#" class="btn btn-lg mt-2 px-5 mb-4 text-light"
-                                                    style="background-color: #4FBEAB; width:100%" href="#"
-                                                    data-toggle="modal" data-target="#beliModal">Beli</a>
-
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <!-- /.container-fluid -->

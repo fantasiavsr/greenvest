@@ -91,15 +91,17 @@
                                                 @foreach ($produk_green as $item)
                                                     <tr class="">
                                                         <td>
-                                                            <img class="avatar me-2"
-                                                                src="{{ asset('img/item-sample1.png') }}" alt="">
+                                                            <img class="avatar rounded-circle me-2"
+                                                                src="{{ asset('img/produk/' .$image->where('produk_green_id', $item->id)->pluck('image')->first()) }}"
+                                                                alt="">
                                                         </td>
                                                         <td>{{ $item->nama }}</td>
                                                         <td>{{ $item->year_return }}</td>
                                                         <td>{{ $item->total_aum }}</td>
                                                         <td>{{ $item->jenis_produk }}</td>
                                                         <td>
-                                                            <a class="link-info" href="{{ route('item.detail', ['id'=>$item->id,]) }}">Detail</a>
+                                                            <a class="link-info"
+                                                                href="{{ route('item.detail', ['id' => $item->id]) }}">Detail</a>
                                                         </td>
                                                     </tr>
                                                 @endforeach

@@ -23,14 +23,39 @@
 
                     {{-- Sub Title - Nama Produk --}}
                     <div class="d-sm-flex align-items-center justify-content-between pt-2 mt-1 mb-4">
-                        <h1 class="h3 pb-2 mb-0 text-gray-800" style="font-weight:700; font-size:42px">
-                            {{ $produk_green->nama }}
-                        </h1>
+                        <div class="">
+                            <h1 class="text-gray-800" style="font-weight:700; font-size:32px;">
+                                <a
+                                @if ($produk_green->green_id == "1")
+                                    href="{{ route('transaksi.greensukuk') }}"
+                                @elseif ($produk_green->green_id == "2")
+                                    href="{{ route('transaksi.greenbond') }}"
+                                @elseif ($produk_green->green_id == "3")
+                                    href="{{ route('transaksi.greentaxonomy') }}"
+                                @endif
+                                class="btn rounded-circle mr-1" style="background-color: #EDEFF5">
+                                    <i class="fa fa-angle-left" style="width: 9px; height:9px"></i>
+                                </a>
+                                {{ $produk_green->nama }}
+                                <span class="badge text-light"
+                                    @if ($produk_green->kategori == 'Green')
+                                        style="font-weight:500; font-size:15px; background-color:#4FBEAB"
+                                    @elseif ($produk_green->kategori == 'Yellow')
+                                        style="font-weight:500; font-size:15px; background-color:#FFB020"
+                                    @elseif ($produk_green->kategori == 'Red')
+                                        style="font-weight:500; font-size:15px; background-color:#D14343"
+                                    @endif>
+                                    {{ $produk_green->kategori }}
+                                </span>
+                            </h1>
+                        </div>
                         <div class="pb-2">
-                            <a href="{{ route('item.simulasitest') }}" class="btn btn-lg shadow-custom-alt mt-2 text-light"
-                                style="background-color: #30445C"> Simulasi</a>
-                            <a href="{{ route('item.beli', ['id'=>$produk_green->id,]) }}" class="btn btn-lg shadow-custom-green mt-2 text-light"
-                                style="background-color: #4FBEAB"> Beli</a>
+                            <a href="{{ route('item.simulasitest') }}"
+                                class="btn btn-lg shadow-custom-alt mt-2 text-light" style="background-color: #30445C">
+                                Simulasi</a>
+                            <a href="{{ route('item.beli', ['id' => $produk_green->id]) }}"
+                                class="btn btn-lg shadow-custom-green mt-2 text-light" style="background-color: #4FBEAB">
+                                Beli</a>
                         </div>
                     </div>
 
@@ -44,9 +69,9 @@
                                     <div class="chart-area">
                                         <canvas id="myAreaChart"></canvas>
                                         @if (!isset($charttest))
-                                        <div class="text-center">
-                                            Tidak ada data.
-                                        </div>
+                                            <div class="text-center">
+                                                Tidak ada data.
+                                            </div>
                                         @endif
                                     </div>
                                 </div>

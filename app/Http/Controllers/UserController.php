@@ -20,7 +20,7 @@ class UserController extends Controller
     {
         /* dd(Auth::user()); */
         $user = Auth::user();
-        /* $saldo = Saldo_saya::where('user_id', $user->id)->first(); */
+        $greenvest = Bank::where('user_id', $user->id)->where('bank_name', "GreenVest")->first();
         $bank = Bank::where('user_id', $user->id)->get();
         $bank_default = dummy_bankdef::where('user_id', $user->id)->first();
         $level = Auth::user()->level;
@@ -34,7 +34,7 @@ class UserController extends Controller
             return view('pages.user.index', compact('user'), [
                 'title' => "Dashboard",
                 'user' => $user,
-                /* 'saldo' => $saldo, */
+                'greenvest' => $greenvest,
                 'bankdef' => $bank_default,
                 'bank' => $bank,
                 'submenu' => "no",

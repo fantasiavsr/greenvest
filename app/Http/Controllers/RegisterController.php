@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Saldo_saya;
+
 use App\Models\User;
+use App\Models\Bank;
+use App\Models\green;
+use App\Models\produk_green;
+use App\Models\saldo_greenvest;
+
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -34,10 +39,12 @@ class registerController extends Controller
 
         $created = User::create($validateData);
 
-        /* Saldo_saya::create([
+        Bank::create([
             'user_id' => $created['id'],
+            'no_rekening' => $request['nohp'],
+            'bank_name' => "GreenVest",
             'saldo' => 0,
-        ]); */
+        ]);
 
         return redirect()->route('login')
         ->with('success', 'User Successfully Added');

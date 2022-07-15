@@ -30,8 +30,8 @@
                                         <div class="col mr-2">
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">Rp2.487.600</div>
                                             <div class="text-xs font-weight-bold text-uppercase mb-1">
-                                                Total Penghasilan
-                                                <a href="{{ route('user.index') }}" class="btn btn-sm"><i class="fa fa-retweet" aria-hidden="true"></i></a>
+                                                Nilai Portofolio
+                                                {{-- <a href="{{ route('user.index') }}" class="btn btn-sm"><i class="fa fa-retweet" aria-hidden="true"></i></a> --}}
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -50,14 +50,14 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                @if (count($bank) == 0)
-                                                    Belum ada akun bank yang terdaftar.
+                                                @if (!@isset($greenvest))
+                                                    Data tidak ada.
                                                 @else
-                                                    Rp{{ number_format($bankdef->bank->saldo) }}
+                                                    Rp{{ number_format($greenvest->saldo) }}
                                                 @endif
                                             </div>
                                             <div class="text-xs font-weight-bold text-uppercase mb-1">
-                                                <form action="{{ route('bankdef.bankdefupdate', ['id' => $bankdef->id]) }}"
+                                                {{-- <form action="{{ route('bankdef.bankdefupdate', ['id' => $bankdef->id]) }}"
                                                     method="POST">
                                                     @csrf
                                                     @if (count($bank) == 0)
@@ -76,7 +76,8 @@
                                                         </select>
                                                         <button class="btn btn-sm"><i class="fa fa-retweet" aria-hidden="true"></i></button>
                                                     @endif
-                                                </form>
+                                                </form> --}}
+                                                Saldo Greenvest
                                             </div>
 
                                         </div>
@@ -109,7 +110,7 @@
                                             </div>
                                             <div class="text-xs font-weight-bold text-uppercase mb-1">
                                                 Semenjak Bergabung
-                                                <a href="{{ route('user.index') }}" class="btn btn-sm"><i class="fa fa-retweet" aria-hidden="true"></i></a>
+                                                {{-- <a href="{{ route('user.index') }}" class="btn btn-sm"><i class="fa fa-retweet" aria-hidden="true"></i></a> --}}
                                             </div>
                                         </div>
                                         <div class="col-auto">

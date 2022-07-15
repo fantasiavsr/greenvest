@@ -39,11 +39,12 @@
                                                 <tr>
                                                     <th></th>
                                                     <th>Nama</th>
+                                                    <th>Jenis Green</th>
+                                                    <th>Total Bayar</th>
                                                     <th>Jenis Transaksi</th>
-                                                    <th>Jenis Produk</th>
-                                                    <th>Total</th>
-                                                    <th>Pemasukan/Pengeluaram</th>
                                                     <th>Tanggal</th>
+                                                    <th>Status</th>
+                                                    <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -61,16 +62,23 @@
                                                         Green Taxonomy
                                                     </td>
                                                     <td>
-                                                        Saham
-                                                    </td>
-                                                    <td>
                                                         Rp31.000
                                                     </td>
-                                                    <td class="text-success">
-                                                        INCOME
+                                                    <td class="">
+                                                        Pemasukan
                                                     </td>
                                                     <td>
                                                         15 Juni, 2022
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge badge-success">
+                                                            Selesai
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" class="">
+                                                            Detail
+                                                        </a>
                                                     </td>
                                                 </tr>
                                                 {{-- @endforeach --}}
@@ -87,16 +95,23 @@
                                                         Green Taxonomy
                                                     </td>
                                                     <td>
-                                                        Saham
+                                                        Rp31.000
+                                                    </td>
+                                                    <td class="">
+                                                        Pembelian
                                                     </td>
                                                     <td>
-                                                        Rp30.000
-                                                    </td>
-                                                    <td class="text-success">
-                                                        INCOME
+                                                        15 Juni, 2022
                                                     </td>
                                                     <td>
-                                                        28 Mei, 2022
+                                                        <span class="badge badge-danger">
+                                                            Dibatalkan
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" class="">
+                                                            Detail
+                                                        </a>
                                                     </td>
                                                 </tr>
                                                 <tr class="">
@@ -112,16 +127,23 @@
                                                         Green Taxonomy
                                                     </td>
                                                     <td>
-                                                        Saham
+                                                        Rp31.000
+                                                    </td>
+                                                    <td class="">
+                                                        Pembelian
                                                     </td>
                                                     <td>
-                                                        Rp30.000
-                                                    </td>
-                                                    <td class="text-success">
-                                                        INCOME
+                                                        15 Juni, 2022
                                                     </td>
                                                     <td>
-                                                        29 April, 2022
+                                                        <span class="badge badge-warning">
+                                                            Pending
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" class="">
+                                                            Detail
+                                                        </a>
                                                     </td>
                                                 </tr>
                                                 <tr class="">
@@ -137,16 +159,23 @@
                                                         Green Taxonomy
                                                     </td>
                                                     <td>
-                                                        Saham
+                                                        Rp31.000
+                                                    </td>
+                                                    <td class="">
+                                                        Pembelian
                                                     </td>
                                                     <td>
-                                                        Rp150.000
-                                                    </td>
-                                                    <td class="text-danger">
-                                                        OUTCOME
+                                                        15 Juni, 2022
                                                     </td>
                                                     <td>
-                                                        26 April, 2022
+                                                        <span class="badge badge-primary">
+                                                            Menunggu Pembayaran
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" class="">
+                                                            Detail
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             </tbody>

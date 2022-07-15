@@ -6,6 +6,9 @@
         <i class="fa fa-bars"></i>
     </button>
 
+    {{-- <button class="btn rounded-circle" style="background-color: #EDEFF5">
+        <i class="fa fa-angle-left" style="width: 15px; height:16px"></i>
+    </button> --}}
     <!-- Topbar Search -->
     {{-- <form
         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -57,7 +60,7 @@
             </a>
             <!-- Dropdown - Alerts -->
             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="alertsDropdown" >
+                aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header" style="background-color: #4FBEAB; border-color: #4FBEAB">
                     Alerts Center
                 </h6>

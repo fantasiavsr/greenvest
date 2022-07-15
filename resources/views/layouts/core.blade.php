@@ -178,7 +178,6 @@
     <script src="{{ asset('demo/js/demo/chart-test.js') }}"></script>
 
 
-
     <!-- DataTables scripts -->
     <script src="{{ asset('demo/vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('demo/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
