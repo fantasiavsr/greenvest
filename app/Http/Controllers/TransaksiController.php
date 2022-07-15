@@ -34,13 +34,15 @@ class TransaksiController extends Controller
     public function greensukuk()
     {
         $user = Auth::user();
-        $green = green::whereIn('id', [2])->get();
+        $green = green::whereIn('id', [3])->get();
         $produk_green = produk_green::whereIn('green_id', [2])->get();
+        $image = produk_image::all();
         return view('pages.user.transaksi.green.sukuk.index', [
             'title' => "Transaksi | Green Sukuk",
             'user' => $user,
             'green' => $green,
             'produk_green' => $produk_green,
+            'image' => $image,
         ]);
     }
 
@@ -68,4 +70,10 @@ class TransaksiController extends Controller
             'user' => $user,
         ]);
     }
+
+    public function store(Request $request)
+    {
+        dd($request->all());
+    }
+
 }

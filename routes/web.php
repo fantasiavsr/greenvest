@@ -66,6 +66,7 @@ Route::get('item banding', [ItemController::class, 'bandingtest'])->middleware('
 
 Route::get('item beli', [ItemController::class, 'belitest'])->middleware('auth', 'user')->name('item.belitest');
 Route::get('item beli/{id}', [ItemController::class, 'beli'])->middleware('auth', 'user')->name('item.beli');
+Route::post('item beli', [TransaksiController::class, 'store'])->name('transaksi.store');
 
 
 /* Route::get('/admin-item', [adminController::class, 'index'])->middleware('auth', 'isAdmin');

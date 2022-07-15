@@ -34,10 +34,10 @@
                     <!-- Content Row -->
                     <div class="row">
 
-                        <!-- Col -->
+                        <!-- Col - Beli -->
                         <div class="col-xl-8">
                             <div class="card shadow-custom mb-4" style="width:100%">
-                                <!-- Card Header - Dropdown -->
+                                <!-- Card Header -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <div class=" align-items-center justify-content-between">
                                         <h1 class="h4 mb-0 text-gray-800 ">Pembayaran</h1>
@@ -46,13 +46,14 @@
 
                                 <!-- Card Body -->
                                 <div class="card-body py-3 ">
-                                    <form action="">
+                                    <form action="{{ route('transaksi.store') }}" method="POST">
+                                        @csrf
                                         <div class="form-outline mb-4">
                                             <label class="form-label">Pilih Metode Bayar</label>
                                             {{-- <input type="text" name="text" id="username" class="form-control"
                                                 autofocus required> --}}
                                             <select class="form-control" aria-label="Default select example" autofocus
-                                                required>
+                                                required name="bank_id" id="bank_id">
                                                 <option selected value="{{ $greenvest->id }}">Saldo Greenvest | Saldo:
                                                     Rp{{ number_format($greenvest->saldo, 0, ',', '.') }}</option>
                                                 @foreach ($metodebayar as $item)
@@ -65,30 +66,33 @@
                                         </div>
                                         <div class="form-outline mb-4">
                                             <label class="form-label">Pesan</label>
-                                            <input type="text" name="username" id="username" class="form-control"
-                                                autofocus required>
+                                            <input type="text" name="pesan" id="pesan" class="form-control"
+                                                autofocus>
                                         </div>
                                         <div class="form-outline mb-4">
                                             <label class="form-label">Total Bayar</label>
-                                            <input type="text" name="username" id="username" class="form-control"
+                                            <input type="text" name="total_bayar" id="total_bayar" class="form-control"
                                                 autofocus required
                                                 placeholder="Minimal Pembelian Rp{{ number_format($produk_green->min_pembelian_produk, 0, ',', '.') }}">
                                         </div>
-                                        {{-- <input type="hidden" id="role" name="role" value="0"> --}}
+                                        <input type="hidden" id="produk_green_id" name="produk_green_id" value="{{ $produk_green->id }}">
+                                        <input type="hidden" id="user_id" name="user_id" value="{{ $user->id }}">
+                                        <input type="hidden" id="jenis_transaksi" name="jenis_transaksi" value="Pembelian">
+                                        <input type="hidden" id="status" name="status" value="Menunggu Pembayaran">
+                                        <input type="hidden" id="kode_transaksi" name="kode_transaksi" value="@php
+                                            $kode_transaksi = 'TRX' . date('YmdHis');
+                                            echo $kode_transaksi;
+                                        @endphp">
+
                                         <!-- Submit button -->
                                         <div class="row">
                                             <div class="col">
-                                                {{-- <button type="submit" class="btn btn-lg mt-2 px-5 mb-4 text-light"
-                                                    style="background-color: #4FBEAB; width:100%">Rutin Tiap Bulan
-                                                </button> --}}
                                                 <a href="{{ route('item.detail', ['id' => $produk_green->id]) }}" class="btn btn-lg mt-2 px-5 mb-4"
                                                     style="background-color: #F9FAFC; width:100%">Cancel</a>
                                             </div>
                                             <div class="col">
-                                                <a href="#" class="btn btn-lg mt-2 px-5 mb-4 text-light"
-                                                    style="background-color: #4FBEAB; width:100%" href="#"
-                                                    data-toggle="modal" data-target="#beliModal">Beli</a>
-
+                                                <button class="btn btn-lg mt-2 px-5 mb-4 text-light"
+                                                    style="background-color: #4FBEAB; width:100%">Beli</button>
                                             </div>
                                         </div>
                                     </form>
