@@ -27,3 +27,15 @@
     position: sticky;
     top: 0;
 }
+
+form .form-control::-webkit-input-placeholder {
+    color: #b8b8b8;
+  }
+
+  :-moz-placeholder {
+    color: #b8b8b8 !important;
+  }
+
+  ::-moz-placeholder {
+    color: #b8b8b8 !important;
+  }

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Bank extends Model
+class list_transaksi extends Model
 {
     use HasFactory;
     protected $guarded = [];
@@ -14,11 +14,11 @@ class Bank extends Model
         return $this->belongsTo(user::class, 'user_id');
     }
 
-    public function dummy_bankdef(){
-        return $this->hasMany(dummy_bankdef::class);
+    public function produk_green(){
+        return $this->belongsTo(produk_green::class, 'produk_green_id');
     }
 
-    public function list_transasksi(){
-        return $this->hasMany(list_transaksi::class);
+    public function bank(){
+        return $this->belongsTo(bank::class, 'bank_id');
     }
 }

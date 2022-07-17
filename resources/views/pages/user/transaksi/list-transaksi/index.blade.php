@@ -48,45 +48,58 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {{-- @foreach ($data as $item) --}}
+                                                @foreach ($list_transaksi as $item)
+                                                    <tr class="">
+                                                        <td>
+                                                            <img class="avatar rounded-circle me-2"
+                                                                src="{{ asset('img/produk/' .$image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first()) }}"
+                                                                alt="">
+                                                        </td>
+                                                        <td>
+                                                            {{ $item->produk_green->nama }}
+                                                        </td>
+                                                        <td>
+                                                            {{ $item->produk_green->green->nama }}
+                                                        </td>
+                                                        <td>
+                                                            Rp{{ number_format($item->total_bayar, 0, ',', '.') }}
+                                                        </td>
+                                                        <td class="">
+                                                            {{ $item->jenis_transaksi }}
+                                                        </td>
+                                                        <td>
+                                                            {{ $item->created_at->format('d M, Y') }}
+                                                        </td>
+                                                        <td>
+                                                            @if ($item->status == 'Selesai')
+                                                                <span class="badge badge-success">
+                                                                    {{ $item->status }}
+                                                                </span>
+                                                            @elseif ($item->status == 'Dibatalkan')
+                                                                <span class="badge badge-danger">
+                                                                    {{ $item->status }}
+                                                                </span>
+                                                            @elseif ($item->status == 'Pending')
+                                                                <span class="badge badge-warning">
+                                                                    {{ $item->status }}
+                                                                </span>
+                                                            @elseif ($item->status == 'Menunggu Pembayaran')
+                                                                <span class="badge badge-primary">
+                                                                    {{ $item->status }}
+                                                                </span>
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            <a href="#" class="">
+                                                                Detail
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                                 <tr class="">
                                                     <td>
                                                         <img class="avatar me-2"
-                                                            src="{{ asset('img/item-sample1.png') }}"
-                                                            alt="">
-                                                    </td>
-                                                    <td>
-                                                        Adidas-AM Indeks IDX45
-                                                    </td>
-                                                    <td>
-                                                        Green Taxonomy
-                                                    </td>
-                                                    <td>
-                                                        Rp31.000
-                                                    </td>
-                                                    <td class="">
-                                                        Pemasukan
-                                                    </td>
-                                                    <td>
-                                                        15 Juni, 2022
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge-success">
-                                                            Selesai
-                                                        </span>
-                                                    </td>
-                                                    <td>
-                                                        <a href="#" class="">
-                                                            Detail
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                {{-- @endforeach --}}
-                                                <tr class="">
-                                                    <td>
-                                                        <img class="avatar me-2"
-                                                            src="{{ asset('img/item-sample1.png') }}"
-                                                            alt="">
+                                                            src="{{ asset('img/item-sample1.png') }}" alt="">
                                                     </td>
                                                     <td>
                                                         Adidas-AM Indeks IDX45
@@ -117,8 +130,7 @@
                                                 <tr class="">
                                                     <td>
                                                         <img class="avatar me-2"
-                                                            src="{{ asset('img/item-sample1.png') }}"
-                                                            alt="">
+                                                            src="{{ asset('img/item-sample1.png') }}" alt="">
                                                     </td>
                                                     <td>
                                                         Adidas-AM Indeks IDX45
@@ -149,8 +161,7 @@
                                                 <tr class="">
                                                     <td>
                                                         <img class="avatar me-2"
-                                                            src="{{ asset('img/item-sample1.png') }}"
-                                                            alt="">
+                                                            src="{{ asset('img/item-sample1.png') }}" alt="">
                                                     </td>
                                                     <td>
                                                         Adidas-AM Indeks IDX45
@@ -168,8 +179,8 @@
                                                         15 Juni, 2022
                                                     </td>
                                                     <td>
-                                                        <span class="badge badge-primary">
-                                                            Menunggu Pembayaran
+                                                        <span class="badge badge-success">
+                                                                Selesai
                                                         </span>
                                                     </td>
                                                     <td>
@@ -182,7 +193,7 @@
                                         </table>
                                     </div>
                                 </div>
-                               {{--  <!-- Card Footer -->
+                                {{-- <!-- Card Footer -->
                                 <div class="card-footer flex-row align-items-center text-center">
                                     <a href="#">Lihat Semua</a>
                                 </div> --}}

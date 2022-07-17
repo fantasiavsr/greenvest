@@ -50,8 +50,6 @@
                                         @csrf
                                         <div class="form-outline mb-4">
                                             <label class="form-label">Pilih Metode Bayar</label>
-                                            {{-- <input type="text" name="text" id="username" class="form-control"
-                                                autofocus required> --}}
                                             <select class="form-control" aria-label="Default select example" autofocus
                                                 required name="bank_id" id="bank_id">
                                                 <option selected value="{{ $greenvest->id }}">Saldo Greenvest | Saldo:
@@ -74,12 +72,18 @@
                                             <input type="text" name="total_bayar" id="total_bayar" class="form-control"
                                                 autofocus required
                                                 placeholder="Minimal Pembelian Rp{{ number_format($produk_green->min_pembelian_produk, 0, ',', '.') }}">
+                                            @if ($errors->any())
+                                                <p class="text-danger" style="font-size: 14px">{{ $errors->first() }}</p>
+                                            @endif
                                         </div>
-                                        <input type="hidden" id="produk_green_id" name="produk_green_id" value="{{ $produk_green->id }}">
+
                                         <input type="hidden" id="user_id" name="user_id" value="{{ $user->id }}">
+                                        <input type="hidden" id="produk_green_id" name="produk_green_id"
+                                            value="{{ $produk_green->id }}">
                                         <input type="hidden" id="jenis_transaksi" name="jenis_transaksi" value="Pembelian">
                                         <input type="hidden" id="status" name="status" value="Menunggu Pembayaran">
-                                        <input type="hidden" id="kode_transaksi" name="kode_transaksi" value="@php
+                                        <input type="hidden" id="kode_transaksi" name="kode_transaksi"
+                                            value="@php
                                             $kode_transaksi = 'TRX' . date('YmdHis');
                                             echo $kode_transaksi;
                                         @endphp">
@@ -87,7 +91,8 @@
                                         <!-- Submit button -->
                                         <div class="row">
                                             <div class="col">
-                                                <a href="{{ route('item.detail', ['id' => $produk_green->id]) }}" class="btn btn-lg mt-2 px-5 mb-4"
+                                                <a href="{{ route('item.detail', ['id' => $produk_green->id]) }}"
+                                                    class="btn btn-lg mt-2 px-5 mb-4"
                                                     style="background-color: #F9FAFC; width:100%">Cancel</a>
                                             </div>
                                             <div class="col">
@@ -124,23 +129,21 @@
                                                 </tr>
                                             </thead> --}}
                                             <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="col">
-                                                                <div class="row"
-                                                                    style="font-size: 14px; font-weight:bolder">
-                                                                    {{ $greenvest->bank_name }}
-                                                                </div>
-                                                                <div class="row text-start text-muted"
-                                                                    style="font-size: 14px">
-                                                                    {{ substr($greenvest->no_rekening, 0, 3) . '******' . substr($greenvest->no_rekening, strlen($greenvest->no_rekening) - 3, 3) }}
-                                                                </div>
+                                                <tr>
+                                                    <td>
+                                                        <div class="col">
+                                                            <div class="row" style="font-size: 14px; font-weight:bolder">
+                                                                {{ $greenvest->bank_name }}
                                                             </div>
-                                                        </td>
-                                                        <td>
-                                                            Rp{{ number_format($greenvest->saldo, 0, ',', '.') }}
-                                                        </td>
-                                                    </tr>
+                                                            <div class="row text-start text-muted" style="font-size: 14px">
+                                                                {{ substr($greenvest->no_rekening, 0, 3) . '******' . substr($greenvest->no_rekening, strlen($greenvest->no_rekening) - 3, 3) }}
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        Rp{{ number_format($greenvest->saldo, 0, ',', '.') }}
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
 
@@ -215,7 +218,8 @@
                                                     <tr>
                                                         <td colspan="3" class="text-center" style="font-size: 14px">
                                                             <div class="text-muted">
-                                                                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                                                <i class="fa fa-exclamation-circle"
+                                                                    aria-hidden="true"></i>
                                                                 Belum ada akun e-wallet yang terdaftar.
                                                             </div>
                                                         </td>
