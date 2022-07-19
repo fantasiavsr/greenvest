@@ -57,7 +57,11 @@
                                                     <tr class="">
                                                         <td>
                                                             <img class="avatar rounded-circle me-2"
+                                                            @if ($image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first() != null)
                                                                 src="{{ asset('img/produk/' .$image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first()) }}"
+                                                            @else
+                                                                src="{{ asset('img/produk/default.png') }}"
+                                                            @endif
                                                                 alt="">
                                                         </td>
                                                         <td>
@@ -111,24 +115,6 @@
                         </div>
 
                     </div>
-
-                    <div class="row">
-
-                        <div class="col">
-                            <div class="card shadow-custom mb-4" style="width:100%">
-                                <!-- Card Body -->
-                                <div class="card-body">
-
-                                </div>
-                                {{-- <!-- Card Footer -->
-                                <div class="card-footer flex-row align-items-center text-center">
-                                    <a href="#">Lihat Semua</a>
-                                </div> --}}
-                            </div>
-                        </div>
-
-                    </div>
-
 
                 </div>
                 <!-- /.container-fluid -->
