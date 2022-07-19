@@ -91,8 +91,11 @@
                                                 @foreach ($produk_green as $item)
                                                     <tr class="">
                                                         <td>
-                                                            <img class="avatar rounded-circle me-2"
+                                                            @if ($image->where('produk_green_id', $item->id)->pluck('image')->first() != null)
                                                                 src="{{ asset('img/produk/' .$image->where('produk_green_id', $item->id)->pluck('image')->first()) }}"
+                                                            @else
+                                                                src="{{ asset('img/produk/default.png') }}"
+                                                            @endif
                                                                 alt="">
                                                         </td>
                                                         <td>{{ $item->nama }}</td>
