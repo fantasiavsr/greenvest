@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DeveloperController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PortofolioController;
@@ -38,7 +39,7 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register.s
 /* Route::get('/home', [homeController::class, 'index'])->middleware('auth', 'User')->name('home'); */
 
 /* Resource */
-Route::resource('user', UserController::class)->middleware('auth', 'user');
+Route::resource('user', UserController::class)->middleware('auth', 'user', 'admin');
 /* Route::resource('developer', DeveloperController::class)->middleware('auth', 'developer'); */
 
 /* dummy bankdef - user dashboard */
@@ -69,6 +70,9 @@ Route::get('item beli/{id}', [ItemController::class, 'beli'])->middleware('auth'
 Route::post('item beli', [TransaksiController::class, 'store'])->name('transaksi.store');
 
 
+Route::get('admin-transaksi', [AdminController::class, 'list_transaksi'])->middleware('auth', 'admin')->name('admin.transaksi');
+Route::get('admin-transaksi/{id}', [AdminController::class, 'edit_transaksi'])->middleware('auth', 'admin')->name('admin.edit.transaksi');
+Route::post('admin-transaksi', [AdminController::class, 'update_transaksi'])->middleware('auth', 'admin')->name('admin.update.transaksi');
 /* Route::get('/admin-item', [adminController::class, 'index'])->middleware('auth', 'isAdmin');
 Route::delete('/admin-item/{id}', [adminController::class, 'deleteItem']);
 Route::get('/admin-item/edit/{id}', [adminController::class, 'mengubahItem']);

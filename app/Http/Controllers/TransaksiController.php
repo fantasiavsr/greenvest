@@ -24,11 +24,13 @@ class TransaksiController extends Controller
         $user = Auth::user();
         $green = green::whereIn('id', [2])->get();
         $produk_green = produk_green::whereIn('green_id', [2])->get();
+        $image = produk_image::all();
         return view('pages.user.transaksi.green.bond.index', [
             'title' => "Transaksi | Green Bond",
             'user' => $user,
             'green' => $green,
             'produk_green' => $produk_green,
+            'image' => $image,
         ]);
     }
 
@@ -36,7 +38,7 @@ class TransaksiController extends Controller
     {
         $user = Auth::user();
         $green = green::whereIn('id', [3])->get();
-        $produk_green = produk_green::whereIn('green_id', [2])->get();
+        $produk_green = produk_green::whereIn('green_id', [1])->get();
         $image = produk_image::all();
         return view('pages.user.transaksi.green.sukuk.index', [
             'title' => "Transaksi | Green Sukuk",

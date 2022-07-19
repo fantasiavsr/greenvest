@@ -5,7 +5,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        @include('Partials.sidebar')
+        @include('Partials.sidebardev')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -23,11 +23,7 @@
 
                     {{-- Sub Title --}}
                     <div class="d-sm-flex align-items-center justify-content-between pt-2 mt-4 mb-4">
-                        <h1 class="h3 mb-0 text-gray-800 ">Portofolio</h1>
-                    </div>
-
-                    <div class="d-sm-flex align-items-center justify-content-between pb-2">
-                        <h7 class=" mb-0 text-gray-800 ">Tanggal: {{ Carbon\Carbon::now() }}</h7>
+                        <h1 class="h3 mb-0 text-gray-800 ">List Transaksi</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -41,17 +37,16 @@
                                         <table class="table table-hover" id="dataTable">
                                             <thead>
                                                 <tr>
-                                                    <th>No</th>
-                                                    <th>Nama</th>
-                                                    <th>1 Year Return</th>
-                                                    <th>Total AUM</th>
-                                                    <th>Jenis Produk</th>
-                                                    <th>Total Pembelian</th>
-                                                    <th>Laba</th>
-                                                    <th>NIlai Portofolio</th>
+                                                    <th></th>
+                                                    <th>Nama User</th>
+                                                    <th>Produk</th>
+                                                    <th>Total Bayar</th>
+                                                    <th>Jenis Transaksi</th>
+                                                    <th>Waktu</th>
+                                                    <th>Status</th>
                                                     <th>Aksi</th>
-                                                    {{-- <th>Jual</th> --}}
                                                 </tr>
+                                            </thead>
                                             <tbody>
                                                 @foreach ($list_transaksi as $item)
                                                     <tr class="">
@@ -61,64 +56,49 @@
                                                                 alt="">
                                                         </td>
                                                         <td>
+                                                            {{ $item->user->nama_lengkap }}
+                                                        </td>
+                                                        <td>
                                                             {{ $item->produk_green->nama }}
-                                                        </td>
-                                                        <td>
-                                                            {{ $item->produk_green->year_return }}
-                                                        </td>
-                                                        <td>
-                                                            {{ $item->produk_green->total_aum }}
-                                                        </td>
-                                                        <td>
-                                                            {{ $item->produk_green->jenis_produk }}
                                                         </td>
                                                         <td>
                                                             Rp{{ number_format($item->total_bayar, 0, ',', '.') }}
                                                         </td>
-                                                        <td>
-                                                            {{ $dummy_laba->where('produk_green_id', $item->produk_green->id)->pluck('laba')->first() }}%
-                                                        </td>
-                                                        {{-- Nilai Portofolio --}}
-                                                        <td>
-                                                            @php
-                                                                $nilai_portofolio =
-                                                                    $item->total_bayar *
-                                                                    ($dummy_laba
-                                                                        ->where('produk_green_id', $item->produk_green->id)
-                                                                        ->pluck('laba')
-                                                                        ->first() /
-                                                                        100);
-                                                            @endphp
-                                                            Rp{{ number_format($item->total_bayar + $nilai_portofolio, 0, ',', '.') }}
+                                                        <td class="">
+                                                            {{ $item->jenis_transaksi }}
                                                         </td>
                                                         <td>
-                                                            <a class="link-info" href="{{-- {{ route('item.detailtest') }} --}}#">Detail</a>
+                                                            {{ $item->created_at->format('d F, Y, H:i:s') }}
                                                         </td>
-                                                        {{-- <td>
-                                                        <a class="link-info" href="{{ route('item.detailtest') }}">Jual</a>
-                                                    </td> --}}
+                                                        <td>
+                                                            @if ($item->status == 'Selesai')
+                                                                <span class="badge badge-success">
+                                                                    {{ $item->status }}
+                                                                </span>
+                                                            @elseif ($item->status == 'Dibatalkan')
+                                                                <span class="badge badge-danger">
+                                                                    {{ $item->status }}
+                                                                </span>
+                                                            @elseif ($item->status == 'Pending')
+                                                                <span class="badge badge-warning">
+                                                                    {{ $item->status }}
+                                                                </span>
+                                                            @elseif ($item->status == 'Menunggu Pembayaran')
+                                                                <span class="badge badge-primary">
+                                                                    {{ $item->status }}
+                                                                </span>
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            <a href="{{ route('admin.edit.transaksi', ['id' => $item->id]) }}" class="">
+                                                                Detail
+                                                            </a>
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
-                                {{-- <!-- Card Footer -->
-                                <div class="card-footer flex-row align-items-center text-center">
-                                    <a href="#">Lihat Semua</a>
-                                </div> --}}
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-
-                        <div class="col">
-                            <div class="card shadow-custom mb-4" style="width:100%">
-                                <!-- Card Body -->
-                                <div class="card-body">
-
                                 </div>
                                 {{-- <!-- Card Footer -->
                                 <div class="card-footer flex-row align-items-center text-center">

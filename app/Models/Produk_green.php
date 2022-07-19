@@ -20,4 +20,13 @@ class produk_green extends Model
     public function produk_image(){
         return $this->hasMany(produk_image::class, 'produk_green_id');
     }
+
+    public function dummy_laba(){
+        return $this->hasMany(dummy_laba::class, 'produk_green_id');
+    }
+
+    public function google_finance(){
+        return $this->hasMany(google_finance::class, 'produk_green_id');
+    }
+
 }

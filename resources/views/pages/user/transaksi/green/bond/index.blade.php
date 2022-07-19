@@ -83,160 +83,28 @@
                                                     <th></th>
                                                     <th>Nama</th>
                                                     <th>1 Year Return</th>
-                                                    <th>Expense Ratio</th>
-                                                    <th>AUM</th>
+                                                    <th>Total AUM</th>
+                                                    <th>Jenis Produk</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             <tbody>
-                                                {{-- @foreach ($data as $item) --}}
-                                                <tr class="">
-                                                    <td>
-                                                        <img class="avatar me-2" src="{{ asset('img/item-sample1.png') }}"
-                                                            alt="">
-                                                    </td>
-                                                    <td>
-                                                        Adidas-AM Indeks IDX45
-                                                    </td>
-                                                    <td>
-                                                        20.36%
-                                                    </td>
-                                                    <td>
-                                                        2.36%
-                                                    </td>
-                                                    <td>
-                                                        1.27T
-                                                    </td>
-                                                    <td>
-                                                        <a class="link-info" href="">Detail</a>
-                                                    </td>
-                                                </tr>
-                                                {{-- @endforeach --}}
-                                                <tr class="">
-                                                    <td>
-                                                        <img class="avatar me-2" src="{{ asset('img/item-sample4.png') }}"
-                                                            alt="">
-                                                    </td>
-                                                    <td>
-                                                        Adidas-AM Harmoni
-                                                    </td>
-                                                    <td>
-                                                        23.26%
-                                                    </td>
-                                                    <td>
-                                                        1.36%
-                                                    </td>
-                                                    <td>
-                                                        1.38T
-                                                    </td>
-                                                    <td>
-                                                        <a class="link-info" href="">Detail</a>
-                                                    </td>
-                                                </tr>
-                                                <tr class="">
-                                                    <td>
-                                                        <img class="avatar me-2" src="{{ asset('img/item-sample3.png') }}"
-                                                            alt="">
-                                                    </td>
-                                                    <td>
-                                                        Adidas-AM Indeks IDX45
-                                                    </td>
-                                                    <td>
-                                                        20.36%
-                                                    </td>
-                                                    <td>
-                                                        2.36%
-                                                    </td>
-                                                    <td>
-                                                        1.27T
-                                                    </td>
-                                                    <td>
-                                                        <a class="link-info" href="">Detail</a>
-                                                    </td>
-                                                </tr>
-                                                <tr class="">
-                                                    <td>
-                                                        <img class="avatar me-2" src="{{ asset('img/item-sample2.png') }}"
-                                                            alt="">
-                                                    </td>
-                                                    <td>
-                                                        Adidas-AM Indeks IDX45
-                                                    </td>
-                                                    <td>
-                                                        20.36%
-                                                    </td>
-                                                    <td>
-                                                        2.36%
-                                                    </td>
-                                                    <td>
-                                                        1.27T
-                                                    </td>
-                                                    <td>
-                                                        <a class="link-info" href="">Detail</a>
-                                                    </td>
-                                                </tr>
-                                                <tr class="">
-                                                    <td>
-                                                        <img class="avatar me-2" src="{{ asset('img/item-sample1.png') }}"
-                                                            alt="">
-                                                    </td>
-                                                    <td>
-                                                        Adidas-AM Indeks IDX45
-                                                    </td>
-                                                    <td>
-                                                        20.36%
-                                                    </td>
-                                                    <td>
-                                                        2.36%
-                                                    </td>
-                                                    <td>
-                                                        1.27T
-                                                    </td>
-                                                    <td>
-                                                        <a class="link-info" href="">Detail</a>
-                                                    </td>
-                                                </tr>
-                                                <tr class="">
-                                                    <td>
-                                                        <img class="avatar me-2" src="{{ asset('img/item-sample2.png') }}"
-                                                            alt="">
-                                                    </td>
-                                                    <td>
-                                                        Adidas-AM Indeks IDX45
-                                                    </td>
-                                                    <td>
-                                                        20.36%
-                                                    </td>
-                                                    <td>
-                                                        2.36%
-                                                    </td>
-                                                    <td>
-                                                        1.27T
-                                                    </td>
-                                                    <td>
-                                                        <a class="link-info" href="">Detail</a>
-                                                    </td>
-                                                </tr>
-                                                <tr class="">
-                                                    <td>
-                                                        <img class="avatar me-2" src="{{ asset('img/item-sample2.png') }}"
-                                                            alt="">
-                                                    </td>
-                                                    <td>
-                                                        Adidas-AM Indeks IDX45
-                                                    </td>
-                                                    <td>
-                                                        20.36%
-                                                    </td>
-                                                    <td>
-                                                        2.36%
-                                                    </td>
-                                                    <td>
-                                                        1.27T
-                                                    </td>
-                                                    <td>
-                                                        <a class="link-info" href="">Detail</a>
-                                                    </td>
-                                                </tr>
+                                                @foreach ($produk_green as $item)
+                                                    <tr class="">
+                                                        <td>
+                                                            <img class="avatar rounded-circle me-2"
+                                                                src="{{ asset('img/produk/' .$image->where('produk_green_id', $item->id)->pluck('image')->first()) }}"
+                                                                alt="">
+                                                        </td>
+                                                        <td>{{ $item->nama }}</td>
+                                                        <td>{{ $item->year_return }}</td>
+                                                        <td>{{ $item->total_aum }}</td>
+                                                        <td>{{ $item->jenis_produk }}</td>
+                                                        <td>
+                                                            <a class="link-info"
+                                                                href="{{ route('item.detail', ['id' => $item->id]) }}">Detail</a>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>

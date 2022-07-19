@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class DeveloperMiddleware
+class AdminMiddleware
 {
     /**
      * Handle an incoming request.
@@ -17,7 +17,7 @@ class DeveloperMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->level == "Developer") {
+        if (Auth::user()->level == "Admin") {
             return $next($request);
         };
         return redirect('login');

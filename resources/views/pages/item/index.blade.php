@@ -25,26 +25,21 @@
                     <div class="d-sm-flex align-items-center justify-content-between pt-2 mt-1 mb-4">
                         <div class="">
                             <h1 class="text-gray-800" style="font-weight:700; font-size:32px;">
-                                <a
-                                @if ($produk_green->green_id == "1")
-                                    href="{{ route('transaksi.greensukuk') }}"
-                                @elseif ($produk_green->green_id == "2")
+                                <a @if ($produk_green->green_id == '1') href="{{ route('transaksi.greensukuk') }}"
+                                @elseif ($produk_green->green_id == '2')
                                     href="{{ route('transaksi.greenbond') }}"
-                                @elseif ($produk_green->green_id == "3")
-                                    href="{{ route('transaksi.greentaxonomy') }}"
-                                @endif
-                                class="btn rounded-circle mr-1" style="background-color: #EDEFF5">
+                                @elseif ($produk_green->green_id == '3')
+                                    href="{{ route('transaksi.greentaxonomy') }}" @endif
+                                    class="btn rounded-circle mr-1" style="background-color: #EDEFF5">
                                     <i class="fa fa-angle-left" style="width: 9px; height:9px"></i>
                                 </a>
                                 {{ $produk_green->nama }}
                                 <span class="badge text-light"
-                                    @if ($produk_green->kategori == 'Green')
-                                        style="font-weight:500; font-size:15px; background-color:#4FBEAB"
+                                    @if ($produk_green->kategori == 'Green') style="font-weight:500; font-size:15px; background-color:#4FBEAB"
                                     @elseif ($produk_green->kategori == 'Yellow')
                                         style="font-weight:500; font-size:15px; background-color:#FFB020"
                                     @elseif ($produk_green->kategori == 'Red')
-                                        style="font-weight:500; font-size:15px; background-color:#D14343"
-                                    @endif>
+                                        style="font-weight:500; font-size:15px; background-color:#D14343" @endif>
                                     {{ $produk_green->kategori }}
                                 </span>
                             </h1>

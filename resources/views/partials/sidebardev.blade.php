@@ -12,31 +12,31 @@
     <hr class="sidebar-divider my-2">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item {{ (request()->is('dashboard')) ? 'active' : '' }}">
-        <a class="nav-link" href="{{ 'dashboard' }}"
+    <li class="nav-item {{ (request()->is('user')) ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('user.index') }}"
             @if ($title === 'Dashboard') style="color: #4FBEAB; background-color:#F9FAFC;  border-right: 8px solid #4FBEAB;" @endif>
             <i class="fas fa-fw fa-home"></i>
             <span>Dashboard</span></a>
     </li>
 
-    {{-- <!-- Divider -->
+    <!-- Divider -->
     <hr class="sidebar-divider">
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Investment
+        Transaksi
     </div>
 
     <!-- Nav Item - Portofolio -->
-    <li class="nav-item {{ (request()->is('portofolio')) ? 'active' : '' }}">
-        <a class="nav-link " href="{{ route('portofolio') }}"
-            @if ($title === 'Portofolio') style="color: #4FBEAB; background-color:#F9FAFC;  border-right: 8px solid #4FBEAB;" @endif>
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Portofolio</span>
+    <li class="nav-item {{ (request()->is('admin-transaksi')) ? 'active' : '' }}">
+        <a class="nav-link " href="{{ route('admin.transaksi') }}"
+            @if ($title === 'Admin - List Transaksi') style="color: #4FBEAB; background-color:#F9FAFC;  border-right: 8px solid #4FBEAB;" @endif>
+            <i class="fas fa-fw fa-credit-card"></i>
+            <span>List Transaksi</span>
         </a>
     </li>
 
-    <!-- Nav Item - Transaksi -->
+    {{-- <!-- Nav Item - Transaksi -->
     <li
         class="nav-item {{ (request()->is('transaksi*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -62,10 +62,10 @@
                     List Transaksi</a>
             </div>
         </div>
-    </li>
+    </li> --}}
 
     <!-- Divider -->
-    <hr class="sidebar-divider"> --}}
+    <hr class="sidebar-divider">
 
     <!-- Heading - Utilites -->
     <div class="sidebar-heading">
