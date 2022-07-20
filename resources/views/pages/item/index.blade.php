@@ -75,7 +75,7 @@
                                     @endif
                                     <div class="chart-area">
                                         <canvas id="myAreaChart"></canvas>
-                                        @if (!isset($charttest))
+                                        @if (!isset($charttest) && !isset($charts))
                                             <div class="text-center">
                                                 Tidak ada data.
                                             </div>
@@ -95,8 +95,8 @@
                     <div class="row">
 
                         <!-- Card -->
-                        <div class="col d-flex">
-                            <div class="card shadow-custom-green mb-4" style="width:100%" {{-- style="background-color: #4FBEAB" --}}>
+                        {{-- <div class="col d-flex">
+                            <div class="card shadow-custom-green mb-4" style="width:100%">
                                 <!-- Card Body -->
                                 <div class="card-body text-light" style="background-color: #4FBEAB">
 
@@ -121,6 +121,72 @@
                                                             <td>{{ $produk_green->total_aum }}</td>
                                                             <td>{{ $produk_green->jenis_produk }}</td>
                                                             <td>{{ $produk_green->tingkat_risiko }}</td>
+                                                        </tr>
+                                                        </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-2 pt-2">
+                                            <a href="{{ route('item.bandingtest') }}" class="btn btn-light mt-2"
+                                                style="width:100%">Bandingkan</a>
+                                            <div class="text-center pt-3">
+                                                <a href="#" class="text-light">
+                                                    <i class="fas fa-fw fa-question"></i>
+                                                    <span>Bantuan</span>
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div> --}}
+
+                        <div class="col d-flex">
+                            <div class="card shadow-custom-green mb-4" style="width:100%">
+                                <!-- Card Body -->
+                                <div class="card-body text-light" style="background-color: #4FBEAB">
+
+                                    <div class="row d-flex px-3">
+                                        <div class="col-xl-10">
+                                            <div class="table-responsive" style="">
+                                                <table class="table table-borderless text-light">
+                                                    <thead>
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Closing</th>
+                                                                <th>Year Return</th>
+                                                                <th>Market Cap</th>
+                                                                <th>Jenis Produk</th>
+                                                                <th>Tingkat Risiko</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                    </thead>
+                                                    <tbody">
+                                                        <tr>
+                                                            @if (isset($googlefin_format))
+                                                                @php
+                                                                    $n = $googlefin_format->market_cap;
+
+                                                                    if ($n > 1000000000000) {
+                                                                        $nfixed = round($n / 1000000000000, 2) . ' Triliun';
+                                                                    } elseif ($n > 1000000000) {
+                                                                        $nfixed = round($n / 1000000000, 2) . ' Milliar';
+                                                                    } elseif ($n > 1000000) {
+                                                                        $nfixed = round($n / 1000000, 2) . ' Juta';
+                                                                    }
+                                                                @endphp
+
+                                                                <td>Rp{{ number_format($googlefin_format->pre_close, 0, ',', '.') }}
+                                                                </td>
+                                                                <td>{{ $googlefin_format->div_yield }}%</td>
+                                                                <td>{{ $nfixed }}</td>
+                                                                <td>{{ $produk_green->jenis_produk }}</td>
+                                                                <td>{{ $produk_green->tingkat_risiko }}</td>
+                                                            @endif
                                                         </tr>
                                                         </tbody>
                                                 </table>

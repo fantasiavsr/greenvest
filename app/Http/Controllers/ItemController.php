@@ -12,6 +12,8 @@ use App\Models\saldo_greenvest;
 use App\Models\google_finance;
 use App\Models\dummy_simulasi;
 use App\Models\dummy_laba;
+use App\Models\googlefin_format;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -37,6 +39,7 @@ class ItemController extends Controller
         $user = Auth::user();
         $produk_green = produk_green::where('id', $id)->first();
         $google_finance = google_finance::where('produk_green_id', $id)->first();
+        $googlefin_format = googlefin_format::where('produk_green_id', $id)->first();
 
         /* Google Finance API */
         if (isset($google_finance)) {
@@ -77,6 +80,7 @@ class ItemController extends Controller
             'switch' => $switch,
             'charttest' => $charttest,
             'charts' => $charts,
+            'googlefin_format' => $googlefin_format,
         ]);
     }
 

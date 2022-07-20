@@ -192,9 +192,26 @@
                                                                         {{ $item->produk_green->nama }}
                                                                     </div>
                                                                     <div class="row text-start fw-lighter text-muted">
-                                                                        1 Year Return
-                                                                        {{ $item->produk_green->year_return }} |
-                                                                        Total AUM {{ $item->produk_green->total_aum }}
+                                                                        @if ($googlefin_format->where('produk_green_id', $item->produk_green->id)->first() != null)
+                                                                            @php
+                                                                                $n = $googlefin_format->where('produk_green_id', $item->produk_green->id)->pluck('market_cap')->first();
+
+                                                                                if ($n > 1000000000000) {
+                                                                                    $nfixed = round($n / 1000000000000, 2) . ' Triliun';
+                                                                                } elseif ($n > 1000000000) {
+                                                                                    $nfixed = round($n / 1000000000, 2) . ' Milliar';
+                                                                                } elseif ($n > 1000000) {
+                                                                                    $nfixed = round($n / 1000000, 2) . ' Juta';
+                                                                                }
+                                                                            @endphp
+                                                                        @endif
+                                                                        Year Return:
+                                                                        {{ $googlefin_format->where('produk_green_id', $item->produk_green->id)->pluck('div_yield')->first() }}%
+                                                                        |
+                                                                        Market Cap:
+                                                                        @if ($googlefin_format->where('produk_green_id', $item->produk_green->id)->first() != null)
+                                                                            {{ $nfixed }}
+                                                                        @endif
                                                                     </div>
                                                                 </div>
                                                             </td>

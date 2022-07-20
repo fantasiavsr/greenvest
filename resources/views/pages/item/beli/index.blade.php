@@ -449,8 +449,6 @@
     <!-- Logout Modal-->
     @include('Partials.logoutmodal')
 
-    <!-- Logout Modal-->
-    @include('Partials.belimodal')
 
     {{-- Custom DataTables --}}
     {{-- <script>

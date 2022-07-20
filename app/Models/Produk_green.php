@@ -32,4 +32,8 @@ class produk_green extends Model
     public function dummy_simulasi(){
         return $this->hasMany(dummy_simulasi::class, 'produk_green_id');
     }
+
+    public function googlefin_format(){
+        return $this->hasMany(googlefin_format::class, 'produk_green_id');
+    }
 }

@@ -9,6 +9,7 @@ use App\Models\list_transaksi;
 use App\Models\produk_green;
 use App\Models\produk_image;
 use App\Models\dummy_laba;
+use App\Models\googlefin_format;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,6 +36,9 @@ class UserController extends Controller
 
         $portofolio = list_transaksi::where('user_id', $user->id)->where('status', 'selesai')->orderBy('created_at', 'DESC')->get();
         $dummy_laba = dummy_laba::all();
+
+        $googlefin_format = googlefin_format::all();
+
         /* dd($level); */
         if ($level == "Admin") {
             return view('pages.admin.index', compact('user'), [
@@ -53,6 +57,7 @@ class UserController extends Controller
                 'list_transaksi' => $list_transaksi,
                 'portofolio' => $portofolio,
                 'dummy_laba' => $dummy_laba,
+                'googlefin_format' => $googlefin_format,
             ]);
         } else if ($level == "Developer") {
             return view('pages.developer.index', compact('user'), [

@@ -74,9 +74,6 @@ Route::post('item beli', [TransaksiController::class, 'store'])->name('transaksi
 Route::get('admin-transaksi', [AdminController::class, 'list_transaksi'])->middleware('auth', 'admin')->name('admin.transaksi');
 Route::get('admin-transaksi/{id}', [AdminController::class, 'edit_transaksi'])->middleware('auth', 'admin')->name('admin.edit.transaksi');
 Route::post('admin-transaksi', [AdminController::class, 'update_transaksi'])->middleware('auth', 'admin')->name('admin.update.transaksi');
-/* Route::get('/admin-item', [adminController::class, 'index'])->middleware('auth', 'isAdmin');
-Route::delete('/admin-item/{id}', [adminController::class, 'deleteItem']);
-Route::get('/admin-item/edit/{id}', [adminController::class, 'mengubahItem']);
-Route::post('/admin-item/{id}', [adminController::class, 'ubahdataItem']);
-Route::get('/admin-createitem', [adminController::class, 'createItem']);
-Route::post('/admin-createiteme', [adminController::class, 'storeItem']); */
+Route::get('admin-item', [AdminController::class, 'list_item'])->middleware('auth', 'admin')->name('admin.item');
+Route::get('admin-item/{id}', [AdminController::class, 'edit_item'])->middleware('auth', 'admin')->name('admin.edit.item');
+Route::post('admin-item', [AdminController::class, 'update_titem'])->middleware('auth', 'admin')->name('admin.update.item');

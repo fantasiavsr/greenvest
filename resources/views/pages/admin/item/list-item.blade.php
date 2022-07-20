@@ -5,7 +5,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        @include('Partials.sidebar')
+        @include('Partials.sidebardev')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -23,7 +23,7 @@
 
                     {{-- Sub Title --}}
                     <div class="d-sm-flex align-items-center justify-content-between pt-2 mt-4 mb-4">
-                        <h1 class="h3 mb-0 text-gray-800 ">List Transaksi</h1>
+                        <h1 class="h3 mb-0 text-gray-800 ">List Item</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -40,61 +40,39 @@
                                                     <th></th>
                                                     <th>Nama</th>
                                                     <th>Jenis Green</th>
-                                                    <th>Total Bayar</th>
-                                                    <th>Jenis Transaksi</th>
-                                                    <th>Tanggal</th>
-                                                    <th>Status</th>
+                                                    <th>Kategori</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($list_transaksi as $item)
+                                                @foreach ($list_item as $item)
                                                     <tr class="">
                                                         <td>
                                                             <img class="avatar rounded-circle me-2"
-                                                            @if ($image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first() != null)
-                                                                src="{{ asset('img/produk/' .$image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first()) }}"
+                                                                @if ($image->where('produk_green_id', $item->id)->pluck('image')->first() != null) src="{{ asset('img/produk/' .$image->where('produk_green_id', $item->id)->pluck('image')->first()) }}"
                                                             @else
-                                                                src="{{ asset('img/produk/default.png') }}"
-                                                            @endif
+                                                                src="{{ asset('img/produk/default.png') }}" @endif
                                                                 alt="">
                                                         </td>
                                                         <td>
-                                                            {{ $item->produk_green->nama }}
+                                                            {{ $item->nama }}
                                                         </td>
                                                         <td>
-                                                            {{ $item->produk_green->green->nama }}
+                                                            {{ $item->green->nama }}
                                                         </td>
                                                         <td>
-                                                            Rp{{ number_format($item->total_bayar, 0, ',', '.') }}
-                                                        </td>
-                                                        <td class="">
-                                                            {{ $item->jenis_transaksi }}
-                                                        </td>
-                                                        <td>
-                                                            {{ $item->created_at->format('d M, Y') }}
-                                                        </td>
-                                                        <td>
-                                                            @if ($item->status == 'Selesai')
-                                                                <span class="badge badge-success">
-                                                                    {{ $item->status }}
-                                                                </span>
-                                                            @elseif ($item->status == 'Dibatalkan')
-                                                                <span class="badge badge-danger">
-                                                                    {{ $item->status }}
-                                                                </span>
-                                                            @elseif ($item->status == 'Pending')
-                                                                <span class="badge badge-warning">
-                                                                    {{ $item->status }}
-                                                                </span>
-                                                            @elseif ($item->status == 'Menunggu Pembayaran')
-                                                                <span class="badge badge-primary">
-                                                                    {{ $item->status }}
-                                                                </span>
+                                                            @if ($item->kategori == 'Green')
+                                                                <span class="badge badge-success">{{ $item->kategori }}</span>
+                                                            @elseif ($item->kategori == 'Yellow')
+                                                                <span class="badge badge-warning">{{ $item->kategori }}</span>
+                                                            @elseif ($item->kategori == 'Red')
+                                                                <span class="badge badge-danger">{{ $item->kategori }}</span>
                                                             @endif
+
                                                         </td>
                                                         <td>
-                                                            <a class="" href="#" data-toggle="modal" data-target="#transaksiModal">
+                                                            <a href="{{ route('admin.edit.item', ['id' => $item->id]) }}"
+                                                                class="">
                                                                 Detail
                                                             </a>
                                                         </td>
@@ -136,7 +114,6 @@
     <!-- Logout Modal-->
     @include('Partials.logoutmodal')
 
-    @include('Partials.transaksiModal')
 
     {{-- Custom DataTables --}}
     {{-- <script>
