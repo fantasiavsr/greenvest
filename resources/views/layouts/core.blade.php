@@ -43,7 +43,7 @@
     <!-- Page level plugins -->
     <script src="{{ asset('demo/vendor/chart.js/Chart.min.js') }}"></script>
 
-    <!-- Page level custom scripts -->
+    <!-- Chart custom scripts -->
     {{-- <script src="{{ asset('demo/js/demo/chart-area-demo.js') }}"></script> --}}
     @if (isset($charts))
         @if ($charts['charts']['1month'] != null)
@@ -447,9 +447,51 @@
         </script>
     @endif
 
-    <script src="{{ asset('demo/js/demo/chart-pie-demo.js') }}"></script>
-    <script src="{{ asset('demo/js/demo/chart-test.js') }}"></script>
+    @if (isset($greenvest) && isset($nilai_portofolio))
+        @if ($greenvest->saldo != 0 || $nilai_portofolio != 0)
+            <script>
+                // Set new default font family and font color to mimic Bootstrap's default styling
+                Chart.defaults.global.defaultFontFamily = 'Nunito',
+                    '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+                Chart.defaults.global.defaultFontColor = '#858796';
 
+                // Pie Chart Example
+                var ctx = document.getElementById("myPieChart");
+                var myPieChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ["Saldo", "Bayar", "Portofolio"],
+                        datasets: [{
+                            data: [{{ $p_saldo }}, {{ $p_total_bayar }}, {{ $p_nilai_porto }}],
+                            backgroundColor: ['#4FBEAB', '#FFB020', '#378AEC'],
+                            hoverBackgroundColor: ['#46A192', '#DF9B20', '#3681DA'],
+                            hoverBorderColor: "rgba(234, 236, 244, 1)",
+                        }],
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        tooltips: {
+                            backgroundColor: "rgb(255,255,255)",
+                            bodyFontColor: "#858796",
+                            borderColor: '#dddfeb',
+                            borderWidth: 1,
+                            xPadding: 15,
+                            yPadding: 15,
+                            displayColors: false,
+                            caretPadding: 10,
+                        },
+                        legend: {
+                            display: false
+                        },
+                        cutoutPercentage: 64,
+                    },
+                });
+            </script>
+        @endif
+    @endif
+
+    {{-- <script src="{{ asset('demo/js/demo/chart-pie-demo.js') }}"></script> --}}
+    {{-- <script src="{{ asset('demo/js/demo/chart-test.js') }}"></script> --}}
 
     <!-- DataTables scripts -->
     <script src="{{ asset('demo/vendor/datatables/jquery.dataTables.min.js') }}"></script>

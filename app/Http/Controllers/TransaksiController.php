@@ -23,7 +23,7 @@ class TransaksiController extends Controller
     {
         $user = Auth::user();
         $green = green::whereIn('id', [2])->get();
-        $produk_green = produk_green::whereIn('green_id', [2])->get();
+        $produk_green = produk_green::whereIn('green_id', [2])->orderBy('nama', 'ASC')->get();
         $image = produk_image::all();
         return view('pages.user.transaksi.green.bond.index', [
             'title' => "Transaksi | Green Bond",
@@ -38,7 +38,7 @@ class TransaksiController extends Controller
     {
         $user = Auth::user();
         $green = green::whereIn('id', [3])->get();
-        $produk_green = produk_green::whereIn('green_id', [1])->get();
+        $produk_green = produk_green::whereIn('green_id', [1])->orderBy('nama', 'ASC')->get();
         $image = produk_image::all();
         return view('pages.user.transaksi.green.sukuk.index', [
             'title' => "Transaksi | Green Sukuk",
@@ -54,7 +54,7 @@ class TransaksiController extends Controller
 
         $user = Auth::user();
         $green = green::whereIn('id', [3])->get();
-        $produk_green = produk_green::whereIn('green_id', [3])->get();
+        $produk_green = produk_green::whereIn('green_id', [3])->orderBy('nama', 'ASC')->get();
         $image = produk_image::all();
         return view('pages.user.transaksi.green.taxonomy.index', [
             'title' => "Transaksi | Green Taxonomy",

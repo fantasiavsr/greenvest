@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Bank;
 use App\Models\dummy_bankdef;
+use App\Models\list_transaksi;
+use App\Models\produk_green;
+use App\Models\produk_image;
+use App\Models\dummy_laba;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -24,6 +29,12 @@ class UserController extends Controller
         $bank = Bank::where('user_id', $user->id)->get();
         $bank_default = dummy_bankdef::where('user_id', $user->id)->first();
         $level = Auth::user()->level;
+
+        $image = produk_image::all();
+        $list_transaksi = list_transaksi::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get();
+
+        $portofolio = list_transaksi::where('user_id', $user->id)->where('status', 'selesai')->orderBy('created_at', 'DESC')->get();
+        $dummy_laba = dummy_laba::all();
         /* dd($level); */
         if ($level == "Admin") {
             return view('pages.admin.index', compact('user'), [
@@ -38,6 +49,10 @@ class UserController extends Controller
                 'bankdef' => $bank_default,
                 'bank' => $bank,
                 'submenu' => "no",
+                'image' => $image,
+                'list_transaksi' => $list_transaksi,
+                'portofolio' => $portofolio,
+                'dummy_laba' => $dummy_laba,
             ]);
         } else if ($level == "Developer") {
             return view('pages.developer.index', compact('user'), [

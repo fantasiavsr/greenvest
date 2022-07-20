@@ -43,7 +43,10 @@
                                             <input type="hidden" name="produk_green_id" value="{{ $produk_green->id }}">
                                             <label class="form-label">Masukkan jumlah investasi</label>
                                             <input type="text" name="jumInves" class="form-control"
-                                                autofocus required placeholder="{{ $dummy_simulasi->jumInves }}">
+                                                autofocus required
+                                                @if (isset( $dummy_simulasi))
+                                                    placeholder="{{ $dummy_simulasi->jumInves }}"
+                                                @endif >
                                         </div>
                                         {{-- <input type="hidden" id="role" name="role" value="0"> --}}
                                         <!-- Submit button -->
@@ -80,7 +83,7 @@
 
                                     <div class="row">
                                         <div class="col">
-                                            <h1 class="text-gray-900" style="font-weight: 600;">{{ $nilai }}</h1>
+                                            <h1 class="text-gray-900" style="font-weight: 600;">{{ number_format($nilai, 0, ',', '.') }}</h1>
                                         </div>
                                     </div>
 
