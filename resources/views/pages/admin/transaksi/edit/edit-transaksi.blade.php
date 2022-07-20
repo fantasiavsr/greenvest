@@ -127,7 +127,7 @@
                                         <!-- Submit button -->
                                         <div class="row">
                                             <div class="col">
-                                                <a href="" class="btn btn-lg mt-2 px-5 mb-4"
+                                                <a href="{{ route('admin.transaksi') }}" class="btn btn-lg mt-2 px-5 mb-4"
                                                     style="background-color: #F9FAFC; width:100%">Cancel</a>
                                             </div>
                                             <div class="col">

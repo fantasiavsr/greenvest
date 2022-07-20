@@ -22,7 +22,7 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    <!-- Heading -->
+    <!-- Heading -Transaksi -->
     <div class="sidebar-heading">
         Transaksi
     </div>
@@ -36,11 +36,16 @@
         </a>
     </li>
 
+    <!-- Heading -Transaksi -->
+    <div class="sidebar-heading">
+        Item
+    </div>
+
     <!-- Nav Item - Item -->
     <li class="nav-item {{ (request()->is('admin-item')) ? 'active' : '' }}">
         <a class="nav-link " href="{{ route('admin.item') }}"
             @if ($title === 'Admin - List Item') style="color: #4FBEAB; background-color:#F9FAFC;  border-right: 8px solid #4FBEAB;" @endif>
-            <i class="fas fa-fw fa-credit-card"></i>
+            <i class="fas fa-fw fa-archive"></i>
             <span>List Item</span>
         </a>
     </li>

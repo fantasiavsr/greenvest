@@ -41,6 +41,7 @@
                                                     <th>Nama</th>
                                                     <th>Jenis Green</th>
                                                     <th>Kategori</th>
+                                                    <th>Tanggal Input</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
@@ -69,6 +70,9 @@
                                                                 <span class="badge badge-danger">{{ $item->kategori }}</span>
                                                             @endif
 
+                                                        </td>
+                                                        <td>
+                                                            {{ $item->created_at }}
                                                         </td>
                                                         <td>
                                                             <a href="{{ route('admin.edit.item', ['id' => $item->id]) }}"
