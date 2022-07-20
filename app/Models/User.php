@@ -55,4 +55,8 @@ class User extends Authenticatable
     public function saldo_greenvest(){
         return $this->hasMany(saldo_greenvest::class);
     }
+
+    public function dummy_simulasi(){
+        return $this->hasMany(dummy_simulasi::class);
+    }
 }

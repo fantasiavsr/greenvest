@@ -29,4 +29,7 @@ class produk_green extends Model
         return $this->hasMany(google_finance::class, 'produk_green_id');
     }
 
+    public function dummy_simulasi(){
+        return $this->hasMany(dummy_simulasi::class, 'produk_green_id');
+    }
 }

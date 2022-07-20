@@ -10,6 +10,8 @@ use App\Models\charttest;
 use App\Models\dummy_bankdef;
 use App\Models\saldo_greenvest;
 use App\Models\google_finance;
+use App\Models\dummy_simulasi;
+use App\Models\dummy_laba;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -87,13 +89,43 @@ class ItemController extends Controller
         ]);
     }
 
-    public function simulasitest2()
+    public function simulasi($id)
     {
         $user = Auth::user();
-        return view('pages.item.simulasi.test.index', [
+        $dummy_simulasi = dummy_simulasi::where('user_id', $user->id)->first();
+        $produk_green = produk_green::where('id', $id)->first();
+        $dummy_laba = dummy_laba::where('produk_green_id', $produk_green->id)->first();
+        if (isset($dummy_simulasi) && isset($dummy_laba)) {
+            $nilai = $dummy_simulasi->jumInves+($dummy_simulasi->jumInves*($dummy_laba->laba/100));
+        }else{
+            $nilai = 0;
+        }
+
+        return view('pages.item.simulasi.index', [
             'title' => "Simulasi",
             'user' => $user,
+            'dummy_simulasi' => $dummy_simulasi,
+            'produk_green' => $produk_green,
+            'dummy_laba' => $dummy_laba,
+            'nilai' => $nilai,
         ]);
+    }
+
+    public function dummy_simulasi(Request $request){
+        $user = Auth::user();
+        $dummy_simulasi = dummy_simulasi::where('user_id', $user->id)->first();
+        if (isset($dummy_simulasi)) {
+            $dummy_simulasi->jumInves = $request->jumInves;
+            $dummy_simulasi->produk_green_id = $request->produk_green_id;
+            $dummy_simulasi->save();
+        }else{
+            $dummy_simulasi = new dummy_simulasi;
+            $dummy_simulasi->user_id = $user->id;
+            $dummy_simulasi->jumInves = $request->jumInves;
+            $dummy_simulasi->produk_green_id = $request->produk_green_id;
+            $dummy_simulasi->save();
+        }
+        return redirect()->route('item.simulasi', ['id' => $request->produk_green_id]);
     }
 
     public function bandingtest()

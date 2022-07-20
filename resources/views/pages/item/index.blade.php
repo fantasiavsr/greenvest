@@ -45,7 +45,7 @@
                             </h1>
                         </div>
                         <div class="pb-2">
-                            <a href="{{ route('item.simulasitest') }}"
+                            <a href="{{ route('item.simulasi', ['id' => $produk_green->id]) }}"
                                 class="btn btn-lg shadow-custom-alt mt-2 text-light" style="background-color: #30445C">
                                 Simulasi</a>
                             <a href="{{ route('item.beli', ['id' => $produk_green->id]) }}"
@@ -61,6 +61,18 @@
                             <div class="card shadow-custom mb-4" style="width:100%">
                                 <!-- Card Body -->
                                 <div class="card-body">
+                                    @if (isset($charts))
+                                        @if ($charts['charts']['1month'] != null)
+                                            <div class="d-sm-flex align-items-center justify-content-between">
+                                                <p class="" style="font-weight: 800">{{ $charts['info']['ticker'] }}
+                                                </p>
+                                                <span class="badge text-dark"
+                                                    style="font-weight:500; font-size:11px; background-color:#f1eded">
+                                                    *Data dari Google Finance API
+                                                </span>
+                                            </div>
+                                        @endif
+                                    @endif
                                     <div class="chart-area">
                                         <canvas id="myAreaChart"></canvas>
                                         @if (!isset($charttest))
