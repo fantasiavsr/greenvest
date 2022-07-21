@@ -41,7 +41,7 @@
                                                     <th>Nama</th>
                                                     <th>Jenis Green</th>
                                                     <th>Kategori</th>
-                                                    <th>Tanggal Input</th>
+                                                    <th>Waktu Input</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
@@ -77,7 +77,7 @@
                                                         <td>
                                                             <a href="{{ route('admin.edit.item', ['id' => $item->id]) }}"
                                                                 class="">
-                                                                Detail
+                                                                Edit
                                                             </a>
                                                         </td>
                                                     </tr>

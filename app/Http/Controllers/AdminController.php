@@ -11,6 +11,7 @@ use App\Models\produk_green;
 use App\Models\produk_image;
 use App\Models\charttest;
 use App\Models\google_finance;
+use App\Models\googlefin_format;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +31,7 @@ class AdminController extends Controller
 
         $image = produk_image::all();
         $userall = User::all();
-        return view('pages.admin.transaksi.list_transaksi', compact('user'), [
+        return view('pages.admin.transaksi.list-transaksi', compact('user'), [
             'title' => "Admin - List Transaksi",
             'submenu' => "no",
             'list_transaksi' => $list_transaksi,
@@ -74,11 +75,14 @@ class AdminController extends Controller
         $list_item = produk_green::orderBy('nama', 'ASC')->get();
         $image = produk_image::all();
         $userall = User::all();
+        $googlefin_format = googlefin_format::all();
+
         return view('pages.admin.item.list-item', compact('user'), [
             'title' => "Admin - List Item",
             'submenu' => "no",
             'list_item' => $list_item,
-            'image' => $image
+            'image' => $image,
+            'googlefin_format' => $googlefin_format
         ]);
     }
 
@@ -90,6 +94,7 @@ class AdminController extends Controller
         $this_item = produk_green::find($id);
         $charttest = charttest::where('produk_green_id', $id)->first();
         $google_finance = google_finance::where('produk_green_id', $id)->first();
+
         return view('pages.admin.item.edit.edit-item', compact('user'), [
             'title' => "Admin - List Item",
             'submenu' => "no",
@@ -97,11 +102,22 @@ class AdminController extends Controller
             'image' => $image,
             'this_item' => $this_item,
             'charttest' => $charttest,
-            'google_finance' => $google_finance
+            'google_finance' => $google_finance,
         ]);
     }
 
     public function update_item(Request $request){
+
+        $request->validate([
+            'year_return' => 'numeric',
+            'total_aum' => 'numeric',
+            'pre_close' => 'numeric',
+            'jatuh_tempo' => 'numeric',
+            'min_pembelian_produk' => 'numeric',
+            'biaya_pembelian' => 'numeric',
+            'biaya_penjualan' => 'numeric',
+        ]);
+
         /* dd($request->all()); */
         $flights = produk_green::find($request->id);
         /* dd($flights); */
@@ -119,8 +135,43 @@ class AdminController extends Controller
         $flights->biaya_pembelian = $request->biaya_pembelian;
         $flights->biaya_penjualan = $request->biaya_penjualan;
         $flights->biaya_penampung = $request->biaya_penampung;
-
         $flights->save();
+
+        $googlefin_format = googlefin_format::where('produk_green_id', $request->id)->first();
+        if(isset($googlefin_format)){
+            $googlefin_format->produk_green_id = $request->id;
+            $googlefin_format->pre_close = $request->pre_close;
+            $googlefin_format->market_cap = $request->total_aum;
+            $googlefin_format->div_yield = $request->year_return;
+            $googlefin_format->save();
+        }else{
+            $googlefin_format = new googlefin_format;
+            $googlefin_format->produk_green_id = $request->id;
+            $googlefin_format->pre_close = $request->pre_close;
+            $googlefin_format->market_cap = $request->total_aum;
+            $googlefin_format->div_yield = $request->year_return;
+            $googlefin_format->save();
+        }
+
+        if($request->ticker != null){
+            $google_finance = google_finance::where('produk_green_id', $request->id)->first();
+            if(isset($google_finance)){
+                $google_finance->ticker = $request->ticker;
+                $google_finance->save();
+
+            }else{
+                $google_finance = new google_finance;
+                $google_finance->produk_green_id = $request->id;
+                $google_finance->ticker = $request->ticker;
+                $google_finance->save();
+            }
+        }else{
+            $google_finance = google_finance::where('produk_green_id', $request->id)->first();
+            if(isset($google_finance)){
+                $google_finance->delete();
+            }
+        }
+
         return redirect()->route('admin.item');
     }
 }

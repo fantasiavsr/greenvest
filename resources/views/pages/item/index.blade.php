@@ -171,7 +171,11 @@
                                                                 @php
                                                                     $n = $googlefin_format->market_cap;
 
-                                                                    if ($n > 1000000000000) {
+                                                                    if($n > 1000000000000000000){
+                                                                        $nfixed = round($n / 1000000000000000000, 2) . ' Kuintiliun';
+                                                                    }elseif($n > 1000000000000000){
+                                                                        $nfixed = round($n / 1000000000000000, 2) . ' Kuadriliun';
+                                                                    } elseif ($n > 1000000000000) {
                                                                         $nfixed = round($n / 1000000000000, 2) . ' Triliun';
                                                                     } elseif ($n > 1000000000) {
                                                                         $nfixed = round($n / 1000000000, 2) . ' Milliar';

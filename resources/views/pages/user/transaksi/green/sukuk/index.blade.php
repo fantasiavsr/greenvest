@@ -76,40 +76,58 @@
                             <div class="card shadow-custom mb-4" style="width:100%">
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-hover" id="dataTable">
-                                            <thead>
-                                                <tr>
-                                                    <th></th>
-                                                    <th>Nama</th>
-                                                    <th>1 Year Return</th>
-                                                    <th>Total AUM</th>
-                                                    <th>Jenis Produk</th>
-                                                    <th>Aksi</th>
-                                                </tr>
-                                            <tbody>
-                                                @foreach ($produk_green as $item)
-                                                    <tr class="">
-                                                        <td>
-                                                            @if ($image->where('produk_green_id', $item->id)->pluck('image')->first() != null)
-                                                                src="{{ asset('img/produk/' .$image->where('produk_green_id', $item->id)->pluck('image')->first()) }}"
-                                                            @else
-                                                                src="{{ asset('img/produk/default.png') }}"
-                                                            @endif
-                                                                alt="">
-                                                        </td>
-                                                        <td>{{ $item->nama }}</td>
-                                                        <td>{{ $item->year_return }}</td>
-                                                        <td>{{ $item->total_aum }}</td>
-                                                        <td>{{ $item->jenis_produk }}</td>
-                                                        <td>
-                                                            <a class="link-info"
-                                                                href="{{ route('item.detail', ['id' => $item->id]) }}">Detail</a>
-                                                        </td>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover" id="dataTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>Nama</th>
+                                                        <th>Year Return</th>
+                                                        <th>Market Cap</th>
+                                                        <th>Jenis Produk</th>
+                                                        <th>Aksi</th>
                                                     </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($produk_green as $item)
+                                                        <tr class="">
+                                                            <td>
+                                                                <img class="avatar rounded-circle me-2"
+                                                                    @if ($image->where('produk_green_id', $item->id)->pluck('image')->first() != null) src="{{ asset('img/produk/' .$image->where('produk_green_id', $item->id)->pluck('image')->first()) }}"
+                                                                @else
+                                                                    src="{{ asset('img/produk/default.png') }}" @endif
+                                                                    alt="">
+                                                            </td>
+                                                            <td>{{ $item->nama }}</td>
+                                                            <td>+{{ $item->year_return }}%</td>
+                                                            <td>
+                                                                @php
+                                                                    $n = $item->total_aum;
+
+                                                                    if ($n > 1000000000000000000) {
+                                                                        $nfixed = round($n / 1000000000000000000, 2) . ' Kuintiliun';
+                                                                    } elseif ($n > 1000000000000000) {
+                                                                        $nfixed = round($n / 1000000000000000, 2) . ' Kuadriliun';
+                                                                    } elseif ($n > 1000000000000) {
+                                                                        $nfixed = round($n / 1000000000000, 2) . ' Triliun';
+                                                                    } elseif ($n > 1000000000) {
+                                                                        $nfixed = round($n / 1000000000, 2) . ' Milliar';
+                                                                    } elseif ($n > 1000000) {
+                                                                        $nfixed = round($n / 1000000, 2) . ' Juta';
+                                                                    }
+                                                                @endphp
+                                                                {{ $nfixed }}</td>
+                                                            <td>{{ $item->jenis_produk }}</td>
+                                                            <td>
+                                                                <a class="link-info"
+                                                                    href="{{ route('item.detail', ['id' => $item->id]) }}">Detail</a>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- Card Footer -->

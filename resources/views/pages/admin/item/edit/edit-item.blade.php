@@ -67,20 +67,20 @@
                                             <div class="col-sm form-outline mb-4">
                                                 <label class="form-label">Nama Produk</label>
                                                 <input type="text" name="nama" class="form-control"
-                                                    value="{{ $this_item->nama }}" autofocus>
+                                                    value="{{ $this_item->nama }}" autofocus required>
                                             </div>
 
                                             <div class="col-sm form-outline mb-4">
                                                 <label class="form-label">Perusahaan</label>
                                                 <input type="text" name="perusahaan" class="form-control"
-                                                    value="{{ $this_item->perusahaan }}" autofocus>
+                                                    value="{{ $this_item->perusahaan }}" autofocus required>
                                             </div>
                                         </div>
 
                                         <div class="row d-flex">
                                             <div class="col-sm form-outline mb-4">
                                                 <label class="form-label">Jenis Green</label>
-                                                <select type="text" name="green_id" class="form-control" autofocus>
+                                                <select type="text" name="green_id" class="form-control" autofocus required>
                                                     <option value="1"
                                                         @if ($this_item->green_id == 1) selected @endif>Green Sukuk
                                                     </option>
@@ -96,12 +96,12 @@
                                             <div class="col-sm form-outline mb-4">
                                                 <label class="form-label">Jenis Produk</label>
                                                 <input type="text" name="jenis_produk" class="form-control"
-                                                    value="{{ $this_item->jenis_produk }}" autofocus>
+                                                    value="{{ $this_item->jenis_produk }}" autofocus required>
                                             </div>
 
                                             <div class="col-sm form-outline mb-4">
                                                 <label class="form-label">Kategori</label>
-                                                <select type="text" name="kategori" class="form-control" autofocus>
+                                                <select type="text" name="kategori" class="form-control" autofocus required>
                                                     <option value="Green"
                                                         @if ($this_item->kategori == 'Green') selected @endif>Green
                                                     </option>
@@ -116,7 +116,7 @@
 
                                             <div class="col-sm form-outline mb-4">
                                                 <label class="form-label">Tingkat Risiko</label>
-                                                <select type="text" name="tingkat_risiko" class="form-control" autofocus>
+                                                <select type="text" name="tingkat_risiko" class="form-control" autofocus required>
                                                     <option value="Tinggi"
                                                         @if ($this_item->tingkat_risiko == 'Tinggi') selected @endif>
                                                         Tinggi
@@ -137,19 +137,19 @@
                                             <div class="col-sm form-outline mb-4">
                                                 <label class="form-label">Year Return / Divided Yield (%)</label>
                                                 <input type="text" name="year_return" class="form-control"
-                                                    value="{{ $this_item->year_return }}" autofocus>
+                                                    value="{{ $this_item->year_return }}" autofocus required>
                                             </div>
 
                                             <div class="col-sm form-outline mb-4">
                                                 <label class="form-label">Total AUM / Market Cap (IDR)</label>
                                                 <input type="text" name="total_aum" class="form-control"
-                                                    value="{{ $this_item->total_aum }}" autofocus>
+                                                    value="{{ $this_item->total_aum }}" autofocus required>
                                             </div>
 
                                             <div class="col-sm form-outline mb-4">
                                                 <label class="form-label">Previous Closing (IDR)</label>
                                                 <input type="text" name="pre_close" class="form-control"
-                                                    value="{{ $this_item->pre_close }}" autofocus>
+                                                    value="{{ $this_item->pre_close }}" autofocus required>
                                             </div>
                                         </div>
 
@@ -157,31 +157,31 @@
                                             <div class="col-sm form-outline mb-4">
                                                 <label class="form-label">Jatuh Tempo (Hari)</label>
                                                 <input type="text" name="jatuh_tempo" class="form-control"
-                                                    value="{{ $this_item->jatuh_tempo }}" autofocus>
+                                                    value="{{ $this_item->jatuh_tempo }}" autofocus required>
                                             </div>
 
                                             <div class="col-sm form-outline mb-4">
                                                 <label class="form-label">Minimal Pembelian (IDR)</label>
                                                 <input type="text" name="min_pembelian_produk" class="form-control"
-                                                    value="{{ $this_item->min_pembelian_produk }}" autofocus>
+                                                    value="{{ $this_item->min_pembelian_produk }}" autofocus required>
                                             </div>
 
                                             <div class="col-sm form-outline mb-4">
                                                 <label class="form-label">Biaya Pembelian (IDR)</label>
                                                 <input type="text" name="biaya_pembelian" class="form-control"
-                                                    value="{{ $this_item->biaya_pembelian }}" autofocus>
+                                                    value="{{ $this_item->biaya_pembelian }}" autofocus required>
                                             </div>
 
                                             <div class="col-sm form-outline mb-4">
                                                 <label class="form-label">Biaya Penjualan (IDR)</label>
                                                 <input type="text" name="biaya_penjualan" class="form-control"
-                                                    value="{{ $this_item->biaya_penjualan }}" autofocus>
+                                                    value="{{ $this_item->biaya_penjualan }}" autofocus required>
                                             </div>
 
                                             <div class="col-sm form-outline mb-4">
                                                 <label class="form-label">Biaya Penampung</label>
                                                 <select type="text" name="biaya_penampung" class="form-control"
-                                                    autofocus>
+                                                    autofocus required>
                                                     <option value="Standard Centered"
                                                         @if ($this_item->tingkat_risiko == 'Standard Centered') selected @endif>
                                                         Standard Centered
@@ -210,7 +210,7 @@
 
                                         <hr class="sidebar-divider">
 
-                                        <p style="font-size: 12px">*Manual Monthly Chart Input (Optional) (IDR)</p>
+                                        <p style="font-size: 12px">*Manual Monthly Closing Input (<span class="text-primary">Recommended for Dummy Data Graph</span>)</p>
                                         <div class="row d-flex">
 
                                             <div class="col-sm-3 form-outline mb-4">

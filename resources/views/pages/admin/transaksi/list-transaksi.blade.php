@@ -95,7 +95,7 @@
                                                         </td>
                                                         <td>
                                                             <a href="{{ route('admin.edit.transaksi', ['id' => $item->id]) }}" class="">
-                                                                Detail
+                                                                Edit
                                                             </a>
                                                         </td>
                                                     </tr>

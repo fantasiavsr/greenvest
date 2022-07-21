@@ -58,10 +58,15 @@ class ItemController extends Controller
             ]);
 
             $response = curl_exec($curl);
+            $err = curl_error($curl);
 
             curl_close($curl);
 
-            $charts = json_decode($response, true);
+            if($err){
+                $charts = null;
+            }else{
+                $charts = json_decode($response, true);
+            }
         }else{
             $charts = null;
         }
