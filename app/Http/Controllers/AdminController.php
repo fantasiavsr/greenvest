@@ -18,11 +18,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+
 class AdminController extends Controller
 {
     public function index()
     {
-
     }
 
     public function list_transaksi()
@@ -71,13 +71,15 @@ class AdminController extends Controller
         return redirect()->route('admin.transaksi');
     }
 
-    public function delete_transaksi($id){
+    public function delete_transaksi($id)
+    {
         $item = list_transaksi::find($id);
         $item->delete();
         return redirect()->route('admin.transaksi');
     }
 
-    public function list_item(){
+    public function list_item()
+    {
         $user = Auth::user();
         $list_item = produk_green::orderBy('nama', 'ASC')->get();
         $image = produk_image::all();
@@ -93,7 +95,8 @@ class AdminController extends Controller
         ]);
     }
 
-    public function edit_item($id){
+    public function edit_item($id)
+    {
         $user = Auth::user();
         /* $list_item = produk_green::orderBy('nama', 'ASC')->all(); */
 
@@ -116,7 +119,8 @@ class AdminController extends Controller
         ]);
     }
 
-    public function update_item(Request $request){
+    public function update_item(Request $request)
+    {
 
         $request->validate([
             'year_return' => 'numeric',
@@ -149,25 +153,25 @@ class AdminController extends Controller
         $flights->save();
 
         $dummy_laba = dummy_laba::where('produk_green_id', $request->id)->first();
-        if(isset($dummy_laba)){
+        if (isset($dummy_laba)) {
             $dummy_laba->produk_green_id = $request->id;
-            $dummy_laba->laba= $request->laba;
+            $dummy_laba->laba = $request->laba;
             $dummy_laba->save();
-        }else{
+        } else {
             $dummy_laba = new dummy_laba;
             $dummy_laba->produk_green_id = $request->id;
-            $dummy_laba->laba= $request->laba;
+            $dummy_laba->laba = $request->laba;
             $dummy_laba->save();
         }
 
         $googlefin_format = googlefin_format::where('produk_green_id', $request->id)->first();
-        if(isset($googlefin_format)){
+        if (isset($googlefin_format)) {
             $googlefin_format->produk_green_id = $request->id;
             $googlefin_format->pre_close = $request->pre_close;
             $googlefin_format->market_cap = $request->total_aum;
             $googlefin_format->div_yield = $request->year_return;
             $googlefin_format->save();
-        }else{
+        } else {
             $googlefin_format = new googlefin_format;
             $googlefin_format->produk_green_id = $request->id;
             $googlefin_format->pre_close = $request->pre_close;
@@ -176,56 +180,58 @@ class AdminController extends Controller
             $googlefin_format->save();
         }
 
-        if($request->ticker != null){
+        if ($request->ticker != null) {
             $google_finance = google_finance::where('produk_green_id', $request->id)->first();
-            if(isset($google_finance)){
+            if (isset($google_finance)) {
                 $google_finance->ticker = $request->ticker;
                 $google_finance->save();
-
-            }else{
+            } else {
                 $google_finance = new google_finance;
                 $google_finance->produk_green_id = $request->id;
                 $google_finance->ticker = $request->ticker;
                 $google_finance->save();
             }
-        }else{
+        } else {
             $google_finance = google_finance::where('produk_green_id', $request->id)->first();
-            if(isset($google_finance)){
+            if (isset($google_finance)) {
                 $google_finance->delete();
             }
         }
 
-        /* dd($request->all()); */
-        $produk_image = produk_image::where('produk_green_id', $request->id)->first();
-        if(isset($produk_image)){
-            $request->validate([
-                'image' => 'required|image|max:1000',
-            ]);
-            $produk_image->produk_green_id = $request->id;
+        if ($request->image != null) {
+            $produk_image = produk_image::where('produk_green_id', $request->id)->first();
+            if (isset($produk_image)) {
+                $request->validate([
+                    'image' => 'required|image|max:1000',
+                ]);
+                $produk_image->produk_green_id = $request->id;
 
-            $fileName = $request->image->getClientOriginalName();
-            $request->image->move(public_path('img/produk'), $fileName);
+                $fileName = $request->image->getClientOriginalName();
+                $request->image->move(public_path('img/produk'), $fileName);
 
-            $produk_image->image = $fileName;
-            $produk_image->save();
-        }else{
-            $request->validate([
-                'image' => 'required|image|max:1000',
-            ]);
-            $produk_image = new produk_image;
-            $produk_image->produk_green_id = $request->id;
+                $produk_image->image = $fileName;
+                $produk_image->save();
+            } else {
+                $request->validate([
+                    'image' => 'required|image|max:1000',
+                ]);
+                $produk_image = new produk_image;
+                $produk_image->produk_green_id = $request->id;
 
-            $fileName = $request->image->getClientOriginalName();
-            $request->image->move(public_path('img/produk'), $fileName);
+                $fileName = $request->image->getClientOriginalName();
+                $request->image->move(public_path('img/produk'), $fileName);
 
-            $produk_image->image = $fileName;
-            $produk_image->save();
+                $produk_image->image = $fileName;
+                $produk_image->save();
+            }
         }
+
 
         return redirect()->route('admin.item');
     }
 
-    public function create_item(){
+    public function create_item()
+    {
         $user = Auth::user();
         return view('pages.admin.item.edit.create-item', compact('user'), [
             'title' => "Admin - List Item",
@@ -233,7 +239,8 @@ class AdminController extends Controller
         ]);
     }
 
-    public function store_item(Request $request){
+    public function store_item(Request $request)
+    {
         /* dd($request->all()); */
         $request->validate([
             'year_return' => 'required|numeric',
@@ -265,7 +272,7 @@ class AdminController extends Controller
 
         $dummy_laba = new dummy_laba;
         $dummy_laba->produk_green_id = $flights->id;
-        $dummy_laba->laba= $request->laba;
+        $dummy_laba->laba = $request->laba;
         $dummy_laba->save();
 
         $googlefin_format = new googlefin_format;
@@ -275,7 +282,7 @@ class AdminController extends Controller
         $googlefin_format->div_yield = $request->year_return;
         $googlefin_format->save();
 
-        if($request->ticker != null){
+        if ($request->ticker != null) {
             $google_finance = new google_finance;
             $google_finance->produk_green_id = $flights->id;
             $google_finance->ticker = $request->ticker;
@@ -285,7 +292,8 @@ class AdminController extends Controller
         return redirect()->route('admin.item');
     }
 
-    public function delete_item($id){
+    public function delete_item($id)
+    {
         $item = produk_green::find($id);
         $item->delete();
         return redirect()->route('admin.item');
