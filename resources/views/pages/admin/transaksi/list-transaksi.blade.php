@@ -57,7 +57,7 @@
                                                                 @if ($image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first() != null) src="{{ asset('img/produk/' .$image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first()) }}"
                                                             @else
                                                                 src="{{ asset('img/produk/default.png') }}" @endif
-                                                                alt="">
+                                                                alt="" style="width:42px; height:42px">
                                                         </td>
                                                         <td>
                                                             {{ $item->user->nama_lengkap }}
@@ -72,7 +72,7 @@
                                                             {{ $item->jenis_transaksi }}
                                                         </td>
                                                         <td>
-                                                            {{ $item->created_at->format('d F, Y, H:i:s') }}
+                                                            {{ $item->created_at->format('d F, Y, H:i') }}
                                                         </td>
                                                         <td>{{ $item->kode_transaksi }}</td>
                                                         <td>

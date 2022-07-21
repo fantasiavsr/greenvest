@@ -39,17 +39,18 @@
                                                 <tr>
                                                     <th></th>
                                                     <th>Nama</th>
-                                                    <th>Jenis Green</th>
+                                                    <th>Kode</th>
                                                     <th>Total Bayar</th>
                                                     <th>Jenis Transaksi</th>
                                                     <th>Tanggal</th>
+                                                    <th>Jam</th>
                                                     <th>Status</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @foreach ($list_transaksi as $item)
-                                                    <tr class="">
+                                                    <tr class="" style="font-size: 14px">
                                                         <td>
                                                             <img class="avatar rounded-circle me-2"
                                                             @if ($image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first() != null)
@@ -57,13 +58,13 @@
                                                             @else
                                                                 src="{{ asset('img/produk/default.png') }}"
                                                             @endif
-                                                                alt="">
+                                                                alt="" style="width:42px; height:42px">
                                                         </td>
                                                         <td>
                                                             {{ $item->produk_green->nama }}
                                                         </td>
                                                         <td>
-                                                            {{ $item->produk_green->green->nama }}
+                                                            {{ $item->kode_transaksi }}
                                                         </td>
                                                         <td>
                                                             Rp{{ number_format($item->total_bayar, 0, ',', '.') }}
@@ -73,6 +74,9 @@
                                                         </td>
                                                         <td>
                                                             {{ $item->created_at->format('d M, Y') }}
+                                                        </td>
+                                                        <td>
+                                                            {{ $item->created_at->format('H:i') }}
                                                         </td>
                                                         <td>
                                                             @if ($item->status == 'Selesai')

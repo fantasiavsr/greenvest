@@ -155,7 +155,7 @@
                         <div class="col d-flex">
                             <div class="card shadow-custom mb-4" style="width:100%">
                                 <!-- Card Body -->
-                                <div class="card-body text-center">
+                                <div class="card-body">
                                     {{-- <div class="chart-area">
                                         <canvas id="myAreaChart"></canvas>
                                     </div> --}}
@@ -184,7 +184,7 @@
                                                                     @if ($image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first() != null) src="{{ asset('img/produk/' .$image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first()) }}"
                                                             @else
                                                                 src="{{ asset('img/produk/default.png') }}" @endif
-                                                                    alt="">
+                                                                    alt="" style="width:42px; height:42px">
                                                             </td>
                                                             <td>
                                                                 <div class="col">
@@ -382,7 +382,7 @@
                                                                 @if ($image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first() != null) src="{{ asset('img/produk/' .$image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first()) }}"
                                                             @else
                                                                 src="{{ asset('img/produk/default.png') }}" @endif
-                                                                alt="">
+                                                                alt="" style="width:42px; height:42px">
                                                         </td>
                                                         <td>
                                                             {{ $item->produk_green->nama }}

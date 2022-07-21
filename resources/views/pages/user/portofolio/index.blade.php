@@ -43,10 +43,10 @@
                                                 <tr>
                                                     <th>No</th>
                                                     <th>Nama</th>
-                                                    <th>1 Year Return</th>
-                                                    <th>Total AUM</th>
                                                     <th>Jenis Produk</th>
                                                     <th>Total Pembelian</th>
+                                                    <th>Tanggal</th>
+                                                    <th>Jam</th>
                                                     <th>Laba</th>
                                                     <th>NIlai Portofolio</th>
                                                     <th>Aksi</th>
@@ -62,22 +62,22 @@
                                                             @else
                                                                 src="{{ asset('img/produk/default.png') }}"
                                                             @endif
-                                                                alt="">
+                                                                alt="" style="width:42px; height:42px">
                                                         </td>
                                                         <td>
                                                             {{ $item->produk_green->nama }}
-                                                        </td>
-                                                        <td>
-                                                            {{ $item->produk_green->year_return }}
-                                                        </td>
-                                                        <td>
-                                                            {{ $item->produk_green->total_aum }}
                                                         </td>
                                                         <td>
                                                             {{ $item->produk_green->jenis_produk }}
                                                         </td>
                                                         <td>
                                                             Rp{{ number_format($item->total_bayar, 0, ',', '.') }}
+                                                        </td>
+                                                        <td>
+                                                            {{ $item->created_at->format('d F, Y') }}
+                                                        </td>
+                                                        <td>
+                                                            {{ $item->created_at->format('H:i') }}
                                                         </td>
                                                         <td>
                                                             {{ $dummy_laba->where('produk_green_id', $item->produk_green->id)->pluck('laba')->first() }}%
