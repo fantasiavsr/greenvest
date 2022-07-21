@@ -198,6 +198,60 @@ class AdminController extends Controller
             }
         }
 
+        if ($request->jan != null && $request->feb != null && $request->mar != null && $request->apr != null && $request->may != null && $request->jun != null && $request->jul != null && $request->aug != null && $request->sep != null && $request->oct != null && $request->nov != null && $request->dec != null && $request->year != null) {
+            $request->validate([
+                'jan' => 'numeric',
+                'feb' => 'numeric',
+                'mar' => 'numeric',
+                'apr' => 'numeric',
+                'may' => 'numeric',
+                'jun' => 'numeric',
+                'jul' => 'numeric',
+                'aug' => 'numeric',
+                'sep' => 'numeric',
+                'oct' => 'numeric',
+                'nov' => 'numeric',
+                'dec' => 'numeric',
+                'year' => 'numeric',
+            ]);
+
+            $charttest = charttest::where('produk_green_id', $request->id)->first();
+            if (isset($charttest)) {
+                $charttest->produk_green_id = $request->id;
+                $charttest->jan = $request->jan;
+                $charttest->feb = $request->feb;
+                $charttest->mar = $request->mar;
+                $charttest->apr = $request->apr;
+                $charttest->may = $request->may;
+                $charttest->jun = $request->jun;
+                $charttest->jul = $request->jul;
+                $charttest->aug = $request->aug;
+                $charttest->sep = $request->sep;
+                $charttest->oct = $request->oct;
+                $charttest->nov = $request->nov;
+                $charttest->dec = $request->dec;
+                $charttest->year = $request->year;
+                $charttest->save();
+            } else {
+                $charttest = new charttest;
+                $charttest->produk_green_id = $request->id;
+                $charttest->jan = $request->jan;
+                $charttest->feb = $request->feb;
+                $charttest->mar = $request->mar;
+                $charttest->apr = $request->apr;
+                $charttest->may = $request->may;
+                $charttest->jun = $request->jun;
+                $charttest->jul = $request->jul;
+                $charttest->aug = $request->aug;
+                $charttest->sep = $request->sep;
+                $charttest->oct = $request->oct;
+                $charttest->nov = $request->nov;
+                $charttest->dec = $request->dec;
+                $charttest->year = $request->year;
+                $charttest->save();
+            }
+        }
+
         if ($request->image != null) {
             $produk_image = produk_image::where('produk_green_id', $request->id)->first();
             if (isset($produk_image)) {
@@ -225,7 +279,6 @@ class AdminController extends Controller
                 $produk_image->save();
             }
         }
-
 
         return redirect()->route('admin.item');
     }
@@ -287,6 +340,41 @@ class AdminController extends Controller
             $google_finance->produk_green_id = $flights->id;
             $google_finance->ticker = $request->ticker;
             $google_finance->save();
+        }
+
+        if ($request->jan != null && $request->feb != null && $request->mar != null && $request->apr != null && $request->may != null && $request->jun != null && $request->jul != null && $request->aug != null && $request->sep != null && $request->oct != null && $request->nov != null && $request->dec != null && $request->year != null) {
+            $request->validate([
+                'jan' => 'numeric',
+                'feb' => 'numeric',
+                'mar' => 'numeric',
+                'apr' => 'numeric',
+                'may' => 'numeric',
+                'jun' => 'numeric',
+                'jul' => 'numeric',
+                'aug' => 'numeric',
+                'sep' => 'numeric',
+                'oct' => 'numeric',
+                'nov' => 'numeric',
+                'dec' => 'numeric',
+                'year' => 'numeric',
+            ]);
+
+            $charttest = new charttest;
+            $charttest->produk_green_id = $flights->id;
+            $charttest->jan = $request->jan;
+            $charttest->feb = $request->feb;
+            $charttest->mar = $request->mar;
+            $charttest->apr = $request->apr;
+            $charttest->may = $request->may;
+            $charttest->jun = $request->jun;
+            $charttest->jul = $request->jul;
+            $charttest->aug = $request->aug;
+            $charttest->sep = $request->sep;
+            $charttest->oct = $request->oct;
+            $charttest->nov = $request->nov;
+            $charttest->dec = $request->dec;
+            $charttest->year = $request->year;
+            $charttest->save();
         }
 
         return redirect()->route('admin.item');

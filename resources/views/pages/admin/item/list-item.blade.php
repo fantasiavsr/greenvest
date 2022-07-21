@@ -51,7 +51,6 @@
                                                     <th>Kategori</th>
                                                     <th>Previous Closing</th>
                                                     <th>Waktu Input</th>
-                                                    <th>Waktu Update</th>
                                                     <th>Edit</th>
                                                     <th>Delete</th>
                                                 </tr>
@@ -90,9 +89,6 @@
                                                         </td>
                                                         <td>
                                                             {{ $item->created_at }}
-                                                        </td>
-                                                        <td>
-                                                            {{ $item->updated_at }}
                                                         </td>
                                                         <td>
                                                             <a href="{{ route('admin.edit.item', ['id' => $item->id]) }}"

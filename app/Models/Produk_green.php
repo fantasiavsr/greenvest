@@ -8,6 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class produk_green extends Model
 {
     use HasFactory;
+    protected $guarded = [];
+    /* protected $fillable = [
+        'nama',
+        'perusahaan',
+        'green_id',
+        'jenis_produk',
+        'kategori',
+        'tingkat_risiko',
+        'year_return',
+        'pre_close',
+        'jatuh_tempo',
+        'min_pembelian_produk',
+        'biaya_pembelian',
+        'biaya_penjualan',
+        'biaya_penampung',
+    ]; */
 
     public function green(){
         return $this->belongsTo(green::class, 'green_id');
