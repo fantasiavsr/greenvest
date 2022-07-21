@@ -45,8 +45,7 @@
                                                     <th>Nama</th>
                                                     <th>Jenis Produk</th>
                                                     <th>Total Pembelian</th>
-                                                    <th>Tanggal</th>
-                                                    <th>Jam</th>
+                                                    <th>Tanggal Beli</th>
                                                     <th>Laba</th>
                                                     <th>NIlai Portofolio</th>
                                                     <th>Aksi</th>
@@ -75,9 +74,6 @@
                                                         </td>
                                                         <td>
                                                             {{ $item->created_at->format('d F, Y') }}
-                                                        </td>
-                                                        <td>
-                                                            {{ $item->created_at->format('H:i') }}
                                                         </td>
                                                         <td>
                                                             {{ $dummy_laba->where('produk_green_id', $item->produk_green->id)->pluck('laba')->first() }}%

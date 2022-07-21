@@ -83,6 +83,7 @@
                                                     <tr>
                                                         <th></th>
                                                         <th>Nama</th>
+                                                        <th>Previous Closing</th>
                                                         <th>Year Return</th>
                                                         <th>Market Cap</th>
                                                         <th>Jenis Produk</th>
@@ -100,6 +101,7 @@
                                                                     alt="" style="width:42px; height:42px">
                                                             </td>
                                                             <td>{{ $item->nama }}</td>
+                                                            <td>Rp{{ number_format($item->pre_close, 0, ',', '.') }}</td>
                                                             <td>+{{ $item->year_return }}%</td>
                                                             <td>
                                                                 @php
