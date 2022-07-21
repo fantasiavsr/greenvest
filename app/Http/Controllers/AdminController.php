@@ -96,12 +96,13 @@ class AdminController extends Controller
     public function edit_item($id){
         $user = Auth::user();
         /* $list_item = produk_green::orderBy('nama', 'ASC')->all(); */
-        $image = produk_image::all();
+
         $userall = User::all();
         $this_item = produk_green::find($id);
         $charttest = charttest::where('produk_green_id', $id)->first();
         $google_finance = google_finance::where('produk_green_id', $id)->first();
         $dummy_laba = dummy_laba::where('produk_green_id', $id)->first();
+        $image = produk_image::where('produk_green_id', $id)->first();
 
         return view('pages.admin.item.edit.edit-item', compact('user'), [
             'title' => "Admin - List Item",
@@ -192,6 +193,33 @@ class AdminController extends Controller
             if(isset($google_finance)){
                 $google_finance->delete();
             }
+        }
+
+        /* dd($request->all()); */
+        $produk_image = produk_image::where('produk_green_id', $request->id)->first();
+        if(isset($produk_image)){
+            $request->validate([
+                'image' => 'required|image|max:1000',
+            ]);
+            $produk_image->produk_green_id = $request->id;
+
+            $fileName = $request->image->getClientOriginalName();
+            $request->image->move(public_path('img/produk'), $fileName);
+
+            $produk_image->image = $fileName;
+            $produk_image->save();
+        }else{
+            $request->validate([
+                'image' => 'required|image|max:1000',
+            ]);
+            $produk_image = new produk_image;
+            $produk_image->produk_green_id = $request->id;
+
+            $fileName = $request->image->getClientOriginalName();
+            $request->image->move(public_path('img/produk'), $fileName);
+
+            $produk_image->image = $fileName;
+            $produk_image->save();
         }
 
         return redirect()->route('admin.item');

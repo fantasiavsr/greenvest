@@ -59,7 +59,7 @@
                                         </div>
                                     @endif
 
-                                    <form action="{{ route('admin.item') }}" method="POST">
+                                    <form action="{{ route('admin.item') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         {{-- {{ $this_item->id }} --}}
                                         <input type="hidden" name="id" value="{{ $this_item->id }}">
@@ -363,6 +363,21 @@
                                                 <input type="text" name="year" class="form-control"
                                                     @if (isset($charttest)) value="{{ $charttest->year }}" @endif
                                                     autofocus>
+                                            </div>
+                                        </div>
+
+                                        <hr class="sidebar-divider">
+
+                                        <p style="font-size: 12px">*Image (<span class="">Optional</span>)</p>
+                                        <label class="form-label">Produk Image: </label>
+                                        <div class="row d-flex">
+                                            <div class="col-sm form-outline mb-4">
+                                                <img class="avatar mb-2 mr-1"
+                                                    @if (isset($image)) src="{{ asset('img/produk/' . $image->image) }}"
+                                                    @else
+                                                        src="{{ asset('img/produk/default.png') }}" @endif
+                                                    alt="" style="width:42px; height:42px">
+                                                <input type="file" name="image" class="form-input" autofocus>
                                             </div>
                                         </div>
 
