@@ -23,7 +23,7 @@
 
                     {{-- Sub Title --}}
                     <div class="d-sm-flex align-items-center justify-content-between pt-2 mt-4 mb-4">
-                        <h1 class="h3 mb-0 text-gray-800 ">Edit Item</h1>
+                        <h1 class="h3 mb-0 text-gray-800 ">Add Item</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -34,8 +34,7 @@
 
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <div class=" align-items-center justify-content-between">
-                                        <h1 class="h4 mb-0 text-gray-800 ">Item:
-                                            {{ $this_item->nama }}</h1>
+                                        <h1 class="h4 mb-0 text-gray-800 ">Tambah Produk</h1>
                                     </div>
                                 </div>
 
@@ -59,10 +58,10 @@
                                         </div>
                                     @endif
 
-                                    <form action="{{ route('admin.item') }}" method="POST">
+                                    <form action="{{ route('admin.store.item') }}" method="POST">
                                         @csrf
                                         {{-- {{ $this_item->id }} --}}
-                                        <input type="hidden" name="id" value="{{ $this_item->id }}">
+                                        {{-- <input type="hidden" name="id" value="{{ $this_item->id }}"> --}}
 
                                         <div class="row d-flex">
                                             {{-- <div class="col-sm form-outline mb-4">
@@ -78,16 +77,16 @@
                                                 <label class="form-label">Nama Produk<span>
                                                         <p class="text-danger" style="font-size: 12px">*Required</p>
                                                     </span></label>
-                                                <input type="text" name="nama" class="form-control"
-                                                    value="{{ $this_item->nama }}" autofocus required>
+                                                <input type="text" name="nama" class="form-control" autofocus
+                                                    required>
                                             </div>
 
                                             <div class="col-sm form-outline mb-4">
                                                 <label class="form-label">Perusahaan<span>
                                                         <p class="text-danger" style="font-size: 12px">*Required</p>
                                                     </span></label>
-                                                <input type="text" name="perusahaan" class="form-control"
-                                                    value="{{ $this_item->perusahaan }}" autofocus required>
+                                                <input type="text" name="perusahaan" class="form-control" autofocus
+                                                    required>
                                             </div>
                                         </div>
 
@@ -98,14 +97,11 @@
                                                     </span></label>
                                                 <select type="text" name="green_id" class="form-control" autofocus
                                                     required>
-                                                    <option value="1"
-                                                        @if ($this_item->green_id == 1) selected @endif>Green Sukuk
+                                                    <option value="1">Green Sukuk
                                                     </option>
-                                                    <option value="2"
-                                                        @if ($this_item->green_id == 2) selected @endif>Green Bond
+                                                    <option value="2">Green Bond
                                                     </option>
-                                                    <option value="3"
-                                                        @if ($this_item->green_id == 3) selected @endif>Green Taxonomy
+                                                    <option value="3">Green Taxonomy
                                                     </option>
                                                 </select>
                                             </div>
@@ -114,8 +110,8 @@
                                                 <label class="form-label">Jenis Produk<span>
                                                         <p class="text-danger" style="font-size: 12px">*Required</p>
                                                     </span></label>
-                                                <input type="text" name="jenis_produk" class="form-control"
-                                                    value="{{ $this_item->jenis_produk }}" autofocus required>
+                                                <input type="text" name="jenis_produk" class="form-control" autofocus
+                                                    required>
                                             </div>
 
                                             <div class="col-sm form-outline mb-4">
@@ -124,14 +120,11 @@
                                                     </span></label>
                                                 <select type="text" name="kategori" class="form-control" autofocus
                                                     required>
-                                                    <option value="Green"
-                                                        @if ($this_item->kategori == 'Green') selected @endif>Green
+                                                    <option value="Green">Green
                                                     </option>
-                                                    <option value="Yellow"
-                                                        @if ($this_item->kategori == 'Yellow') selected @endif>Yellow
+                                                    <option value="Yellow">Yellow
                                                     </option>
-                                                    <option value="Red"
-                                                        @if ($this_item->kategori == 'Red') selected @endif>Red
+                                                    <option value="Red">Red
                                                     </option>
                                                 </select>
                                             </div>
@@ -142,16 +135,13 @@
                                                     </span></label>
                                                 <select type="text" name="tingkat_risiko" class="form-control" autofocus
                                                     required>
-                                                    <option value="Tinggi"
-                                                        @if ($this_item->tingkat_risiko == 'Tinggi') selected @endif>
+                                                    <option value="Tinggi">
                                                         Tinggi
                                                     </option>
-                                                    <option value="Sedang"
-                                                        @if ($this_item->tingkat_risiko == 'Sedang') selected @endif>
+                                                    <option value="Sedang">
                                                         Sedang
                                                     </option>
-                                                    <option value="Rendah"
-                                                        @if ($this_item->tingkat_risiko == 'Rendah') selected @endif>
+                                                    <option value="Rendah">
                                                         Rendah
                                                     </option>
                                                 </select>
@@ -164,11 +154,8 @@
                                                         <p class="text-danger" style="font-size: 12px">*Required | numeric
                                                         </p>
                                                     </span></label>
-                                                <input type="text" name="laba" class="form-control"
-                                                    @if (isset($dummy_laba)) value=" {{ $dummy_laba->laba }}"
-                                                    @else
-                                                        placeholder="Belum Ada Data" @endif
-                                                    autofocus required>
+                                                <input type="text" name="laba" class="form-control" autofocus
+                                                    required>
                                             </div>
 
                                             <div class="col-sm form-outline mb-4">
@@ -176,8 +163,8 @@
                                                         <p class="text-danger" style="font-size: 12px">*Required | numeric
                                                         </p>
                                                     </span></label>
-                                                <input type="text" name="year_return" class="form-control"
-                                                    value="{{ $this_item->year_return }}" autofocus required>
+                                                <input type="text" name="year_return" class="form-control" autofocus
+                                                    required>
                                             </div>
 
                                             <div class="col-sm form-outline mb-4">
@@ -185,8 +172,8 @@
                                                         <p class="text-danger" style="font-size: 12px">*Required | numeric
                                                         </p>
                                                     </span></label>
-                                                <input type="text" name="total_aum" class="form-control"
-                                                    value="{{ $this_item->total_aum }}" autofocus required>
+                                                <input type="text" name="total_aum" class="form-control" autofocus
+                                                    required>
                                             </div>
 
                                             <div class="col-sm form-outline mb-4">
@@ -194,8 +181,8 @@
                                                         <p class="text-danger" style="font-size: 12px">*Required | numeric
                                                         </p>
                                                     </span></label>
-                                                <input type="text" name="pre_close" class="form-control"
-                                                    value="{{ $this_item->pre_close }}" autofocus required>
+                                                <input type="text" name="pre_close" class="form-control" autofocus
+                                                    required>
                                             </div>
                                         </div>
 
@@ -205,8 +192,8 @@
                                                         <p class="text-danger" style="font-size: 12px">*Required | numeric
                                                         </p>
                                                     </span></label>
-                                                <input type="text" name="jatuh_tempo" class="form-control"
-                                                    value="{{ $this_item->jatuh_tempo }}" autofocus required>
+                                                <input type="text" name="jatuh_tempo" class="form-control" autofocus
+                                                    required>
                                             </div>
 
                                             <div class="col-sm form-outline mb-4">
@@ -215,7 +202,7 @@
                                                         </p>
                                                     </span></label>
                                                 <input type="text" name="min_pembelian_produk" class="form-control"
-                                                    value="{{ $this_item->min_pembelian_produk }}" autofocus required>
+                                                    autofocus required>
                                             </div>
 
                                             <div class="col-sm form-outline mb-4">
@@ -224,7 +211,7 @@
                                                         </p>
                                                     </span></label>
                                                 <input type="text" name="biaya_pembelian" class="form-control"
-                                                    value="{{ $this_item->biaya_pembelian }}" autofocus required>
+                                                    autofocus required>
                                             </div>
 
                                             <div class="col-sm form-outline mb-4">
@@ -233,7 +220,7 @@
                                                         </p>
                                                     </span></label>
                                                 <input type="text" name="biaya_penjualan" class="form-control"
-                                                    value="{{ $this_item->biaya_penjualan }}" autofocus required>
+                                                    autofocus required>
                                             </div>
 
                                             <div class="col-sm form-outline mb-4">
@@ -242,12 +229,10 @@
                                                     </span></label>
                                                 <select type="text" name="biaya_penampung" class="form-control"
                                                     autofocus required>
-                                                    <option value="Standard Centered"
-                                                        @if ($this_item->tingkat_risiko == 'Standard Centered') selected @endif>
+                                                    <option value="Standard Centered">
                                                         Standard Centered
                                                     </option>
-                                                    <option value="Management Investment"
-                                                        @if ($this_item->tingkat_risiko == 'Management Investment') selected @endif>
+                                                    <option value="Management Investment">
                                                         Management Investment
                                                     </option>
                                                 </select>
@@ -260,11 +245,7 @@
                                         <div class="row d-flex">
                                             <div class="col-sm form-outline mb-4">
                                                 <label class="form-label">Product Ticker</label>
-                                                <input type="text" name="ticker" class="form-control"
-                                                    @if (isset($google_finance)) value="{{ $google_finance->ticker }}"
-                                                    @else
-                                                        placeholder="Belum Ada Data" @endif
-                                                    autofocus>
+                                                <input type="text" name="ticker" class="form-control" autofocus>
                                             </div>
                                         </div>
 
@@ -276,93 +257,67 @@
 
                                             <div class="col-sm-3 form-outline mb-4">
                                                 <label class="form-label">Jan</label>
-                                                <input type="text" name="jan" class="form-control"
-                                                    @if (isset($charttest)) value="{{ $charttest->jan }}" @endif
-                                                    autofocus>
+                                                <input type="text" name="jan" class="form-control" autofocus>
                                             </div>
 
                                             <div class="col-sm-3 form-outline mb-4">
                                                 <label class="form-label">Feb</label>
-                                                <input type="text" name="feb" class="form-control"
-                                                    @if (isset($charttest)) value="{{ $charttest->feb }}" @endif
-                                                    autofocus>
+                                                <input type="text" name="feb" class="form-control" autofocus>
                                             </div>
 
                                             <div class="col-sm-3 form-outline mb-4">
                                                 <label class="form-label">Mar</label>
-                                                <input type="text" name="mar" class="form-control"
-                                                    @if (isset($charttest)) value="{{ $charttest->mar }}" @endif
-                                                    autofocus>
+                                                <input type="text" name="mar" class="form-control" autofocus>
                                             </div>
 
                                             <div class="col-sm-3 form-outline mb-4">
                                                 <label class="form-label">Apr</label>
-                                                <input type="text" name="apr" class="form-control"
-                                                    @if (isset($charttest)) value="{{ $charttest->apr }}" @endif
-                                                    autofocus>
+                                                <input type="text" name="apr" class="form-control" autofocus>
                                             </div>
 
                                             <div class="col-sm-3 form-outline mb-4">
                                                 <label class="form-label">May</label>
-                                                <input type="text" name="may" class="form-control"
-                                                    @if (isset($charttest)) value="{{ $charttest->may }}" @endif
-                                                    autofocus>
+                                                <input type="text" name="may" class="form-control" autofocus>
                                             </div>
 
                                             <div class="col-sm-3 form-outline mb-4">
                                                 <label class="form-label">Jun</label>
-                                                <input type="text" name="jun" class="form-control"
-                                                    @if (isset($charttest)) value="{{ $charttest->jun }}" @endif
-                                                    autofocus>
+                                                <input type="text" name="jun" class="form-control" autofocus>
                                             </div>
 
                                             <div class="col-sm-3 form-outline mb-4">
                                                 <label class="form-label">Jul</label>
-                                                <input type="text" name="jul" class="form-control"
-                                                    @if (isset($charttest)) value="{{ $charttest->jul }}" @endif
-                                                    autofocus>
+                                                <input type="text" name="jul" class="form-control" autofocus>
                                             </div>
 
                                             <div class="col-sm-3 form-outline mb-4">
                                                 <label class="form-label">Aug</label>
-                                                <input type="text" name="aug" class="form-control"
-                                                    @if (isset($charttest)) value="{{ $charttest->aug }}" @endif
-                                                    autofocus>
+                                                <input type="text" name="aug" class="form-control" autofocus>
                                             </div>
 
                                             <div class="col-sm-3 form-outline mb-4">
                                                 <label class="form-label">Sep</label>
-                                                <input type="text" name="sep" class="form-control"
-                                                    @if (isset($charttest)) value="{{ $charttest->sep }}" @endif
-                                                    autofocus>
+                                                <input type="text" name="sep" class="form-control" autofocus>
                                             </div>
 
                                             <div class="col-sm-3 form-outline mb-4">
                                                 <label class="form-label">Oct</label>
-                                                <input type="text" name="oct" class="form-control"
-                                                    @if (isset($charttest)) value="{{ $charttest->oct }}" @endif
-                                                    autofocus>
+                                                <input type="text" name="oct" class="form-control" autofocus>
                                             </div>
 
                                             <div class="col-sm-3 form-outline mb-4">
                                                 <label class="form-label">Nov</label>
-                                                <input type="text" name="nov" class="form-control"
-                                                    @if (isset($charttest)) value="{{ $charttest->nov }}" @endif
-                                                    autofocus>
+                                                <input type="text" name="nov" class="form-control" autofocus>
                                             </div>
 
                                             <div class="col-sm-3 form-outline mb-4">
                                                 <label class="form-label">Dec</label>
-                                                <input type="text" name="dec" class="form-control"
-                                                    @if (isset($charttest)) value="{{ $charttest->dec }}" @endif
-                                                    autofocus>
+                                                <input type="text" name="dec" class="form-control" autofocus>
                                             </div>
 
                                             <div class="col-sm form-outline mb-4">
                                                 <label class="form-label">Year</label>
-                                                <input type="text" name="year" class="form-control"
-                                                    @if (isset($charttest)) value="{{ $charttest->year }}" @endif
-                                                    autofocus>
+                                                <input type="text" name="year" class="form-control" autofocus>
                                             </div>
                                         </div>
 
@@ -374,7 +329,7 @@
                                             </div>
                                             <div class="col">
                                                 <button class="btn btn-lg mt-2 px-5 mb-4 text-light"
-                                                    style="background-color: #4FBEAB; width:100%">Update</button>
+                                                    style="background-color: #4FBEAB; width:100%">Create</button>
                                             </div>
                                         </div>
                                     </form>

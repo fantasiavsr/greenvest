@@ -23,7 +23,15 @@
 
                     {{-- Sub Title --}}
                     <div class="d-sm-flex align-items-center justify-content-between pt-2 mt-4 mb-4">
-                        <h1 class="h3 mb-0 text-gray-800 ">List Item</h1>
+                        <h1 class="h3 text-gray-800 ">List Item</h1>
+                        <a class="" href="{{ route('admin.create.item') }}">
+                            <button class="btn btn-primary btn-icon-split">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                                <span class="text">Add Item</span>
+                            </button>
+                        </a>
                     </div>
 
                     <!-- Content Row -->
@@ -41,8 +49,10 @@
                                                     <th>Nama</th>
                                                     <th>Jenis Green</th>
                                                     <th>Kategori</th>
+                                                    <th>Previous Closing</th>
                                                     <th>Waktu Input</th>
-                                                    <th>Aksi</th>
+                                                    <th>Edit</th>
+                                                    <th>Delete</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -53,7 +63,7 @@
                                                                 @if ($image->where('produk_green_id', $item->id)->pluck('image')->first() != null) src="{{ asset('img/produk/' .$image->where('produk_green_id', $item->id)->pluck('image')->first()) }}"
                                                             @else
                                                                 src="{{ asset('img/produk/default.png') }}" @endif
-                                                                alt="">
+                                                                alt="" style="width:42px; height:42px">
                                                         </td>
                                                         <td>
                                                             {{ $item->nama }}
@@ -63,22 +73,38 @@
                                                         </td>
                                                         <td>
                                                             @if ($item->kategori == 'Green')
-                                                                <span class="badge badge-success">{{ $item->kategori }}</span>
+                                                                <span
+                                                                    class="badge badge-success">{{ $item->kategori }}</span>
                                                             @elseif ($item->kategori == 'Yellow')
-                                                                <span class="badge badge-warning">{{ $item->kategori }}</span>
+                                                                <span
+                                                                    class="badge badge-warning">{{ $item->kategori }}</span>
                                                             @elseif ($item->kategori == 'Red')
-                                                                <span class="badge badge-danger">{{ $item->kategori }}</span>
+                                                                <span
+                                                                    class="badge badge-danger">{{ $item->kategori }}</span>
                                                             @endif
 
+                                                        </td>
+                                                        <td>
+                                                            Rp{{ number_format($item->pre_close, 0, ',', '.') }}
                                                         </td>
                                                         <td>
                                                             {{ $item->created_at }}
                                                         </td>
                                                         <td>
                                                             <a href="{{ route('admin.edit.item', ['id' => $item->id]) }}"
-                                                                class="">
+                                                                class="btn btn-sm btn-warning pr-5 pl-1">
                                                                 Edit
                                                             </a>
+                                                        </td>
+                                                        <td>
+                                                            <form
+                                                                action="{{ route('admin.delete.item', ['id' => $item->id]) }}"
+                                                                method="POST" onclick="return confirm('Are you sure?')">
+                                                                @method('delete')
+                                                                @csrf
+                                                                <button type="submit"
+                                                                    class="btn btn-sm btn-danger pr-4 pl-1">Delete</button>
+                                                            </form>
                                                         </td>
                                                     </tr>
                                                 @endforeach

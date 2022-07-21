@@ -43,20 +43,20 @@
                                                     <th>Total Bayar</th>
                                                     <th>Jenis Transaksi</th>
                                                     <th>Waktu</th>
+                                                    <th>Kode Transaksi</th>
                                                     <th>Status</th>
-                                                    <th>Aksi</th>
+                                                    <th>Edit</th>
+                                                    <th>Delete</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @foreach ($list_transaksi as $item)
-                                                    <tr class="">
+                                                    <tr class="" style="font-size: 14px">
                                                         <td>
                                                             <img class="avatar rounded-circle me-2"
-                                                            @if ($image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first() != null)
-                                                                src="{{ asset('img/produk/' .$image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first()) }}"
+                                                                @if ($image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first() != null) src="{{ asset('img/produk/' .$image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first()) }}"
                                                             @else
-                                                                src="{{ asset('img/produk/default.png') }}"
-                                                            @endif
+                                                                src="{{ asset('img/produk/default.png') }}" @endif
                                                                 alt="">
                                                         </td>
                                                         <td>
@@ -74,6 +74,7 @@
                                                         <td>
                                                             {{ $item->created_at->format('d F, Y, H:i:s') }}
                                                         </td>
+                                                        <td>{{ $item->kode_transaksi }}</td>
                                                         <td>
                                                             @if ($item->status == 'Selesai')
                                                                 <span class="badge badge-success">
@@ -94,9 +95,20 @@
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            <a href="{{ route('admin.edit.transaksi', ['id' => $item->id]) }}" class="">
+                                                            <a href="{{ route('admin.edit.transaksi', ['id' => $item->id]) }}"
+                                                                class="btn btn-sm btn-warning pr-4 pl-1">
                                                                 Edit
                                                             </a>
+                                                        </td>
+                                                        <td>
+                                                            <form
+                                                                action="{{ route('admin.delete.transaksi', ['id' => $item->id]) }}"
+                                                                method="POST" onclick="return confirm('Are you sure?')">
+                                                                @method('delete')
+                                                                @csrf
+                                                                <button type="submit"
+                                                                    class="btn btn-sm btn-danger pr-3 pl-1">Delete</button>
+                                                            </form>
                                                         </td>
                                                     </tr>
                                                 @endforeach

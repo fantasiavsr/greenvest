@@ -94,7 +94,7 @@
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            <a class="" href="#" data-toggle="modal" data-target="#transaksiModal">
+                                                            <a class="" href="#">
                                                                 Detail
                                                             </a>
                                                         </td>
@@ -135,8 +135,6 @@
 
     <!-- Logout Modal-->
     @include('Partials.logoutmodal')
-
-    @include('Partials.transaksiModal')
 
     {{-- Custom DataTables --}}
     {{-- <script>

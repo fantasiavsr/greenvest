@@ -90,14 +90,14 @@
                                             <div class="col-sm form-outline mb-4">
                                                 <label class="form-label">Metode Pembayaran</label>
                                                 <input type="text" name="" class="form-control"
-                                                    value="{{ $this_transaksi->bank->bank_name }}" autofocus>
+                                                    value="{{ $this_transaksi->bank->bank_name }}" autofocus disabled>
                                             </div>
 
                                             <div class="col-sm form-outline mb-4">
                                                 <label class="form-label">Total Bayar</label>
                                                 <input type="text" name="total_bayar" class="form-control"
                                                     value="{{ $this_transaksi->total_bayar }}"
-                                                    autofocus>
+                                                    autofocus disabled>
                                             </div>
                                         </div>
 

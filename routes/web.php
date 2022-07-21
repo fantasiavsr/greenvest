@@ -75,5 +75,10 @@ Route::get('admin-transaksi', [AdminController::class, 'list_transaksi'])->middl
 Route::get('admin-transaksi/{id}', [AdminController::class, 'edit_transaksi'])->middleware('auth', 'admin')->name('admin.edit.transaksi');
 Route::post('admin-transaksi', [AdminController::class, 'update_transaksi'])->middleware('auth', 'admin')->name('admin.update.transaksi');
 Route::get('admin-item', [AdminController::class, 'list_item'])->middleware('auth', 'admin')->name('admin.item');
+Route::delete('admin-deletetransaksi/{id}', [AdminController::class, 'delete_transaksi'])->middleware('auth', 'admin')->name('admin.delete.transaksi');
+
 Route::get('admin-item/{id}', [AdminController::class, 'edit_item'])->middleware('auth', 'admin')->name('admin.edit.item');
 Route::post('admin-item', [AdminController::class, 'update_item'])->middleware('auth', 'admin')->name('admin.update.item');
+Route::get('admin-createitem', [AdminController::class, 'create_item'])->middleware('auth', 'admin')->name('admin.create.item');
+Route::post('admin-createitem', [AdminController::class, 'store_item'])->middleware('auth', 'admin')->name('admin.store.item');
+Route::delete('admin-deleteitem/{id}', [AdminController::class, 'delete_item'])->middleware('auth', 'admin')->name('admin.delete.item');
