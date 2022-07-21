@@ -79,6 +79,20 @@
                                             <div class="text-center">
                                                 Tidak ada data.
                                             </div>
+                                            @if (isset($charts))
+                                                @if ($charts['charts']['1month'] == null)
+                                                    <div class="text-center">
+                                                        Tidak ada data dari Google Finance untuk saat ini.
+                                                    </div>
+                                                @endif
+                                            @endif
+                                        @endif
+                                        @if (isset($charts))
+                                            @if ($charts['charts']['1month'] == null)
+                                                <div class="text-center">
+                                                    Tidak ada data dari Google Finance untuk saat ini.
+                                                </div>
+                                            @endif
                                         @endif
                                     </div>
                                 </div>
@@ -171,9 +185,9 @@
                                                                 @php
                                                                     $n = $googlefin_format->market_cap;
 
-                                                                    if($n > 1000000000000000000){
+                                                                    if ($n > 1000000000000000000) {
                                                                         $nfixed = round($n / 1000000000000000000, 2) . ' Kuintiliun';
-                                                                    }elseif($n > 1000000000000000){
+                                                                    } elseif ($n > 1000000000000000) {
                                                                         $nfixed = round($n / 1000000000000000, 2) . ' Kuadriliun';
                                                                     } elseif ($n > 1000000000000) {
                                                                         $nfixed = round($n / 1000000000000, 2) . ' Triliun';
@@ -181,6 +195,8 @@
                                                                         $nfixed = round($n / 1000000000, 2) . ' Milliar';
                                                                     } elseif ($n > 1000000) {
                                                                         $nfixed = round($n / 1000000, 2) . ' Juta';
+                                                                    } else {
+                                                                        $nfixed = number_format($n, 0, ',', '.');
                                                                     }
                                                                 @endphp
 

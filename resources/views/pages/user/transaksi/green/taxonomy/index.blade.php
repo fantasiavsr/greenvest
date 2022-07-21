@@ -114,6 +114,8 @@
                                                                     $nfixed = round($n / 1000000000, 2) . ' Milliar';
                                                                 } elseif ($n > 1000000) {
                                                                     $nfixed = round($n / 1000000, 2) . ' Juta';
+                                                                } else {
+                                                                    $nfixed = number_format($n, 0, ',', '.');
                                                                 }
                                                             @endphp
                                                             {{ $nfixed }}</td>
