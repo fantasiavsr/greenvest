@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\user_image;
 use App\Models\Bank;
 use App\Models\green;
 use App\Models\produk_green;
@@ -37,6 +38,7 @@ class ItemController extends Controller
     public function index($id)
     {
         $user = Auth::user();
+        $user_image = user_image::where('user_id', $user->id)->first();
         $produk_green = produk_green::where('id', $id)->first();
         $google_finance = google_finance::where('produk_green_id', $id)->first();
         $googlefin_format = googlefin_format::where('produk_green_id', $id)->first();
@@ -86,21 +88,25 @@ class ItemController extends Controller
             'charttest' => $charttest,
             'charts' => $charts,
             'googlefin_format' => $googlefin_format,
+            'user_image' => $user_image,
         ]);
     }
 
     public function simulasitest()
     {
         $user = Auth::user();
+        $user_image = user_image::where('user_id', $user->id)->first();
         return view('pages.item.simulasi.indextest', [
             'title' => "Simulasi",
             'user' => $user,
+            'user_image' => $user_image,
         ]);
     }
 
     public function simulasi($id)
     {
         $user = Auth::user();
+        $user_image = user_image::where('user_id', $user->id)->first();
         $dummy_simulasi = dummy_simulasi::where('user_id', $user->id)->first();
         $produk_green = produk_green::where('id', $id)->first();
         $dummy_laba = dummy_laba::where('produk_green_id', $produk_green->id)->first();
@@ -117,6 +123,7 @@ class ItemController extends Controller
             'produk_green' => $produk_green,
             'dummy_laba' => $dummy_laba,
             'nilai' => $nilai,
+            'user_image' => $user_image,
         ]);
     }
 
@@ -140,26 +147,31 @@ class ItemController extends Controller
     public function bandingtest()
     {
         $user = Auth::user();
+        $user_image = user_image::where('user_id', $user->id)->first();
         return view('pages.item.perbandingan.indextest', [
             'title' => "Perbandingan",
             'user' => $user,
+            'user_image' => $user_image,
         ]);
     }
 
     public function belitest()
     {
         $user = Auth::user();
+        $user_image = user_image::where('user_id', $user->id)->first();
         $bank = Bank::where('user_id', $user->id)->get();
         return view('pages.item.beli.indextest', [
             'title' => "Beli",
             'user' => $user,
             'bank' => $bank,
+            'user_image' => $user_image,
         ]);
     }
 
     public function beli($id)
     {
         $user = Auth::user();
+        $user_image = user_image::where('user_id', $user->id)->first();
         $bank = Bank::where('user_id', $user->id)->whereNotIn('bank_name', ["LinkAja", "GoPay", "GreenVest",])->get();
         $ewallet = Bank::where('user_id', $user->id)->whereIn('bank_name', ["LinkAja", "GoPay",])->get();
         $metodebayar = Bank::where('user_id', $user->id)->whereNotIn('bank_name', ["GreenVest",])->get();
@@ -174,6 +186,7 @@ class ItemController extends Controller
             'metodebayar' => $metodebayar,
             'produk_green' => $produk_green,
             'greenvest' => $greenvest,
+            'user_image' => $user_image,
         ]);
     }
 }

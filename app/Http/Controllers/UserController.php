@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\user_image;
 use App\Models\Bank;
 use App\Models\dummy_bankdef;
 use App\Models\list_transaksi;
@@ -26,6 +27,7 @@ class UserController extends Controller
     {
         /* dd(Auth::user()); */
         $user = Auth::user();
+        $user_image = user_image::where('user_id', $user->id)->first();
         $greenvest = Bank::where('user_id', $user->id)->where('bank_name', "GreenVest")->first();
         $bank = Bank::where('user_id', $user->id)->get();
         $bank_default = dummy_bankdef::where('user_id', $user->id)->first();
@@ -44,6 +46,7 @@ class UserController extends Controller
             return view('pages.admin.index', compact('user'), [
                 'title' => "Dashboard",
                 'user' => $user,
+                'user_image' => $user_image,
             ]);
         } else if ($level == "User") {
             return view('pages.user.index', compact('user'), [
@@ -58,11 +61,13 @@ class UserController extends Controller
                 'portofolio' => $portofolio,
                 'dummy_laba' => $dummy_laba,
                 'googlefin_format' => $googlefin_format,
+                'user_image' => $user_image,
             ]);
         } else if ($level == "Developer") {
             return view('pages.developer.index', compact('user'), [
                 'title' => "Dashboard",
                 'user' => $user,
+                'user_image' => $user_image,
             ]);
         } else {
             return back();

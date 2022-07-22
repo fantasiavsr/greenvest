@@ -5,12 +5,14 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DeveloperController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\ProfileController;
 
 
 /*
@@ -42,6 +44,10 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register.s
 Route::resource('user', UserController::class)->middleware('auth', 'user', 'admin');
 /* Route::resource('developer', DeveloperController::class)->middleware('auth', 'developer'); */
 
+Route::get('dashboard-saldo', [DashboardController::class, 'dashboard_saldo'])->middleware('auth', 'user')->name('dashboard.saldo');
+Route::get('dashboard-keuntungan', [DashboardController::class, 'dashboard_keuntungan'])->middleware('auth', 'user')->name('dashboard.keuntungan');
+Route::get('dashboard-total_bayar', [DashboardController::class, 'dashboard_total_bayar'])->middleware('auth', 'user')->name('dashboard.total_bayar');
+
 /* dummy bankdef - user dashboard */
 Route::post('bankdef/{id}', [UserController::class, 'bankdefupdate'])->name('bankdef.bankdefupdate');
 
@@ -51,6 +57,8 @@ Route::get('portofolio', [PortofolioController::class, 'index'])->middleware('au
 Route::get('portofolio detail/{id}', [PortofolioController::class, 'portofolio_detail'])->middleware('auth', 'user')->name('portofolio.detail');
 Route::post('portofolio jual', [PortofolioController::class, 'portofolio_jual'])->name('portofolio.jual');
 
+Route::get('profile', [ProfileController::class, 'index'])->middleware('auth', 'user')->name('profile');
+Route::post('profile', [ProfileController::class, 'update'])->middleware('auth', 'user')->name('profile.update');
 /* Transaksi */
 Route::get('transaksi green-bond', [TransaksiController::class, 'greenbond'])->middleware('auth', 'user')->name('transaksi.greenbond');
 Route::get('transaksi green-sukuk', [TransaksiController::class, 'greensukuk'])->middleware('auth', 'user')->name('transaksi.greensukuk');

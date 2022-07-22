@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\user_image;
 use App\Models\Bank;
 use App\Models\dummy_bankdef;
 use App\Models\dummy_laba;
@@ -29,6 +30,7 @@ class PortofolioController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $user_image = user_image::where('user_id', $user->id)->first();
         $image = produk_image::all();
         $list_transaksi = list_transaksi::where('user_id', $user->id)->where('jenis_transaksi', 'Pembelian')->where('status', 'selesai')->orderBy('created_at', 'DESC')->get();
 
@@ -39,12 +41,14 @@ class PortofolioController extends Controller
             'image' => $image,
             'list_transaksi' => $list_transaksi,
             'dummy_laba' => $dummy_laba,
+            'user_image' => $user_image,
         ]);
     }
 
     public function portofolio_detail($id)
     {
         $user = Auth::user();
+        $user_image = user_image::where('user_id', $user->id)->first();
         $this_transaksi = list_transaksi::find($id);
 
         $produk_green = produk_green::where('id', $this_transaksi->produk_green_id)->first();
@@ -60,6 +64,7 @@ class PortofolioController extends Controller
             'googlefin_format' => $googlefin_format,
             'dummy_laba' => $dummy_laba,
             'image' => $image,
+            'user_image' => $user_image,
         ]);
     }
 

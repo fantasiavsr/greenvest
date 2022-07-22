@@ -219,7 +219,8 @@
                                                                 </div>
                                                             </td>
                                                             <td>
-                                                                <a class="link-info" href="{{ route('portofolio.detail',  ['id' => $item->id]) }}">Detail</a>
+                                                                <a class="link-info"
+                                                                    href="{{ route('portofolio.detail', ['id' => $item->id]) }}">Detail</a>
                                                             </td>
                                                         </tr>
                                                     @endforeach
@@ -258,16 +259,18 @@
                                             <a class="dropdown-item" href="#">Something else here</a>
                                         </div>
                                     </div> --}}
-                                    <a href="{{ route('user.index') }}" class="btn text-light " style="background-color: #4FBEAB; width: 100%">
+                                    <a href="{{ route('user.index') }}" class="btn btn-light " style=" width: 100%">
                                         Total
                                     </a>
                                     <a href="{{ route('dashboard.saldo') }}" class="btn btn-light " style=" width: 100%">
                                         Saldo
                                     </a>
-                                    <a href="{{ route('dashboard.total_bayar') }}" class="btn btn-light " style=" width: 100%">
+                                    <a href="{{ route('dashboard.total_bayar') }}" class="btn btn-light "
+                                        style=" width: 100%">
                                         Pemabayaran
                                     </a>
-                                    <a href="{{ route('dashboard.keuntungan') }}" class="btn btn-light " style=" width: 100%">
+                                    <a href="{{ route('dashboard.keuntungan') }}" class="btn text-light "
+                                        style="background-color: #4FBEAB; width: 100%">
                                         Keuntungan
                                     </a>
                                 </div>
@@ -290,14 +293,32 @@
                                                 @endphp
                                             @else
                                                 @php
+                                                    $saldo = 0;
+                                                    $total_bayar = 0;
+                                                    $nilai_porto = 0;
                                                     $p_saldo = 0;
                                                     $p_total_bayar = 0;
                                                     $p_nilai_porto = 0;
                                                 @endphp
                                             @endif
                                         @endif
-
-                                        <div class="col-md-3">
+                                        <div class="col">
+                                            <div class="h1 mb-0 font-weight-bold text-gray-800 text-center">
+                                                Rp{{ $nilai_porto }}
+                                            </div>
+                                            <div class="g5 font-weight-bold text-uppercase mb-1 text-center">
+                                                Nilai Portofolio
+                                            </div>
+                                            <h4 class="small font-weight-bold">Nilai Portofolio<span
+                                                    class="float-right">{{ $p_nilai_porto }}%</span></h4>
+                                            <div class="progress mb-4">
+                                                <div class="progress-bar" role="progressbar"
+                                                    style="width: {{ $p_nilai_porto }}%; background-color:#378AEC"
+                                                    aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- <div class="col-md-3">
                                             <div class="pt-4 pb-2">
                                                 @if (isset($greenvest) && isset($nilai_portofolio))
                                                     @if ($greenvest->saldo != 0 || $nilai_portofolio != 0)
@@ -344,7 +365,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
@@ -426,7 +447,8 @@
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            <a href="{{ route('transaksi.detail',  ['id' => $item->id]) }}" class="">
+                                                            <a href="{{ route('transaksi.detail', ['id' => $item->id]) }}"
+                                                                class="">
                                                                 Detail
                                                             </a>
                                                         </td>

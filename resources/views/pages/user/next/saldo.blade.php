@@ -72,26 +72,6 @@
                                                 @endif
                                             </div>
                                             <div class="text-xs font-weight-bold text-uppercase mb-1">
-                                                {{-- <form action="{{ route('bankdef.bankdefupdate', ['id' => $bankdef->id]) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    @if (count($bank) == 0)
-                                                    <a href="">
-                                                        Klik untuk input akun bank.
-                                                    </a>
-                                                    @else
-                                                        Saldo Bank :
-                                                        <input type="hidden" name="user_id" value="{{ $user->id }}">
-                                                        <select name="bank_id" id="">
-                                                            @foreach ($bank as $item)
-                                                                <option value="{{ $item->id }}"
-                                                                    @if ($bankdef->bank_id == $item->id) selected @endif>
-                                                                    {{ $item->bank_name }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        <button class="btn btn-sm"><i class="fa fa-retweet" aria-hidden="true"></i></button>
-                                                    @endif
-                                                </form> --}}
                                                 Saldo Greenvest
                                             </div>
 
@@ -219,7 +199,8 @@
                                                                 </div>
                                                             </td>
                                                             <td>
-                                                                <a class="link-info" href="{{ route('portofolio.detail',  ['id' => $item->id]) }}">Detail</a>
+                                                                <a class="link-info"
+                                                                    href="{{ route('portofolio.detail', ['id' => $item->id]) }}">Detail</a>
                                                             </td>
                                                         </tr>
                                                     @endforeach
@@ -242,32 +223,19 @@
                             <div class="card shadow-custom mb-4" style="width:100%">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    {{-- <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button"
-                                            id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div> --}}
-                                    <a href="{{ route('user.index') }}" class="btn text-light " style="background-color: #4FBEAB; width: 100%">
+                                    <a href="{{ route('user.index') }}" class="btn btn-light " style=" width: 100%">
                                         Total
                                     </a>
-                                    <a href="{{ route('dashboard.saldo') }}" class="btn btn-light " style=" width: 100%">
+                                    <a href="{{ route('dashboard.saldo') }}" class="btn text-light "
+                                        style="background-color: #4FBEAB; width: 100%">
                                         Saldo
                                     </a>
-                                    <a href="{{ route('dashboard.total_bayar') }}" class="btn btn-light " style=" width: 100%">
+                                    <a href="{{ route('dashboard.total_bayar') }}" class="btn btn-light "
+                                        style=" width: 100%">
                                         Pemabayaran
                                     </a>
-                                    <a href="{{ route('dashboard.keuntungan') }}" class="btn btn-light " style=" width: 100%">
+                                    <a href="{{ route('dashboard.keuntungan') }}" class="btn btn-light "
+                                        style=" width: 100%">
                                         Keuntungan
                                     </a>
                                 </div>
@@ -290,14 +258,34 @@
                                                 @endphp
                                             @else
                                                 @php
+                                                    $saldo = 0;
+                                                    $total_bayar = 0;
+                                                    $nilai_porto = 0;
                                                     $p_saldo = 0;
                                                     $p_total_bayar = 0;
                                                     $p_nilai_porto = 0;
                                                 @endphp
                                             @endif
                                         @endif
+                                        <div class="col">
+                                            <div class="h1 mb-0 font-weight-bold text-gray-800 text-center">
+                                                Rp{{ $saldo }}
+                                            </div>
+                                            <div class="g5 font-weight-bold text-uppercase mb-1 text-center">
+                                                Saldo Greenvest
+                                            </div>
+                                            <h4 class="small font-weight-bold">Saldo Greenvest<span
+                                                    class="float-right">{{ $p_saldo }}%</span>
+                                            </h4>
+                                            <div class="progress mb-4">
+                                                <div class="progress-bar" role="progressbar"
+                                                    style="width: {{ $p_saldo }}%; background-color:#4FBEAB"
+                                                    aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                        <div class="col-md-3">
+                                        {{-- <div class="col-md-3">
                                             <div class="pt-4 pb-2">
                                                 @if (isset($greenvest) && isset($nilai_portofolio))
                                                     @if ($greenvest->saldo != 0 || $nilai_portofolio != 0)
@@ -344,7 +332,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
@@ -426,7 +414,8 @@
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            <a href="{{ route('transaksi.detail',  ['id' => $item->id]) }}" class="">
+                                                            <a href="{{ route('transaksi.detail', ['id' => $item->id]) }}"
+                                                                class="">
                                                                 Detail
                                                             </a>
                                                         </td>

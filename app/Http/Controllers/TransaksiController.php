@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\user_image;
 use App\Models\green;
 use App\Models\list_transaksi;
 use App\Models\produk_green;
@@ -25,6 +26,7 @@ class TransaksiController extends Controller
     public function greenbond()
     {
         $user = Auth::user();
+        $user_image = user_image::where('user_id', $user->id)->first();
         $green = green::whereIn('id', [2])->get();
         $produk_green = produk_green::whereIn('green_id', [2])->orderBy('nama', 'ASC')->get();
         $image = produk_image::all();
@@ -34,12 +36,14 @@ class TransaksiController extends Controller
             'green' => $green,
             'produk_green' => $produk_green,
             'image' => $image,
+            'user_image' => $user_image,
         ]);
     }
 
     public function greensukuk()
     {
         $user = Auth::user();
+        $user_image = user_image::where('user_id', $user->id)->first();
         $green = green::whereIn('id', [3])->get();
         $produk_green = produk_green::whereIn('green_id', [1])->orderBy('nama', 'ASC')->get();
         $image = produk_image::all();
@@ -49,6 +53,7 @@ class TransaksiController extends Controller
             'green' => $green,
             'produk_green' => $produk_green,
             'image' => $image,
+            'user_image' => $user_image,
         ]);
     }
 
@@ -56,6 +61,7 @@ class TransaksiController extends Controller
     {
 
         $user = Auth::user();
+        $user_image = user_image::where('user_id', $user->id)->first();
         $green = green::whereIn('id', [3])->get();
         $produk_green = produk_green::whereIn('green_id', [3])->orderBy('nama', 'ASC')->get();
         $image = produk_image::all();
@@ -65,12 +71,14 @@ class TransaksiController extends Controller
             'green' => $green,
             'produk_green' => $produk_green,
             'image' => $image,
+            'user_image' => $user_image,
         ]);
     }
 
     public function listtransaksi()
     {
         $user = Auth::user();
+        $user_image = user_image::where('user_id', $user->id)->first();
         $image = produk_image::all();
         $list_transaksi = list_transaksi::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get();
 
@@ -79,6 +87,7 @@ class TransaksiController extends Controller
             'user' => $user,
             'list_transaksi' => $list_transaksi,
             'image' => $image,
+            'user_image' => $user_image,
         ]);
     }
 
@@ -129,6 +138,7 @@ class TransaksiController extends Controller
 
     public function transaksi_detail($id){
         $user = Auth::user();
+        $user_image = user_image::where('user_id', $user->id)->first();
         $this_transaksi = list_transaksi::find($id);
         $image = produk_image::where('produk_green_id', $this_transaksi->produk_green->id)->first();
         $produk_green = produk_green::find($this_transaksi->produk_green->id);
@@ -143,6 +153,7 @@ class TransaksiController extends Controller
             'produk_green' => $produk_green,
             'dummy_laba' => $dummy_laba,
             'googlefin_format' => $googlefin_format,
+            'user_image' => $user_image,
         ]);
     }
 }

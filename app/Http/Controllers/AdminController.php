@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\user_image;
 use App\Models\Bank;
 use App\Models\dummy_bankdef;
 use App\Models\dummy_laba;
@@ -29,21 +30,26 @@ class AdminController extends Controller
     public function list_transaksi()
     {
         $user = Auth::user();
+        $user_image = user_image::where('user_id', $user->id)->first();
         $list_transaksi = list_transaksi::orderBy('created_at', 'DESC')->get();
 
         $image = produk_image::all();
         $userall = User::all();
+
         return view('pages.admin.transaksi.list-transaksi', compact('user'), [
             'title' => "Admin - List Transaksi",
             'submenu' => "no",
             'list_transaksi' => $list_transaksi,
-            'image' => $image
+            'image' => $image,
+            'userall' => $userall,
+            'user_image' => $user_image,
         ]);
     }
 
     public function edit_transaksi($id)
     {
         $user = Auth::user();
+        $user_image = user_image::where('user_id', $user->id)->first();
         $list_transaksi = list_transaksi::all();
         $image = produk_image::all();
         $userall = User::all();
@@ -54,7 +60,9 @@ class AdminController extends Controller
             'submenu' => "no",
             'list_transaksi' => $list_transaksi,
             'image' => $image,
-            'this_transaksi' => $this_transaksi
+            'this_transaksi' => $this_transaksi,
+            'userall' => $userall,
+            'user_image' => $user_image,
         ]);
     }
 
@@ -82,6 +90,7 @@ class AdminController extends Controller
     public function list_penjualan()
     {
         $user = Auth::user();
+        $user_image = user_image::where('user_id', $user->id)->first();
         $list_transaksi = list_transaksi::where('jenis_transaksi', 'Penjualan')->orderBy('created_at', 'DESC')->get();
 
         $image = produk_image::all();
@@ -90,7 +99,9 @@ class AdminController extends Controller
             'title' => "Admin - List Penjualan",
             'submenu' => "no",
             'list_transaksi' => $list_transaksi,
-            'image' => $image
+            'image' => $image,
+            'userall' => $userall,
+            'user_image' => $user_image,
         ]);
     }
 
@@ -98,6 +109,7 @@ class AdminController extends Controller
     public function detail_penjualan($id)
     {
         $user = Auth::user();
+        $user_image = user_image::where('user_id', $user->id)->first();
         $list_transaksi = list_transaksi::all();
         $image = produk_image::all();
         $userall = User::all();
@@ -108,7 +120,9 @@ class AdminController extends Controller
             'submenu' => "no",
             'list_transaksi' => $list_transaksi,
             'image' => $image,
-            'this_transaksi' => $this_transaksi
+            'this_transaksi' => $this_transaksi,
+            'userall' => $userall,
+            'user_image' => $user_image,
         ]);
     }
 
@@ -139,6 +153,7 @@ class AdminController extends Controller
     public function list_item()
     {
         $user = Auth::user();
+        $user_image = user_image::where('user_id', $user->id)->first();
         $list_item = produk_green::orderBy('nama', 'ASC')->get();
         $image = produk_image::all();
         $userall = User::all();
@@ -149,13 +164,16 @@ class AdminController extends Controller
             'submenu' => "no",
             'list_item' => $list_item,
             'image' => $image,
-            'googlefin_format' => $googlefin_format
+            'googlefin_format' => $googlefin_format,
+            'userall' => $userall,
+            'user_image' => $user_image,
         ]);
     }
 
     public function edit_item($id)
     {
         $user = Auth::user();
+        $user_image = user_image::where('user_id', $user->id)->first();
         /* $list_item = produk_green::orderBy('nama', 'ASC')->all(); */
 
         $userall = User::all();
@@ -173,7 +191,9 @@ class AdminController extends Controller
             'this_item' => $this_item,
             'charttest' => $charttest,
             'google_finance' => $google_finance,
-            'dummy_laba' => $dummy_laba
+            'dummy_laba' => $dummy_laba,
+            'userall' => $userall,
+            'user_image' => $user_image,
         ]);
     }
 
@@ -344,9 +364,11 @@ class AdminController extends Controller
     public function create_item()
     {
         $user = Auth::user();
+        $user_image = user_image::where('user_id', $user->id)->first();
         return view('pages.admin.item.edit.create-item', compact('user'), [
             'title' => "Admin - List Item",
             'submenu' => "no",
+            'user_image' => $user_image,
         ]);
     }
 

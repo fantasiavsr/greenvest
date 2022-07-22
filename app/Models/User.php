@@ -63,4 +63,8 @@ class User extends Authenticatable
     public function temp_transaction(){
         return $this->hasMany(temp_transaction::class);
     }
+
+    public function user_image(){
+        return $this->hasMany(user_image::class);
+    }
 }
