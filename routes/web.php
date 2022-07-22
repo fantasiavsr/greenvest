@@ -56,6 +56,7 @@ Route::get('transaksi green-bond', [TransaksiController::class, 'greenbond'])->m
 Route::get('transaksi green-sukuk', [TransaksiController::class, 'greensukuk'])->middleware('auth', 'user')->name('transaksi.greensukuk');
 Route::get('transaksi green-taxonomy', [TransaksiController::class, 'greentaxonomy'])->middleware('auth', 'user')->name('transaksi.greentaxonomy');
 Route::get('transaksi list-transaksi', [TransaksiController::class, 'listtransaksi'])->middleware('auth', 'user')->name('transaksi.list');
+Route::get('transaksi detail/{id}', [TransaksiController::class, 'transaksi_detail'])->middleware('auth', 'user')->name('transaksi.detail');
 
 /* Item */
 Route::get('item detail', [ItemController::class, 'indextest'])->middleware('auth', 'user')->name('item.detailtest');

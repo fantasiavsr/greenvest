@@ -100,7 +100,7 @@
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            <a class="" href="#">
+                                                            <a class="" href="{{ route('transaksi.detail',  ['id' => $item->id]) }}">
                                                                 Detail
                                                             </a>
                                                         </td>

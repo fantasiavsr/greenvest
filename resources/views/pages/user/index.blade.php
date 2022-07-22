@@ -219,7 +219,7 @@
                                                                 </div>
                                                             </td>
                                                             <td>
-                                                                <a class="link-info" href="#">Detail</a>
+                                                                <a class="link-info" href="{{ route('portofolio.detail',  ['id' => $item->id]) }}">Detail</a>
                                                             </td>
                                                         </tr>
                                                     @endforeach
@@ -426,7 +426,7 @@
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            <a href="#" class="">
+                                                            <a href="{{ route('transaksi.detail',  ['id' => $item->id]) }}" class="">
                                                                 Detail
                                                             </a>
                                                         </td>

@@ -7,6 +7,8 @@ use App\Models\green;
 use App\Models\list_transaksi;
 use App\Models\produk_green;
 use App\Models\produk_image;
+use App\Models\dummy_laba;
+use App\Models\googlefin_format;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -112,4 +114,22 @@ class TransaksiController extends Controller
         ->with('success', 'Successfully Added');
     }
 
+    public function transaksi_detail($id){
+        $user = Auth::user();
+        $this_transaksi = list_transaksi::find($id);
+        $image = produk_image::where('produk_green_id', $this_transaksi->produk_green->id)->first();
+        $produk_green = produk_green::find($this_transaksi->produk_green->id);
+        $dummy_laba = dummy_laba::where('produk_green_id', $produk_green->id)->first();
+        $googlefin_format = googlefin_format::where('produk_green_id', $produk_green->id)->first();
+
+        return view('pages.user.transaksi.list-transaksi.detail.index', [
+            'title' => "Transaksi | List Transaksi",
+            'user' => $user,
+            'this_transaksi' => $this_transaksi,
+            'image' => $image,
+            'produk_green' => $produk_green,
+            'dummy_laba' => $dummy_laba,
+            'googlefin_format' => $googlefin_format,
+        ]);
+    }
 }
