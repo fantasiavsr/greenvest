@@ -21,7 +21,7 @@ return new class extends Migration
             $table->String('pesan');
             $table->Integer('total_bayar');
             $table->String('jenis_transaksi');
-            $table->enum('status', ['Selesai', 'Pending', 'Menunggu Pembayaran', 'Dibatalkan']);
+            $table->enum('status', ['Selesai', 'Pending', 'Menunggu Pembayaran', 'Dibatalkan', 'Terjual']);
             $table->String('kode_transaksi');
             $table->timestamps();
 

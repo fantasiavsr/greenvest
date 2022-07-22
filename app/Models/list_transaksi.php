@@ -21,4 +21,8 @@ class list_transaksi extends Model
     public function bank(){
         return $this->belongsTo(bank::class, 'bank_id');
     }
+
+    public function temp_transaction(){
+        return $this->hasMany(temp_transaction::class);
+    }
 }

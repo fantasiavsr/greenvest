@@ -59,4 +59,8 @@ class User extends Authenticatable
     public function dummy_simulasi(){
         return $this->hasMany(dummy_simulasi::class);
     }
+
+    public function temp_transaction(){
+        return $this->hasMany(temp_transaction::class);
+    }
 }

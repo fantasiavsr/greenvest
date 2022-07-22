@@ -13,6 +13,7 @@ use App\Models\produk_image;
 use App\Models\charttest;
 use App\Models\google_finance;
 use App\Models\googlefin_format;
+use App\Models\temp_transaction;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -62,8 +63,9 @@ class PortofolioController extends Controller
         ]);
     }
 
-    public function portofolio_beli(Request $request)
+    public function portofolio_jual(Request $request)
     {
+        /* dd($request->all()); */
         $validateData = $request->validate([
             'user_id' => 'required|numeric',
             'produk_green_id' => 'required|numeric',
@@ -81,7 +83,14 @@ class PortofolioController extends Controller
             $validateData['pesan'] = $request->pesan;
         }
 
-        list_transaksi::create($validateData);
+        $newid = list_transaksi::create($validateData);
+
+        $temp_transaction = new temp_transaction;
+        $temp_transaction->user_id = $request->user_id;
+        $temp_transaction->list_transaksi_id = $newid->id;
+        $temp_transaction->old_transaksi_id = $request->old_transaksi_id;
+
+        $temp_transaction->save();
 
         return redirect()->route('transaksi.list')
             ->with('success', 'Successfully Added');

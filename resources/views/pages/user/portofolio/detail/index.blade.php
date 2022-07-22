@@ -137,8 +137,10 @@
                                     </h3>
                                     <div class="row">
                                         <div class="col">
-                                            <form action="{{ route('portofolio.beli') }}" method="POST" onclick="return confirm('Are you sure?')">
+                                            <form action="{{ route('portofolio.jual') }}" method="POST" onclick="return confirm('Are you sure?')">
                                                 @csrf
+                                                <input type="hidden" name="old_transaksi_id"
+                                                    value="{{ $this_transaksi->id }}">
                                                 <input type="hidden" name="user_id"
                                                     value="{{ $this_transaksi->user->id }}">
                                                 <input type="hidden" name="produk_green_id"

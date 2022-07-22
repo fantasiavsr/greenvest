@@ -13,6 +13,7 @@ use App\Models\produk_image;
 use App\Models\charttest;
 use App\Models\google_finance;
 use App\Models\googlefin_format;
+use App\Models\temp_transaction;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -114,16 +115,22 @@ class AdminController extends Controller
     public function acc_penjualan(Request $request)
     {
         /* dd($request->all()); */
+        $temp_transaction = temp_transaction::where('list_transaksi_id', $request->id)->first();
+        /* dd($temp_transaction->old_transaksi_id); */
+        $old_transaction = list_transaksi::find($temp_transaction->old_transaksi_id);
+        /* dd($old_transaction); */
+
         $user = User::find($request->user_id);
         $flights = list_transaksi::find($request->id);
         $flights->status = "Selesai";
         $flights->save();
-        /* dd($user->id); */
+
         $bank = Bank::where('user_id', $user->id)->where('bank_name', 'GreenVest')->first();
-        /* dd($bank); */
-        $bank->saldo = $bank->saldo + $request->total_bayar;
-        dd($bank->saldo);
+        $test = $bank->saldo = $bank->saldo + $request->total_bayar;
         $bank->save();
+
+        $old_transaction->status = "Terjual";
+        $old_transaction->save();
 
         return redirect()->route('admin.penjualan');
     }

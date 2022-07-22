@@ -92,6 +92,10 @@
                                                                 <span class="badge badge-primary">
                                                                     {{ $item->status }}
                                                                 </span>
+                                                            @elseif ($item->status == 'Terjual')
+                                                                <span class="badge badge-info">
+                                                                    {{ $item->status }}
+                                                                </span>
                                                             @endif
                                                         </td>
                                                         <td>

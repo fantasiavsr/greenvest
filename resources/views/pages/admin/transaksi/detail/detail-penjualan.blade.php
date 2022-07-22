@@ -93,9 +93,10 @@
                                                     value="{{ $this_transaksi->bank->bank_name }}" autofocus disabled>
                                             </div>
 
+                                            <input type="hidden" name="total_bayar" value="{{ $this_transaksi->total_bayar }}">
                                             <div class="col-sm form-outline mb-4">
                                                 <label class="form-label">Total Bayar</label>
-                                                <input type="text" name="total_bayar" class="form-control"
+                                                <input type="text" name="" class="form-control"
                                                     value="{{ $this_transaksi->total_bayar }}" autofocus disabled>
                                             </div>
                                         </div>

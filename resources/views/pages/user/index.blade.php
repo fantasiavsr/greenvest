@@ -194,7 +194,10 @@
                                                                     <div class="row text-start fw-lighter text-muted">
                                                                         @if ($googlefin_format->where('produk_green_id', $item->produk_green->id)->first() != null)
                                                                             @php
-                                                                                $n = $googlefin_format->where('produk_green_id', $item->produk_green->id)->pluck('market_cap')->first();
+                                                                                $n = $googlefin_format
+                                                                                    ->where('produk_green_id', $item->produk_green->id)
+                                                                                    ->pluck('market_cap')
+                                                                                    ->first();
 
                                                                                 if ($n > 1000000000000) {
                                                                                     $nfixed = round($n / 1000000000000, 2) . ' Triliun';
@@ -414,6 +417,10 @@
                                                                 </span>
                                                             @elseif ($item->status == 'Menunggu Pembayaran')
                                                                 <span class="badge badge-primary">
+                                                                    {{ $item->status }}
+                                                                </span>
+                                                            @elseif ($item->status == 'Terjual')
+                                                                <span class="badge badge-info">
                                                                     {{ $item->status }}
                                                                 </span>
                                                             @endif
