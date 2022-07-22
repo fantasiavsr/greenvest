@@ -48,6 +48,8 @@ Route::post('bankdef/{id}', [UserController::class, 'bankdefupdate'])->name('ban
 /* Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth', 'user')->name('dashboard'); */
 /* Portofolio */
 Route::get('portofolio', [PortofolioController::class, 'index'])->middleware('auth', 'user')->name('portofolio');
+Route::get('portofolio detail/{id}', [PortofolioController::class, 'portofolio_detail'])->middleware('auth', 'user')->name('portofolio.detail');
+
 /* Transaksi */
 Route::get('transaksi green-bond', [TransaksiController::class, 'greenbond'])->middleware('auth', 'user')->name('transaksi.greenbond');
 Route::get('transaksi green-sukuk', [TransaksiController::class, 'greensukuk'])->middleware('auth', 'user')->name('transaksi.greensukuk');

@@ -92,7 +92,7 @@
                                                             Rp{{ number_format($item->total_bayar + $nilai_portofolio, 0, ',', '.') }}
                                                         </td>
                                                         <td>
-                                                            <a class="link-info" href="{{-- {{ route('item.detailtest') }} --}}#">Detail</a>
+                                                            <a class="link-info" href="{{ route('portofolio.detail', ['id' => $item->id]) }}">Detail</a>
                                                         </td>
                                                         {{-- <td>
                                                         <a class="link-info" href="{{ route('item.detailtest') }}">Jual</a>

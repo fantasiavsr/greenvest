@@ -25,12 +25,8 @@
                     <div class="d-sm-flex align-items-center justify-content-between pt-2 mt-1 mb-4">
                         <div class="">
                             <h1 class="text-gray-800" style="font-weight:700; font-size:32px;">
-                                <a @if ($produk_green->green_id == '1') href="{{ route('transaksi.greensukuk') }}"
-                                @elseif ($produk_green->green_id == '2')
-                                    href="{{ route('transaksi.greenbond') }}"
-                                @elseif ($produk_green->green_id == '3')
-                                    href="{{ route('transaksi.greentaxonomy') }}" @endif
-                                    class="btn rounded-circle mr-1" style="background-color: #EDEFF5">
+                                <a href="{{ url()->previous() }}" class="btn rounded-circle mr-1"
+                                    style="background-color: #EDEFF5">
                                     <i class="fa fa-angle-left" style="width: 9px; height:9px"></i>
                                 </a>
                                 {{ $produk_green->nama }}
@@ -235,12 +231,59 @@
                     <!-- Content Row - Asset -->
                     <div class="row mt-2">
 
+                        <div class="col">
+                            {{-- <h4 class=" text-gray-800 ">Manajer Investasi</h4> --}}
+                            <div class="card mb-4" style="width:100%">
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="row d-flex px-3">
+                                        <div class="col">
+                                            <div class="table-responsive" style="">
+                                                <table class="table table-borderless">
+                                                    <thead>
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Minimal Pembelian</th>
+                                                                <th>Biaya Pembelian</th>
+                                                                <th>Biaya Penjualan</th>
+                                                                <th>Biaya Penampung</t </tr>
+                                                        </thead>
+                                                    </thead>
+                                                    <tbody">
+                                                        <tr>
+                                                            <td>Rp{{ number_format($produk_green->min_pembelian_produk) }}
+                                                            </td>
+                                                            <td>
+                                                                @if ($produk_green->biaya_pembelian == 0)
+                                                                    Gratis
+                                                                @else
+                                                                    {{ $produk_green->biaya_pembelian }}
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                @if ($produk_green->biaya_penjualan == 0)
+                                                                    Gratis
+                                                                @else
+                                                                    {{ $produk_green->biaya_penjualan }}
+                                                                @endif
+                                                            </td>
+                                                            <td>{{ $produk_green->biaya_penampung }}</td>
+                                                        </tr>
+                                                        </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- Card - Manaher Investasi-->
-                        <div class="col d-flex">
+                        {{-- <div class="col d-flex">
 
                             <div class="col">
                                 <h4 class=" text-gray-800 ">Manajer Investasi</h4>
-                                <div class="card shadow-custom mb-4" style="width:100%" {{-- style="background-color: #4FBEAB" --}}>
+                                <div class="card shadow-custom mb-4" style="width:100%">
                                     <!-- Card Body -->
                                     <div class="card-body">
 
@@ -284,14 +327,14 @@
                                 </div>
                             </div>
 
-                        </div>
+                        </div> --}}
 
                         <!-- Card - Data Switching-->
-                        <div class="col d-flex">
+                        {{-- <div class="col d-flex">
 
                             <div class="col">
                                 <h4 class=" text-gray-800 ">Data Switching</h4>
-                                <div class="card shadow-custom mb-4" style="width:100%" {{-- style="background-color: #4FBEAB" --}}>
+                                <div class="card shadow-custom mb-4" style="width:100%">
                                     <!-- Card Body -->
                                     <div class="card-body">
 
@@ -324,7 +367,7 @@
                                 </div>
                             </div>
 
-                        </div>
+                        </div> --}}
 
                     </div>
                 </div>

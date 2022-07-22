@@ -3,11 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Bank;
+use App\Models\dummy_bankdef;
+use App\Models\dummy_laba;
 use App\Models\green;
 use App\Models\list_transaksi;
 use App\Models\produk_green;
 use App\Models\produk_image;
-use App\Models\dummy_laba;
+use App\Models\charttest;
+use App\Models\google_finance;
+use App\Models\googlefin_format;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,6 +38,27 @@ class PortofolioController extends Controller
             'image' => $image,
             'list_transaksi' => $list_transaksi,
             'dummy_laba' => $dummy_laba,
+        ]);
+    }
+
+    public function portofolio_detail($id)
+    {
+        $user = Auth::user();
+        $this_transaksi = list_transaksi::find($id);
+
+        $produk_green = produk_green::where('id', $this_transaksi->produk_green_id)->first();
+        $googlefin_format = googlefin_format::where('produk_green_id', $produk_green->id)->first();
+
+        $dummy_laba = dummy_laba::where('produk_green_id', $produk_green->id)->first();
+        $image = produk_image::where('produk_green_id', $produk_green->id)->first();
+        return view('pages.user.portofolio.detail.index', [
+            'title' => "Portofolio",
+            'user' => $user,
+            'this_transaksi' => $this_transaksi,
+            'produk_green' => $produk_green,
+            'googlefin_format' => $googlefin_format,
+            'dummy_laba' => $dummy_laba,
+            'image' => $image,
         ]);
     }
 }
