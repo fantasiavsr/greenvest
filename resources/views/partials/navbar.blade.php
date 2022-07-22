@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark pt-4 pb-3" {{-- style="background-color: #30445C" --}}>
     <div class="container">
 
-        <a class="navbar-brand" href="/home"><img class="" src="{{ asset('img/gv-light.png') }}" alt="" width="100%"
+        <a class="navbar-brand" href="/"><img class="" src="{{ asset('img/gv-light.png') }}" alt="" width="100%"
                 height="26"></a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -14,13 +14,13 @@
 
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="fw-bold nav-link {{ $title === 'Home' ? 'active' : '' }}" href="/home">Home</a>
+                    <a class="fw-bold nav-link {{ $title === 'Home' ? 'active' : '' }}" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="fw-bold nav-link {{ $title === 'Get Started' ? 'active' : '' }}" href="/courseList">Get Started</a>
+                    <a class="fw-bold nav-link {{ $title === 'Get Started' ? 'active' : '' }}" href="{{ route('register') }}">Get Started</a>
                 </li>
                 <li class="nav-item">
-                    <a class="fw-bold nav-link {{ $title === 'Support' ? 'active' : '' }}" href="#">Support</a>
+                    <a class="fw-bold nav-link {{ $title === 'Support' ? 'active' : '' }}" href="#footer">Support</a>
                 </li>
                 {{-- <li class="nav-item">
                     <a class="fw-bold nav-link {{ $title === 'About Us' ? 'active' : '' }}" href="#">About Us</a>

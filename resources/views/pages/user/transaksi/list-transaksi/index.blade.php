@@ -40,8 +40,8 @@
                                                     <th></th>
                                                     <th>Nama</th>
                                                     <th>Kode</th>
-                                                    <th>Total Bayar</th>
                                                     <th>Jenis Transaksi</th>
+                                                    <th>Harga</th>
                                                     <th>Tanggal</th>
                                                     <th>Jam</th>
                                                     <th>Status</th>
@@ -53,11 +53,9 @@
                                                     <tr class="" style="font-size: 14px">
                                                         <td>
                                                             <img class="avatar rounded-circle me-2"
-                                                            @if ($image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first() != null)
-                                                                src="{{ asset('img/produk/' .$image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first()) }}"
+                                                                @if ($image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first() != null) src="{{ asset('img/produk/' .$image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first()) }}"
                                                             @else
-                                                                src="{{ asset('img/produk/default.png') }}"
-                                                            @endif
+                                                                src="{{ asset('img/produk/default.png') }}" @endif
                                                                 alt="" style="width:42px; height:42px">
                                                         </td>
                                                         <td>
@@ -66,11 +64,11 @@
                                                         <td>
                                                             {{ $item->kode_transaksi }}
                                                         </td>
-                                                        <td>
-                                                            Rp{{ number_format($item->total_bayar, 0, ',', '.') }}
-                                                        </td>
                                                         <td class="">
                                                             {{ $item->jenis_transaksi }}
+                                                        </td>
+                                                        <td>
+                                                            Rp{{ number_format($item->total_bayar, 0, ',', '.') }}
                                                         </td>
                                                         <td>
                                                             {{ $item->created_at->format('d M, Y') }}

@@ -29,7 +29,7 @@ class PortofolioController extends Controller
     {
         $user = Auth::user();
         $image = produk_image::all();
-        $list_transaksi = list_transaksi::where('user_id', $user->id)->where('status', 'selesai')->orderBy('created_at', 'DESC')->get();
+        $list_transaksi = list_transaksi::where('user_id', $user->id)->where('jenis_transaksi', 'Pembelian')->where('status', 'selesai')->orderBy('created_at', 'DESC')->get();
 
         $dummy_laba = dummy_laba::all();
         return view('pages.user.portofolio.index', [
@@ -60,5 +60,30 @@ class PortofolioController extends Controller
             'dummy_laba' => $dummy_laba,
             'image' => $image,
         ]);
+    }
+
+    public function portofolio_beli(Request $request)
+    {
+        $validateData = $request->validate([
+            'user_id' => 'required|numeric',
+            'produk_green_id' => 'required|numeric',
+            'bank_id' => 'required|numeric',
+            /* 'pesan' => 'required', */
+            'total_bayar' => 'required|numeric',
+            'jenis_transaksi' => 'required',
+            'status' => 'required',
+            'kode_transaksi' => 'required',
+        ]);
+
+        if ($request->pesan == "") {
+            $validateData['pesan'] = "Tidak ada pesan.";
+        } else {
+            $validateData['pesan'] = $request->pesan;
+        }
+
+        list_transaksi::create($validateData);
+
+        return redirect()->route('transaksi.list')
+            ->with('success', 'Successfully Added');
     }
 }

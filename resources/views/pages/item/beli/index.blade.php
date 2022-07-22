@@ -84,7 +84,7 @@
                                         <input type="hidden" id="status" name="status" value="Menunggu Pembayaran">
                                         <input type="hidden" id="kode_transaksi" name="kode_transaksi"
                                             value="@php
-                                            $kode_transaksi = 'TRX' . date('YmdHis');
+                                            $kode_transaksi = 'TRX' . date('YmdHis') . $user->id;
                                             echo $kode_transaksi;
                                         @endphp">
 

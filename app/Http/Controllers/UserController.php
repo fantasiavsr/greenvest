@@ -34,7 +34,7 @@ class UserController extends Controller
         $image = produk_image::all();
         $list_transaksi = list_transaksi::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get();
 
-        $portofolio = list_transaksi::where('user_id', $user->id)->where('status', 'selesai')->orderBy('created_at', 'DESC')->get();
+        $portofolio = list_transaksi::where('user_id', $user->id)->where('jenis_transaksi', 'Pembelian')->where('status', 'selesai')->orderBy('created_at', 'DESC')->get();
         $dummy_laba = dummy_laba::all();
 
         $googlefin_format = googlefin_format::all();

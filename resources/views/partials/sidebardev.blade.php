@@ -27,7 +27,7 @@
         Transaksi
     </div>
 
-    <!-- Nav Item - Portofolio -->
+    <!-- Nav Item  -->
     <li class="nav-item {{ (request()->is('admin-transaksi')) ? 'active' : '' }}">
         <a class="nav-link " href="{{ route('admin.transaksi') }}"
             @if ($title === 'Admin - List Transaksi') style="color: #4FBEAB; background-color:#F9FAFC;  border-right: 8px solid #4FBEAB;" @endif>
@@ -36,7 +36,16 @@
         </a>
     </li>
 
-    <!-- Heading -Transaksi -->
+    <!-- Nav Item  -->
+    <li class="nav-item {{ (request()->is('admin-penjualan')) ? 'active' : '' }}">
+        <a class="nav-link " href="{{ route('admin.penjualan') }}"
+            @if ($title === 'Admin - List Penjualan') style="color: #4FBEAB; background-color:#F9FAFC;  border-right: 8px solid #4FBEAB;" @endif>
+            <i class="fas fa-fw fa-credit-card"></i>
+            <span>List Penjualan</span>
+        </a>
+    </li>
+
+    <!-- Heading  -->
     <div class="sidebar-heading">
         Item
     </div>

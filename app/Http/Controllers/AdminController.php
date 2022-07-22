@@ -49,7 +49,7 @@ class AdminController extends Controller
 
         $this_transaksi = list_transaksi::find($id);
         return view('pages.admin.transaksi.edit.edit-transaksi', compact('user'), [
-            'title' => "Admin - List Transaksi",
+            'title' => "Admin - Edit Transaksi",
             'submenu' => "no",
             'list_transaksi' => $list_transaksi,
             'image' => $image,
@@ -77,6 +77,57 @@ class AdminController extends Controller
         $item->delete();
         return redirect()->route('admin.transaksi');
     }
+
+    public function list_penjualan()
+    {
+        $user = Auth::user();
+        $list_transaksi = list_transaksi::where('jenis_transaksi', 'Penjualan')->orderBy('created_at', 'DESC')->get();
+
+        $image = produk_image::all();
+        $userall = User::all();
+        return view('pages.admin.transaksi.list-penjualan', compact('user'), [
+            'title' => "Admin - List Penjualan",
+            'submenu' => "no",
+            'list_transaksi' => $list_transaksi,
+            'image' => $image
+        ]);
+    }
+
+
+    public function detail_penjualan($id)
+    {
+        $user = Auth::user();
+        $list_transaksi = list_transaksi::all();
+        $image = produk_image::all();
+        $userall = User::all();
+
+        $this_transaksi = list_transaksi::find($id);
+        return view('pages.admin.transaksi.detail.detail-penjualan', compact('user'), [
+            'title' => "Admin - Detail Penjualan",
+            'submenu' => "no",
+            'list_transaksi' => $list_transaksi,
+            'image' => $image,
+            'this_transaksi' => $this_transaksi
+        ]);
+    }
+
+    public function acc_penjualan(Request $request)
+    {
+        /* dd($request->all()); */
+        $user = User::find($request->user_id);
+        $flights = list_transaksi::find($request->id);
+        $flights->status = "Selesai";
+        $flights->save();
+        /* dd($user->id); */
+        $bank = Bank::where('user_id', $user->id)->where('bank_name', 'GreenVest')->first();
+        /* dd($bank); */
+        $bank->saldo = $bank->saldo + $request->total_bayar;
+        dd($bank->saldo);
+        $bank->save();
+
+        return redirect()->route('admin.penjualan');
+    }
+
 
     public function list_item()
     {

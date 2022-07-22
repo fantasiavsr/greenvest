@@ -45,7 +45,7 @@
                                                     <th>Waktu</th>
                                                     <th>Kode Transaksi</th>
                                                     <th>Status</th>
-                                                    <th>Edit</th>
+                                                    <th>Detail</th>
                                                     <th>Delete</th>
                                                 </tr>
                                             </thead>
@@ -95,9 +95,9 @@
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            <a href="{{ route('admin.edit.transaksi', ['id' => $item->id]) }}"
-                                                                class="btn btn-sm btn-warning pr-4 pl-1">
-                                                                Edit
+                                                            <a href="{{ route('admin.detail.penjualan', ['id' => $item->id]) }}"
+                                                                class="btn btn-sm btn-info pr-4 pl-1">
+                                                                Detail
                                                             </a>
                                                         </td>
                                                         <td>

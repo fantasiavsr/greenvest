@@ -49,6 +49,7 @@ Route::post('bankdef/{id}', [UserController::class, 'bankdefupdate'])->name('ban
 /* Portofolio */
 Route::get('portofolio', [PortofolioController::class, 'index'])->middleware('auth', 'user')->name('portofolio');
 Route::get('portofolio detail/{id}', [PortofolioController::class, 'portofolio_detail'])->middleware('auth', 'user')->name('portofolio.detail');
+Route::post('portofolio beli', [PortofolioController::class, 'portofolio_beli'])->name('portofolio.beli');
 
 /* Transaksi */
 Route::get('transaksi green-bond', [TransaksiController::class, 'greenbond'])->middleware('auth', 'user')->name('transaksi.greenbond');
@@ -78,6 +79,10 @@ Route::get('admin-transaksi/{id}', [AdminController::class, 'edit_transaksi'])->
 Route::post('admin-transaksi', [AdminController::class, 'update_transaksi'])->middleware('auth', 'admin')->name('admin.update.transaksi');
 Route::get('admin-item', [AdminController::class, 'list_item'])->middleware('auth', 'admin')->name('admin.item');
 Route::delete('admin-deletetransaksi/{id}', [AdminController::class, 'delete_transaksi'])->middleware('auth', 'admin')->name('admin.delete.transaksi');
+
+Route::get('admin-penjualan', [AdminController::class, 'list_penjualan'])->middleware('auth', 'admin')->name('admin.penjualan');
+Route::get('admin-penjualan/{id}', [AdminController::class, 'detail_penjualan'])->middleware('auth', 'admin')->name('admin.detail.penjualan');
+Route::post('admin-penjualan', [AdminController::class, 'acc_penjualan'])->middleware('auth', 'admin')->name('admin.accept.penjualan');
 
 Route::get('admin-item/{id}', [AdminController::class, 'edit_item'])->middleware('auth', 'admin')->name('admin.edit.item');
 Route::post('admin-item', [AdminController::class, 'update_item'])->middleware('auth', 'admin')->name('admin.update.item');

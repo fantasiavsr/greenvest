@@ -80,15 +80,13 @@
                                             <div class="col-sm form-outline mb-4">
                                                 <label class="form-label">Jatuh Tempo</label>
                                                 <input type="text" name="" class="form-control" autofocus required
-                                                @if ($produk_green->jatuh_tempo != 0)
-                                                    @php
+                                                    @if ($produk_green->jatuh_tempo != 0) @php
                                                         $date = new DateTime($this_transaksi->created_at);
                                                         $date->add(new DateInterval('P' . $produk_green->jatuh_tempo . 'D'));
                                                     @endphp
                                                     value="{{ $date->format('d F, Y') }}"
                                                 @else
-                                                    value="Tidak ada"
-                                                @endif
+                                                    value="Tidak ada" @endif
                                                     disabled>
                                             </div>
 
@@ -139,16 +137,33 @@
                                     </h3>
                                     <div class="row">
                                         <div class="col">
-                                            <button class="btn btn-light mt-3 px-5" style="width:100%"
-                                            @php
-                                                $date = new DateTime($this_transaksi->created_at);
-                                                $date->add(new DateInterval('P' . $produk_green->jatuh_tempo . 'D'));
-                                                $datenow = Carbon\Carbon::now();
-                                            @endphp
-                                            @if ($date > $datenow)
-                                                disabled
-                                            @endif
-                                            >Jual</button>
+                                            <form action="{{ route('portofolio.beli') }}" method="POST" onclick="return confirm('Are you sure?')">
+                                                @csrf
+                                                <input type="hidden" name="user_id"
+                                                    value="{{ $this_transaksi->user->id }}">
+                                                <input type="hidden" name="produk_green_id"
+                                                    value="{{ $this_transaksi->produk_green->id }}">
+                                                <input type="hidden" name="bank_id"
+                                                    value="{{ $this_transaksi->bank->id }}">
+                                                <input type="hidden" name="total_bayar"
+                                                    value="{{ $this_transaksi->total_bayar + $nilai_portofolio }}">
+                                                <input type="hidden" name="jenis_transaksi"
+                                                    value="Penjualan">
+                                                <input type="hidden" name="status" value="Pending">
+                                                <input type="hidden" name="kode_transaksi"
+                                                    value="@php
+                                            $kode_transaksi = 'TRX' . date('YmdHis') . $user->id;
+                                            echo $kode_transaksi;
+                                        @endphp">
+                                                <button class="btn btn-light mt-3 px-5" style="width:100%" type="submit"
+                                                    @php
+                                                        $date = new DateTime($this_transaksi->created_at);
+                                                        $date->add(new DateInterval('P' . $produk_green->jatuh_tempo . 'D'));
+                                                        $datenow = Carbon\Carbon::now();
+                                                    @endphp @if ($date > $datenow)
+                                                    disabled
+                                                    @endif>Jual</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
