@@ -44,18 +44,17 @@
                                             </h2>
                                         </div>
                                         <div class="col-xl-9 col-lg-7">
-                                            <h5 style="font-weight: 600">
-                                                ‘Berikut adalah Green Finance terbaik dengan mematuhi prinsip SYARIAH,
-                                                Silakan pilih satu yang sesuai keinginan anda.’
-                                            </h5>
+                                            <h6 style="font-weight: 500">
+                                                ‘Fitur transaksi surat berharga yang berbasis syariah dan hasil penerbitannya digunakan untuk membiayai proyek - proyek lingkungan (green projects). Hasil dari penjualan Green Sukuk dialokasikan untuk upaya mitigasi iklim di Indonesia seperti transportasi berkelanjutan, energy terbarukan, dan pengelolaan limbah.’
+                                            </h6>
                                         </div>
                                     </div>
                                     <div class="row mt-4 text-right">
                                         <div class="col">
-                                            <a href="#" class="text-light">
+                                            {{-- <a href="#" class="text-light">
                                                 <i class="fas fa-fw fa-question"></i>
                                                 <span>Info Lebih Lanjut</span>
-                                            </a>
+                                            </a> --}}
                                         </div>
                                     </div>
                                 </div>

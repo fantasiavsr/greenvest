@@ -44,18 +44,18 @@
                                             </h2>
                                         </div>
                                         <div class="col-xl-9 col-lg-7">
-                                            <h5 style="font-weight: 600">
-                                                ‘Berikut adalah Green Bond berupa obligasi untuk mendanai proyek atau green
-                                                company.’
-                                            </h5>
+                                            <h6 style="font-weight: 500">
+                                                ‘Fitur transaksi investasi yang dikategorikan dalam dua kriteria, yaitu
+                                                memitigasi dampak perubahan iklim dan adaptasi atas perubahan iklim. .’
+                                            </h6>
                                         </div>
                                     </div>
                                     <div class="row mt-4 text-right">
                                         <div class="col">
-                                            <a href="#" class="text-light">
+                                            {{-- <a href="#" class="text-light">
                                                 <i class="fas fa-fw fa-question"></i>
                                                 <span>Info Lebih Lanjut</span>
-                                            </a>
+                                            </a> --}}
                                         </div>
                                     </div>
                                 </div>
