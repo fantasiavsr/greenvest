@@ -9,6 +9,7 @@ use App\Models\produk_green;
 use App\Models\produk_image;
 use App\Models\dummy_laba;
 use App\Models\googlefin_format;
+use App\Models\Bank;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -102,7 +103,19 @@ class TransaksiController extends Controller
 
         $produk_green = produk_green::find($request->produk_green_id);
         if($request->total_bayar < $produk_green->min_pembelian_produk) {
-            return back()->withErrors(['msg' => 'Minimal Pembelian Produk adalah Rp.'.$produk_green->min_pembelian_produk]);
+            return back()->withErrors(['msg1' => 'Minimal Pembelian Produk adalah Rp.'.$produk_green->min_pembelian_produk]);
+        }
+
+        $bank = Bank::find($request->bank_id);
+        if($bank->bank_name == "GreenVest") {
+            if($bank->saldo < $request->total_bayar) {
+                return back()->withErrors(['msg2' => 'Saldo GreenVest Tidak Mencukupi']);
+            }else{
+                $bank->saldo = $bank->saldo - $request->total_bayar;
+                $bank->save();
+
+                $validateData['status'] = "Selesai";
+            }
         }
 
         /* dd($request->all()); */

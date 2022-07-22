@@ -61,6 +61,9 @@
                                                         @endif
                                                 @endforeach
                                             </select>
+                                            @if ($errors->has('msg2'))
+                                                <p class="text-danger" style="font-size: 14px">{{ $errors->first() }}</p>
+                                            @endif
                                         </div>
                                         <div class="form-outline mb-4">
                                             <label class="form-label">Pesan</label>
@@ -72,7 +75,7 @@
                                             <input type="text" name="total_bayar" id="total_bayar" class="form-control"
                                                 autofocus required
                                                 placeholder="Minimal Pembelian Rp{{ number_format($produk_green->min_pembelian_produk, 0, ',', '.') }}">
-                                            @if ($errors->any())
+                                            @if ($errors->has('msg1'))
                                                 <p class="text-danger" style="font-size: 14px">{{ $errors->first() }}</p>
                                             @endif
                                         </div>
