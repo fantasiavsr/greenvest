@@ -73,7 +73,7 @@
     </div>
 
     <!-- Nav Item - Pengaturan -->
-    <li class="nav-item">
+    <li class="nav-item {{ (request()->is('bank')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="{{ route('bank') }}">
             <i class="fas fa-fw fa-wrench"></i>
             <span>Pengaturan</span>
@@ -81,7 +81,7 @@
     </li>
 
     <!-- Nav Item - Profile -->
-    <li class="nav-item">
+    <li class="nav-item {{ (request()->is('profile')) ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('profile') }}">
             <i class="fas fa-fw fa-user"></i>
             <span>Profile</span></a>
