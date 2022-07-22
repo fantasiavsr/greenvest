@@ -44,12 +44,6 @@
 
                         <div class="col-xl-8 d-flex">
                             <div class="card shadow-custom mb-4" style="width:100%">
-                                <!-- Card Header -->
-                                {{-- <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <div class=" align-items-center justify-content-between">
-                                        <h1 class="h4 mb-0 text-gray-800 ">Portofolio Detail</h1>
-                                    </div>
-                                </div> --}}
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <form action="" method="">
@@ -84,6 +78,21 @@
                                             </div>
 
                                             <div class="col-sm form-outline mb-4">
+                                                <label class="form-label">Jatuh Tempo</label>
+                                                <input type="text" name="" class="form-control" autofocus required
+                                                @if ($produk_green->jatuh_tempo != 0)
+                                                    @php
+                                                        $date = new DateTime($this_transaksi->created_at);
+                                                        $date->add(new DateInterval('P' . $produk_green->jatuh_tempo . 'D'));
+                                                    @endphp
+                                                    value="{{ $date->format('d F, Y') }}"
+                                                @else
+                                                    value="Tidak ada"
+                                                @endif
+                                                    disabled>
+                                            </div>
+
+                                            <div class="col-sm form-outline mb-4">
                                                 <label class="form-label">Harga Beli</label>
                                                 <input type="text" name="" class="form-control" autofocus required
                                                     value="{{ $this_transaksi->total_bayar }}" disabled>
@@ -98,25 +107,9 @@
                                             </div>
                                         </div>
 
-                                        <!-- Submit button -->
-                                        {{-- <div class="row">
-                                            <div class="col">
-                                                <a href="{{ route('item.detail', ['id' => $produk_green->id]) }}"
-                                                    class="btn btn-lg mt-2 px-5 mb-4"
-                                                    style="background-color: #F9FAFC; width:100%">Kembali</a>
-                                            </div>
-                                            <div class="col">
-                                                <button class="btn btn-lg mt-2 px-5 mb-4 text-light"
-                                                    style="background-color: #4FBEAB; width:100%">Jual</button>
-                                            </div>
-                                        </div>
-                                    </form> --}}
+                                    </form>
 
                                 </div>
-                                {{-- <!-- Card Footer -->
-                                <div class="card-footer flex-row align-items-center text-center">
-                                    <a href="#">Lihat Semua</a>
-                                </div> --}}
                             </div>
                         </div>
 
@@ -146,7 +139,16 @@
                                     </h3>
                                     <div class="row">
                                         <div class="col">
-                                            <button class="btn btn-light mt-3 px-5" style="width:100%">Jual</button>
+                                            <button class="btn btn-light mt-3 px-5" style="width:100%"
+                                            @php
+                                                $date = new DateTime($this_transaksi->created_at);
+                                                $date->add(new DateInterval('P' . $produk_green->jatuh_tempo . 'D'));
+                                                $datenow = Carbon\Carbon::now();
+                                            @endphp
+                                            @if ($date > $datenow)
+                                                disabled
+                                            @endif
+                                            >Jual</button>
                                         </div>
                                     </div>
                                 </div>
@@ -172,7 +174,8 @@
                                             <h4 class="ml-3" style="display: inline">{{ $produk_green->nama }}</h4>
                                         </div>
                                         <div class="">
-                                            <a href="{{ route('item.detail', ['id' => $produk_green->id]) }}" class="btn">Lihat Detail</a>
+                                            <a href="{{ route('item.detail', ['id' => $produk_green->id]) }}"
+                                                class="btn">Lihat Detail</a>
                                             {{-- <button class="btn"></button> --}}
                                         </div>
                                     </div>

@@ -37,7 +37,7 @@
                             <div class="card shadow-custom mb-4" style="width:100%">
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <div class="table-responsive">
+                                    <div class="table-responsive" style="font-size: 14px">
                                         <table class="table table-hover" id="dataTable">
                                             <thead>
                                                 <tr>
@@ -46,7 +46,8 @@
                                                     <th>Jenis Produk</th>
                                                     <th>Total Pembelian</th>
                                                     <th>Tanggal Beli</th>
-                                                    <th>Laba</th>
+                                                    <th>Jatuh Tempo</th>
+                                                    {{-- <th>Laba</th> --}}
                                                     <th>NIlai Portofolio</th>
                                                     <th>Aksi</th>
                                                     {{-- <th>Jual</th> --}}
@@ -56,11 +57,9 @@
                                                     <tr class="">
                                                         <td>
                                                             <img class="avatar rounded-circle me-2"
-                                                            @if ($image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first() != null)
-                                                                src="{{ asset('img/produk/' .$image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first()) }}"
+                                                                @if ($image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first() != null) src="{{ asset('img/produk/' .$image->where('produk_green_id', $item->produk_green->id)->pluck('image')->first()) }}"
                                                             @else
-                                                                src="{{ asset('img/produk/default.png') }}"
-                                                            @endif
+                                                                src="{{ asset('img/produk/default.png') }}" @endif
                                                                 alt="" style="width:42px; height:42px">
                                                         </td>
                                                         <td>
@@ -76,8 +75,19 @@
                                                             {{ $item->created_at->format('d F, Y') }}
                                                         </td>
                                                         <td>
-                                                            {{ $dummy_laba->where('produk_green_id', $item->produk_green->id)->pluck('laba')->first() }}%
+                                                            @if ($item->produk_green->jatuh_tempo != 0)
+                                                                @php
+                                                                    $date = new DateTime($item->created_at);
+                                                                    $date->add(new DateInterval('P' . $item->produk_green->jatuh_tempo . 'D'));
+                                                                @endphp
+                                                                {{ $date->format('d F, Y') }}
+                                                            @else
+                                                                Tidak ada
+                                                            @endif
                                                         </td>
+                                                        {{-- <td>
+                                                            {{ $dummy_laba->where('produk_green_id', $item->produk_green->id)->pluck('laba')->first() }}%
+                                                        </td> --}}
                                                         {{-- Nilai Portofolio --}}
                                                         <td>
                                                             @php
@@ -92,7 +102,8 @@
                                                             Rp{{ number_format($item->total_bayar + $nilai_portofolio, 0, ',', '.') }}
                                                         </td>
                                                         <td>
-                                                            <a class="link-info" href="{{ route('portofolio.detail', ['id' => $item->id]) }}">Detail</a>
+                                                            <a class="link-info"
+                                                                href="{{ route('portofolio.detail', ['id' => $item->id]) }}">Detail</a>
                                                         </td>
                                                         {{-- <td>
                                                         <a class="link-info" href="{{ route('item.detailtest') }}">Jual</a>
