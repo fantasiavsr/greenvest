@@ -56,9 +56,9 @@
                                                     Rp{{ number_format($greenvest->saldo, 0, ',', '.') }}</option>
                                                 @foreach ($metodebayar as $item)
                                                     <option value="{{ $item->id }}">{{ $item->bank_name }}
-                                                        @if ($item->bank_name == 'LinkAja' || $item->bank_name == 'GoPay')
-                                                            | Saldo: Rp{{ number_format($item->saldo, 0, ',', '.') }}
-                                                        @endif
+
+                                                        |
+                                                        {{ substr($item->no_rekening, 0, 3) . '******' . substr($item->no_rekening, strlen($item->no_rekening) - 3, 3) }}
                                                 @endforeach
                                             </select>
                                             @if ($errors->has('msg2'))
@@ -212,9 +212,9 @@
                                                                 </div>
                                                             </div>
                                                         </td>
-                                                        <td>
+                                                        {{-- <td>
                                                             <a class="link-info" href="#">Detail</a>
-                                                        </td>
+                                                        </td> --}}
                                                     </tr>
                                                 @endforeach
                                                 @if (count($ewallet) == 0)
@@ -249,7 +249,6 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="table-responsive">
-
                                         <table class="table table-hover table-borderless" id="dataTable" width="100%"
                                             cellspacing="0" style="">
                                             {{-- <thead>
@@ -293,9 +292,9 @@
                                                                 </div>
                                                             </div>
                                                         </td>
-                                                        <td>
+                                                        {{-- <td>
                                                             <a class="link-info" href="#">Detail</a>
-                                                        </td>
+                                                        </td> --}}
                                                     </tr>
                                                 @endforeach
                                                 @if (count($bank) == 0)
@@ -311,7 +310,6 @@
                                                 @endif
                                             </tbody>
                                         </table>
-
                                     </div>
                                 </div>
                                 <!-- Card Footer -->

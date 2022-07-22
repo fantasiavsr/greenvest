@@ -50,6 +50,12 @@ Route::get('dashboard-total_bayar', [DashboardController::class, 'dashboard_tota
 
 /* dummy bankdef - user dashboard */
 Route::post('bankdef/{id}', [UserController::class, 'bankdefupdate'])->name('bankdef.bankdefupdate');
+Route::get('bank', [UserController::class, 'bank'])->middleware('auth', 'user')->name('bank');
+Route::get('bank create', [UserController::class, 'create_bank'])->middleware('auth', 'user')->name('bank.create');
+Route::post('bank store', [UserController::class, 'store_bank'])->middleware('auth', 'user')->name('bank.store');
+Route::get('bank edit/{id}', [UserController::class, 'edit_bank'])->middleware('auth', 'user')->name('bank.edit');
+Route::post('bank update', [UserController::class, 'update_bank'])->middleware('auth', 'user')->name('bank.update');
+Route::delete('bank delete/{id}', [UserController::class, 'delete_bank'])->middleware('auth', 'user')->name('bank.delete');
 
 /* Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth', 'user')->name('dashboard'); */
 /* Portofolio */

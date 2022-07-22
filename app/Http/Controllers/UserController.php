@@ -189,4 +189,74 @@ class UserController extends Controller
 
         return redirect('user');
     }
+
+    public function bank(){
+        $user = Auth::user();
+        $bank = Bank::where('user_id', $user->id)->get();
+        return view('pages.user.bank.index', compact('user'), [
+            'title' => "Bank",
+            'user' => $user,
+            'bank' => $bank,
+        ]);
+    }
+
+    public function create_bank(){
+        $user = Auth::user();
+        $bank = Bank::where('user_id', $user->id)->get();
+        return view('pages.user.bank.edit.create-bank', compact('user'), [
+            'title' => "Bank",
+            'user' => $user,
+            'bank' => $bank,
+        ]);
+    }
+
+    public function store_bank(Request $request){
+        $request->validate([
+            'bank_name' => 'required',
+            'no_rekening' => 'required|numeric',
+        ]);
+        $user = Auth::user();
+        $bank = new Bank();
+        $bank->bank_name = $request->get('bank_name');
+        $bank->no_rekening = $request->get('no_rekening');
+        $bank->user_id = $user->id;
+        $bank->saldo = 0;
+        $bank->save();
+        return redirect('bank');
+    }
+
+    public function edit_bank($id){
+        $user = Auth::user();
+        $bank = Bank::where('id', $id)->first();
+        return view('pages.user.bank.edit.edit-bank', compact('user'), [
+            'title' => "Bank",
+            'user' => $user,
+            'bank' => $bank,
+        ]);
+    }
+
+    public function update_bank(Request $request){
+
+        /* dd($request->all()); */
+        $request->validate([
+            'bank_name' => 'required',
+            'no_rekening' => 'required|numeric',
+        ]);
+        $user = Auth::user();
+        $bank = Bank::where('id', $request->id)->first();
+        /* dd($bank); */
+        $bank->bank_name = $request->get('bank_name');
+        $bank->no_rekening = $request->get('no_rekening');
+        $bank->user_id = $user->id;
+        $bank->save();
+        return redirect('bank');
+    }
+
+    public function delete_bank(Request $request){
+        $bank = Bank::find($request->id);
+        $bank->delete();
+        return redirect('bank');
+    }
+
+
 }
