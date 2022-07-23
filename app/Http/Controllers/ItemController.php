@@ -39,7 +39,7 @@ class ItemController extends Controller
     {
         $user = Auth::user();
         $user_image = user_image::where('user_id', $user->id)->first();
-        $produk_green = produk_green::where('id', $id)->first();
+        $produk_green = Produk_green::where('id', $id)->first();
         $google_finance = google_finance::where('produk_green_id', $id)->first();
         $googlefin_format = googlefin_format::where('produk_green_id', $id)->first();
 
@@ -76,7 +76,7 @@ class ItemController extends Controller
         $charttest = charttest::where('produk_green_id', $id)->orderBy('year', 'desc')->first();
 
         /* Switch Requirements */
-        $switch = produk_green::where('perusahaan', $produk_green->perusahaan)
+        $switch = Produk_green::where('perusahaan', $produk_green->perusahaan)
             ->where('id', '!=', $produk_green->id)
             ->get();
 
@@ -108,7 +108,7 @@ class ItemController extends Controller
         $user = Auth::user();
         $user_image = user_image::where('user_id', $user->id)->first();
         $dummy_simulasi = dummy_simulasi::where('user_id', $user->id)->first();
-        $produk_green = produk_green::where('id', $id)->first();
+        $produk_green = Produk_green::where('id', $id)->first();
         $dummy_laba = dummy_laba::where('produk_green_id', $produk_green->id)->first();
         if (isset($dummy_simulasi) && isset($dummy_laba)) {
             $nilai = $dummy_simulasi->jumInves+($dummy_simulasi->jumInves*($dummy_laba->laba/100));

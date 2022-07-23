@@ -51,7 +51,7 @@ class PortofolioController extends Controller
         $user_image = user_image::where('user_id', $user->id)->first();
         $this_transaksi = list_transaksi::find($id);
 
-        $produk_green = produk_green::where('id', $this_transaksi->produk_green_id)->first();
+        $produk_green = Produk_green::where('id', $this_transaksi->produk_green_id)->first();
         $googlefin_format = googlefin_format::where('produk_green_id', $produk_green->id)->first();
 
         $dummy_laba = dummy_laba::where('produk_green_id', $produk_green->id)->first();

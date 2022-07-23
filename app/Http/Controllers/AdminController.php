@@ -154,7 +154,7 @@ class AdminController extends Controller
     {
         $user = Auth::user();
         $user_image = user_image::where('user_id', $user->id)->first();
-        $list_item = produk_green::orderBy('nama', 'ASC')->get();
+        $list_item = Produk_green::orderBy('nama', 'ASC')->get();
         $image = produk_image::all();
         $userall = User::all();
         $googlefin_format = googlefin_format::all();
@@ -177,7 +177,7 @@ class AdminController extends Controller
         /* $list_item = produk_green::orderBy('nama', 'ASC')->all(); */
 
         $userall = User::all();
-        $this_item = produk_green::find($id);
+        $this_item = Produk_green::find($id);
         $charttest = charttest::where('produk_green_id', $id)->first();
         $google_finance = google_finance::where('produk_green_id', $id)->first();
         $dummy_laba = dummy_laba::where('produk_green_id', $id)->first();
@@ -212,7 +212,7 @@ class AdminController extends Controller
         ]);
 
         /* dd($request->all()); */
-        $flights = produk_green::find($request->id);
+        $flights = Produk_green::find($request->id);
         /* dd($flights); */
         $flights->nama = $request->nama;
         $flights->perusahaan = $request->perusahaan;
@@ -462,7 +462,7 @@ class AdminController extends Controller
 
     public function delete_item($id)
     {
-        $item = produk_green::find($id);
+        $item = Produk_green::find($id);
         $item->delete();
         return redirect()->route('admin.item');
     }

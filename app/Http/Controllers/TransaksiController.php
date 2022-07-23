@@ -28,7 +28,7 @@ class TransaksiController extends Controller
         $user = Auth::user();
         $user_image = user_image::where('user_id', $user->id)->first();
         $green = Green::where('id', [2])->get();
-        $produk_green = produk_green::where('green_id', [2])->orderBy('nama', 'ASC')->get();
+        $produk_green = Produk_green::where('green_id', [2])->orderBy('nama', 'ASC')->get();
         $image = produk_image::all();
         return view('pages.user.transaksi.green.bond.index', [
             'title' => "Transaksi | Green Bond",
@@ -44,8 +44,8 @@ class TransaksiController extends Controller
     {
         $user = Auth::user();
         $user_image = user_image::where('user_id', $user->id)->first();
-        $green = green::where('id', [3])->get();
-        $produk_green = produk_green::where('green_id', [1])->orderBy('nama', 'ASC')->get();
+        $green = Green::where('id', [3])->get();
+        $produk_green = Produk_green::where('green_id', [1])->orderBy('nama', 'ASC')->get();
         $image = produk_image::all();
         return view('pages.user.transaksi.green.sukuk.index', [
             'title' => "Transaksi | Green Sukuk",
@@ -62,8 +62,8 @@ class TransaksiController extends Controller
 
         $user = Auth::user();
         $user_image = user_image::where('user_id', $user->id)->first();
-        $green = green::where('id', [3])->get();
-        $produk_green = produk_green::where('green_id', [3])->orderBy('nama', 'ASC')->get();
+        $green = Green::where('id', [3])->get();
+        $produk_green = Produk_green::where('green_id', [3])->orderBy('nama', 'ASC')->get();
         $image = produk_image::all();
         return view('pages.user.transaksi.green.taxonomy.index', [
             'title' => "Transaksi | Green Taxonomy",
@@ -142,7 +142,7 @@ class TransaksiController extends Controller
         $user_image = user_image::where('user_id', $user->id)->first();
         $this_transaksi = list_transaksi::find($id);
         $image = produk_image::where('produk_green_id', $this_transaksi->produk_green->id)->first();
-        $produk_green = produk_green::find($this_transaksi->produk_green->id);
+        $produk_green = Produk_green::find($this_transaksi->produk_green->id);
         $dummy_laba = dummy_laba::where('produk_green_id', $produk_green->id)->first();
         $googlefin_format = googlefin_format::where('produk_green_id', $produk_green->id)->first();
 
