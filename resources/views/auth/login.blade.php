@@ -31,12 +31,12 @@
 
                         <div class="form-outline mb-4">
                             <label class="form-label">Username</label>
-                            <input type="text" name="username" id="username" class="form-control" autofocus required>
+                            <input type="text" name="username" id="username" class="form-control" autocomplete="off" autofocus required>
                         </div>
 
                         <div class="form-outline mb-4">
                             <label class="form-label">Password</label>
-                            <input type="password" name="password" id="password" class="form-control" required>
+                            <input type="password" name="password" id="password" autocomplete="off" class="form-control" required>
                         </div>
 
                         {{-- <input type="hidden" id="role" name="role" value="0"> --}}
