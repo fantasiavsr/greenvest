@@ -9,7 +9,7 @@ use App\Models\dummy_bankdef;
 use App\Models\dummy_laba;
 use App\Models\green;
 use App\Models\list_transaksi;
-use App\Models\produk_green;
+use App\Models\Produk_green;
 use App\Models\produk_image;
 use App\Models\charttest;
 use App\Models\google_finance;

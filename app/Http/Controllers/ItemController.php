@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\user_image;
 use App\Models\Bank;
-use App\Models\green;
-use App\Models\produk_green;
+use App\Models\Produk_green;
 use App\Models\charttest;
-use App\Models\dummy_bankdef;
-use App\Models\saldo_greenvest;
 use App\Models\google_finance;
 use App\Models\dummy_simulasi;
 use App\Models\dummy_laba;
