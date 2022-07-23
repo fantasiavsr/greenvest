@@ -16,6 +16,16 @@
                         <h1 class="mb-5 fw-bold" style="color: #4FBEAB">Registrasi</h1>
                     </div>
 
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <form action="{{ route('register.store') }}" method="post">
                         @csrf
                         <div class="form-outline mb-4">
@@ -53,7 +63,8 @@
 
                         <!-- Register buttons -->
                         <div class="text-center">
-                            <p>Already have Account? <a href="{{ route('login') }}" class=" fw-bold" style="color: #4FBEAB">Log In</a>
+                            <p>Already have Account? <a href="{{ route('login') }}" class=" fw-bold"
+                                    style="color: #4FBEAB">Log In</a>
                             </p>
                         </div>
                     </form>

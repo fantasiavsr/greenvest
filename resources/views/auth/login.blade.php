@@ -16,6 +16,16 @@
                         <h1 class="mb-5 fw-bold" style="color: #4FBEAB">Login</h1>
                     </div>
 
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <form action="{{ route('login') }}" method="post">
                         @csrf
 
@@ -36,7 +46,8 @@
 
                         <!-- Register buttons -->
                         <div class="text-center">
-                            <p>Not a member? <a href="{{ route('register') }}" class=" fw-bold" style="color: #4FBEAB">Register</a>
+                            <p>Not a member? <a href="{{ route('register') }}" class=" fw-bold"
+                                    style="color: #4FBEAB">Register</a>
                             </p>
                         </div>
                     </form>
