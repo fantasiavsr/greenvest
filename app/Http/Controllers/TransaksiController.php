@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\user_image;
-use App\Models\green;
+use App\Models\Green;
 use App\Models\list_transaksi;
 use App\Models\produk_green;
 use App\Models\produk_image;
@@ -27,7 +27,7 @@ class TransaksiController extends Controller
     {
         $user = Auth::user();
         $user_image = user_image::where('user_id', $user->id)->first();
-        $green = green::where('id', [2])->get();
+        $green = Green::where('id', [2])->get();
         $produk_green = produk_green::where('green_id', [2])->orderBy('nama', 'ASC')->get();
         $image = produk_image::all();
         return view('pages.user.transaksi.green.bond.index', [

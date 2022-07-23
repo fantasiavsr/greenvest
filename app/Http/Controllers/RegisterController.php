@@ -13,7 +13,7 @@ use App\Models\saldo_greenvest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class registerController extends Controller
+class RegisterController extends Controller
 {
     public function index()
     {
