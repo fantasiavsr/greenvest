@@ -283,7 +283,7 @@
                                 <!-- Card Body -->
                                 <div class="card-body py-3 ">
                                     <div class="row pt-3">
-                                        @if (isset($greenvest) && isset($nilai_portofolio))
+                                        @if (isset($greenvest))
                                             @if ($greenvest->saldo != 0 || $nilai_portofolio != 0)
                                                 @php
                                                     $saldo = $greenvest->saldo;
@@ -307,7 +307,7 @@
 
                                         <div class="col-md-3">
                                             <div class="pt-4 pb-2">
-                                                @if (isset($greenvest) && isset($nilai_portofolio))
+                                                @if (isset($greenvest))
                                                     @if ($greenvest->saldo != 0 || $nilai_portofolio != 0)
                                                         <canvas id="myPieChart"></canvas>
                                                     @else
