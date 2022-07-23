@@ -28,6 +28,8 @@ class PortofolioController extends Controller
         $list_transaksi = list_transaksi::where('user_id', $user->id)->where('jenis_transaksi', 'Pembelian')->where('status', 'selesai')->orderBy('created_at', 'DESC')->get();
 
         $dummy_laba = dummy_laba::all();
+
+        dd($list_transaksi);
         return view('pages.user.portofolio.index', [
             'title' => "Portofolio",
             'user' => $user,
