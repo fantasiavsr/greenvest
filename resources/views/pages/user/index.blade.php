@@ -275,7 +275,11 @@
                                         Keuntungan
                                     </a>
                                 </div>
-
+                                @php
+                                    $p_saldo = 0;
+                                    $p_total_bayar = 0;
+                                    $p_nilai_porto = 0;
+                                @endphp
                                 <!-- Card Body -->
                                 <div class="card-body py-3 ">
                                     <div class="row pt-3">
@@ -331,13 +335,11 @@
                                                 </h4>
                                                 <div class="progress mb-4">
                                                     <div class="progress-bar" role="progressbar"
-                                                        @if (isset($p_saldo))
-                                                            style="width: {{ $p_saldo }}%; background-color:#4FBEAB"
+                                                        @if (isset($p_saldo)) style="width: {{ $p_saldo }}%; background-color:#4FBEAB"
                                                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
                                                         @else
                                                             style="width: 0%; background-color:#4FBEAB"
-                                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
-                                                        @endif>
+                                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" @endif>
                                                     </div>
                                                 </div>
 
@@ -348,16 +350,15 @@
                                                         @else
                                                             0
                                                         @endif
-                                                        %</span></h4>
+                                                        %
+                                                    </span></h4>
                                                 <div class="progress mb-4">
                                                     <div class="progress-bar" role="progressbar"
-                                                    @if (isset($p_total_bayar))
-                                                    style="width: {{ $p_total_bayar }}%; background-color:#FFB020"
+                                                        @if (isset($p_total_bayar)) style="width: {{ $p_total_bayar }}%; background-color:#FFB020"
                                                         aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
                                                     @else
                                                         style="width: 0%; background-color:#4FBEAB"
-                                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
-                                                    @endif>
+                                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" @endif>
                                                     </div>
                                                 </div>
 
@@ -368,16 +369,15 @@
                                                         @else
                                                             0
                                                         @endif
-                                                        %</span></h4>
+                                                        %
+                                                    </span></h4>
                                                 <div class="progress mb-4">
                                                     <div class="progress-bar" role="progressbar"
-                                                    @if (isset($p_nilai_porto))
-                                                    style="width: {{ $p_nilai_porto }}%; background-color:#FFB020"
+                                                        @if (isset($p_nilai_porto)) style="width: {{ $p_nilai_porto }}%; background-color:#FFB020"
                                                         aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
                                                     @else
                                                         style="width: 0%; background-color:#4FBEAB"
-                                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
-                                                    @endif>
+                                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" @endif>
                                                     </div>
                                                 </div>
                                             </div>
