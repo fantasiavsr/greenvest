@@ -46,5 +46,12 @@ class DatabaseSeeder extends Seeder
             'level' => 'User',
             'password' => bcrypt('matahariku'),
         ]);
+
+        Bank::create([
+            'user_id' => 2,
+            'bank_name' => 'GreenVest',
+            'no_rekening' => '081123123123',
+            'saldo' => 16665000,
+        ]);
     }
 }

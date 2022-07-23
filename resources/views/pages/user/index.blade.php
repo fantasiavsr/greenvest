@@ -219,7 +219,8 @@
                                                                 </div>
                                                             </td>
                                                             <td>
-                                                                <a class="link-info" href="{{ route('portofolio.detail',  ['id' => $item->id]) }}">Detail</a>
+                                                                <a class="link-info"
+                                                                    href="{{ route('portofolio.detail', ['id' => $item->id]) }}">Detail</a>
                                                             </td>
                                                         </tr>
                                                     @endforeach
@@ -258,16 +259,19 @@
                                             <a class="dropdown-item" href="#">Something else here</a>
                                         </div>
                                     </div> --}}
-                                    <a href="{{ route('user.index') }}" class="btn text-light " style="background-color: #4FBEAB; width: 100%">
+                                    <a href="{{ route('user.index') }}" class="btn text-light "
+                                        style="background-color: #4FBEAB; width: 100%">
                                         Total
                                     </a>
                                     <a href="{{ route('dashboard.saldo') }}" class="btn btn-light " style=" width: 100%">
                                         Saldo
                                     </a>
-                                    <a href="{{ route('dashboard.total_bayar') }}" class="btn btn-light " style=" width: 100%">
+                                    <a href="{{ route('dashboard.total_bayar') }}" class="btn btn-light "
+                                        style=" width: 100%">
                                         Pemabayaran
                                     </a>
-                                    <a href="{{ route('dashboard.keuntungan') }}" class="btn btn-light " style=" width: 100%">
+                                    <a href="{{ route('dashboard.keuntungan') }}" class="btn btn-light "
+                                        style=" width: 100%">
                                         Keuntungan
                                     </a>
                                 </div>
@@ -316,31 +320,64 @@
                                         </div>
                                         <div class="col">
                                             <div>
-                                                <h4 class="small font-weight-bold">Saldo Greenvest<span
-                                                        class="float-right">{{ $p_saldo }}%</span>
+                                                <h4 class="small font-weight-bold">Saldo Greenvest<span class="float-right">
+                                                        @if (isset($p_saldo))
+                                                            {{ $p_saldo }}
+                                                        @else
+                                                            0
+                                                        @endif
+                                                        %
+                                                    </span>
                                                 </h4>
                                                 <div class="progress mb-4">
                                                     <div class="progress-bar" role="progressbar"
-                                                        style="width: {{ $p_saldo }}%; background-color:#4FBEAB"
-                                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                        @if (isset($p_saldo))
+                                                            style="width: {{ $p_saldo }}%; background-color:#4FBEAB"
+                                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
+                                                        @else
+                                                            style="width: 0%; background-color:#4FBEAB"
+                                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
+                                                        @endif>
                                                     </div>
                                                 </div>
 
                                                 <h4 class="small font-weight-bold">Total Pembayaran<span
-                                                        class="float-right">{{ $p_total_bayar }}%</span></h4>
+                                                        class="float-right">
+                                                        @if (isset($p_total_bayar))
+                                                            {{ $p_total_bayar }}
+                                                        @else
+                                                            0
+                                                        @endif
+                                                        %</span></h4>
                                                 <div class="progress mb-4">
                                                     <div class="progress-bar" role="progressbar"
-                                                        style="width: {{ $p_total_bayar }}%; background-color:#FFB020"
-                                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                    @if (isset($p_total_bayar))
+                                                    style="width: {{ $p_total_bayar }}%; background-color:#FFB020"
+                                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
+                                                    @else
+                                                        style="width: 0%; background-color:#4FBEAB"
+                                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
+                                                    @endif>
                                                     </div>
                                                 </div>
 
                                                 <h4 class="small font-weight-bold">Nilai Portofolio<span
-                                                        class="float-right">{{ $p_nilai_porto }}%</span></h4>
+                                                        class="float-right">
+                                                        @if (isset($p_nilai_porto))
+                                                            {{ $p_nilai_porto }}
+                                                        @else
+                                                            0
+                                                        @endif
+                                                        %</span></h4>
                                                 <div class="progress mb-4">
                                                     <div class="progress-bar" role="progressbar"
-                                                        style="width: {{ $p_nilai_porto }}%; background-color:#378AEC"
-                                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                    @if (isset($p_nilai_porto))
+                                                    style="width: {{ $p_nilai_porto }}%; background-color:#FFB020"
+                                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
+                                                    @else
+                                                        style="width: 0%; background-color:#4FBEAB"
+                                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
+                                                    @endif>
                                                     </div>
                                                 </div>
                                             </div>
@@ -426,7 +463,8 @@
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            <a href="{{ route('transaksi.detail',  ['id' => $item->id]) }}" class="">
+                                                            <a href="{{ route('transaksi.detail', ['id' => $item->id]) }}"
+                                                                class="">
                                                                 Detail
                                                             </a>
                                                         </td>
