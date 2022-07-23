@@ -29,7 +29,7 @@ class PortofolioController extends Controller
 
         $dummy_laba = dummy_laba::all();
 
-        dd($list_transaksi);
+        /* dd($list_transaksi); */
         return view('pages.user.portofolio.index', [
             'title' => "Portofolio",
             'user' => $user,
