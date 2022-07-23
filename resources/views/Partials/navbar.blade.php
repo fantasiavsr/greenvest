@@ -5,7 +5,7 @@
         <a class="navbar-brand" href="/"><img class="" src="{{ asset('img/gv-light.png') }}" alt="" width="100%"
                 height="26"></a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
