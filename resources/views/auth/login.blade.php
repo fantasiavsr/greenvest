@@ -18,11 +18,11 @@
 
                     @if ($errors->has('msg1'))
                         <div class="alert alert-danger">
-                            @foreach ($errors as $item)
                             <ul>
-                                <li>{{ $item->first() }}</li>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
                             </ul>
-                            @endforeach
                         </div>
                     @endif
 
