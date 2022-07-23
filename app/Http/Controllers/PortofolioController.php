@@ -25,7 +25,7 @@ class PortofolioController extends Controller
         $user = Auth::user();
         $user_image = user_image::where('user_id', $user->id)->first();
         $image = produk_image::all();
-        $list_transaksi = list_transaksi::where('user_id', $user->id)->where('jenis_transaksi', 'Pembelian')->where('status', 'selesai')->orderBy('created_at', 'DESC')->get();
+        $list_transaksi = list_transaksi::where('user_id', $user->id)->where('jenis_transaksi', 'Pembelian')->where('status', 'Selesai')->orderBy('created_at', 'DESC')->get();
 
         $dummy_laba = dummy_laba::all();
 
