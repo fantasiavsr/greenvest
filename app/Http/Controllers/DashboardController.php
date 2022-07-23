@@ -10,10 +10,7 @@ use App\Models\produk_image;
 use App\Models\dummy_laba;
 use App\Models\googlefin_format;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-
 
 class DashboardController extends Controller
 {
@@ -43,12 +40,11 @@ class DashboardController extends Controller
         $greenvest = Bank::where('user_id', $user->id)->where('bank_name', "GreenVest")->first();
         $bank = Bank::where('user_id', $user->id)->get();
         $bank_default = dummy_bankdef::where('user_id', $user->id)->first();
-        $level = Auth::user()->level;
 
         $image = produk_image::all();
         $list_transaksi = list_transaksi::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get();
 
-        $portofolio = list_transaksi::where('user_id', $user->id)->where('jenis_transaksi', 'Pembelian')->where('status', 'selesai')->orderBy('created_at', 'DESC')->get();
+        $portofolio = list_transaksi::where('user_id', $user->id)->where('jenis_transaksi', 'Pembelian')->where('status', 'Selesai')->orderBy('created_at', 'DESC')->get();
         $dummy_laba = dummy_laba::all();
 
         $googlefin_format = googlefin_format::all();
@@ -75,12 +71,11 @@ class DashboardController extends Controller
         $greenvest = Bank::where('user_id', $user->id)->where('bank_name', "GreenVest")->first();
         $bank = Bank::where('user_id', $user->id)->get();
         $bank_default = dummy_bankdef::where('user_id', $user->id)->first();
-        $level = Auth::user()->level;
 
         $image = produk_image::all();
         $list_transaksi = list_transaksi::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get();
 
-        $portofolio = list_transaksi::where('user_id', $user->id)->where('jenis_transaksi', 'Pembelian')->where('status', 'selesai')->orderBy('created_at', 'DESC')->get();
+        $portofolio = list_transaksi::where('user_id', $user->id)->where('jenis_transaksi', 'Pembelian')->where('status', 'Selesai')->orderBy('created_at', 'DESC')->get();
         $dummy_laba = dummy_laba::all();
 
         $googlefin_format = googlefin_format::all();
@@ -107,12 +102,11 @@ class DashboardController extends Controller
         $greenvest = Bank::where('user_id', $user->id)->where('bank_name', "GreenVest")->first();
         $bank = Bank::where('user_id', $user->id)->get();
         $bank_default = dummy_bankdef::where('user_id', $user->id)->first();
-        $level = Auth::user()->level;
 
         $image = produk_image::all();
         $list_transaksi = list_transaksi::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get();
 
-        $portofolio = list_transaksi::where('user_id', $user->id)->where('jenis_transaksi', 'Pembelian')->where('status', 'selesai')->orderBy('created_at', 'DESC')->get();
+        $portofolio = list_transaksi::where('user_id', $user->id)->where('jenis_transaksi', 'Pembelian')->where('status', 'Selesai')->orderBy('created_at', 'DESC')->get();
         $dummy_laba = dummy_laba::all();
 
         $googlefin_format = googlefin_format::all();
