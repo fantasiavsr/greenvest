@@ -20,7 +20,7 @@
                         <div class="alert alert-danger">
                             @foreach ($errors as $item)
                             <ul>
-                                <li>{{ $item }}</li>
+                                <li>{{ $item->first() }}</li>
                             </ul>
                             @endforeach
                         </div>
