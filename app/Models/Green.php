@@ -12,6 +12,6 @@ class Green extends Model
     protected $guarded = [];
 
     public function produk_green(){
-        return $this->hasMany(produk_green::class);
+        return $this->hasMany(Produk_green::class);
     }
 }

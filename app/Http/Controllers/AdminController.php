@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\user_image;
 use App\Models\Bank;
-use App\Models\dummy_bankdef;
 use App\Models\dummy_laba;
-use App\Models\green;
 use App\Models\list_transaksi;
 use App\Models\Produk_green;
 use App\Models\produk_image;
@@ -386,7 +384,7 @@ class AdminController extends Controller
             'laba' => 'required|numeric',
         ]);
 
-        $flights = new produk_green;
+        $flights = new Produk_green;
         $flights->nama = $request->nama;
         $flights->perusahaan = $request->perusahaan;
         $flights->green_id = $request->green_id;

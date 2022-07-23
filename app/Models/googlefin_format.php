@@ -18,6 +18,6 @@ class googlefin_format extends Model
 
     public function produk_green()
     {
-        return $this->belongsTo(produk_green::class);
+        return $this->belongsTo(Produk_green::class);
     }
 }

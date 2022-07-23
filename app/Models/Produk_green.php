@@ -26,7 +26,7 @@ class Produk_green extends Model
     ]; */
 
     public function green(){
-        return $this->belongsTo(green::class, 'green_id');
+        return $this->belongsTo(Green::class, 'green_id');
     }
 
     public function charttest(){

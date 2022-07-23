@@ -15,7 +15,7 @@ class list_transaksi extends Model
     }
 
     public function produk_green(){
-        return $this->belongsTo(produk_green::class, 'produk_green_id');
+        return $this->belongsTo(Produk_green::class, 'produk_green_id');
     }
 
     public function bank(){
