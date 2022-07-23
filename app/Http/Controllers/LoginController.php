@@ -28,7 +28,7 @@ class LoginController extends Controller
             return redirect()->intended('user');
         }
         /* dd('Invalid credentials'); */
-        return back()->with('Login Error');
+        return back()->withErrors(['msg1' => 'Login Error, Please Try Again. Check your username and password']);
     }
 
     public function logout(Request $request)
