@@ -27,8 +27,8 @@ class TransaksiController extends Controller
     {
         $user = Auth::user();
         $user_image = user_image::where('user_id', $user->id)->first();
-        $green = green::whereIn('id', [2])->get();
-        $produk_green = produk_green::whereIn('green_id', [2])->orderBy('nama', 'ASC')->get();
+        $green = green::where('id', [2])->get();
+        $produk_green = produk_green::where('green_id', [2])->orderBy('nama', 'ASC')->get();
         $image = produk_image::all();
         return view('pages.user.transaksi.green.bond.index', [
             'title' => "Transaksi | Green Bond",
@@ -44,8 +44,8 @@ class TransaksiController extends Controller
     {
         $user = Auth::user();
         $user_image = user_image::where('user_id', $user->id)->first();
-        $green = green::whereIn('id', [3])->get();
-        $produk_green = produk_green::whereIn('green_id', [1])->orderBy('nama', 'ASC')->get();
+        $green = green::where('id', [3])->get();
+        $produk_green = produk_green::where('green_id', [1])->orderBy('nama', 'ASC')->get();
         $image = produk_image::all();
         return view('pages.user.transaksi.green.sukuk.index', [
             'title' => "Transaksi | Green Sukuk",
@@ -62,8 +62,8 @@ class TransaksiController extends Controller
 
         $user = Auth::user();
         $user_image = user_image::where('user_id', $user->id)->first();
-        $green = green::whereIn('id', [3])->get();
-        $produk_green = produk_green::whereIn('green_id', [3])->orderBy('nama', 'ASC')->get();
+        $green = green::where('id', [3])->get();
+        $produk_green = produk_green::where('green_id', [3])->orderBy('nama', 'ASC')->get();
         $image = produk_image::all();
         return view('pages.user.transaksi.green.taxonomy.index', [
             'title' => "Transaksi | Green Taxonomy",
@@ -104,22 +104,22 @@ class TransaksiController extends Controller
             'kode_transaksi' => 'required',
         ]);
 
-        if($request->pesan == ""){
+        if ($request->pesan == "") {
             $validateData['pesan'] = "Tidak ada pesan.";
-        }else{
+        } else {
             $validateData['pesan'] = $request->pesan;
         }
 
         $produk_green = produk_green::find($request->produk_green_id);
-        if($request->total_bayar < $produk_green->min_pembelian_produk) {
-            return back()->withErrors(['msg1' => 'Minimal Pembelian Produk adalah Rp.'.$produk_green->min_pembelian_produk]);
+        if ($request->total_bayar < $produk_green->min_pembelian_produk) {
+            return back()->withErrors(['msg1' => 'Minimal Pembelian Produk adalah Rp.' . $produk_green->min_pembelian_produk]);
         }
 
         $bank = Bank::find($request->bank_id);
-        if($bank->bank_name == "GreenVest") {
-            if($bank->saldo < $request->total_bayar) {
+        if ($bank->bank_name == "GreenVest") {
+            if ($bank->saldo < $request->total_bayar) {
                 return back()->withErrors(['msg2' => 'Saldo GreenVest Tidak Mencukupi']);
-            }else{
+            } else {
                 $bank->saldo = $bank->saldo - $request->total_bayar;
                 $bank->save();
 
@@ -133,10 +133,11 @@ class TransaksiController extends Controller
         list_transaksi::create($validateData);
 
         return redirect()->route('transaksi.list')
-        ->with('success', 'Successfully Added');
+            ->with('success', 'Successfully Added');
     }
 
-    public function transaksi_detail($id){
+    public function transaksi_detail($id)
+    {
         $user = Auth::user();
         $user_image = user_image::where('user_id', $user->id)->first();
         $this_transaksi = list_transaksi::find($id);
