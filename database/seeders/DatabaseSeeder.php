@@ -67,7 +67,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Green::create([
-            'id' => 1,
+            'id' => 3,
             'nama' => 'Green Taxonomy',
             'min_pembelian' => 0,
         ]);
