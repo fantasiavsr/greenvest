@@ -1,4 +1,4 @@
-@extends('layouts\main')
+@extends('layouts.main')
 
 @section('content')
     <div class="pt-5 pb-5" style="background-color: #F9FAFC">
