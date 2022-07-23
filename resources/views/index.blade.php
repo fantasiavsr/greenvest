@@ -1,7 +1,7 @@
 @extends('layouts\main')
 
 @section('content')
-    @include('partials.navbar')
+    @include('Partials.navbar')
 
     <div class="main">
 
