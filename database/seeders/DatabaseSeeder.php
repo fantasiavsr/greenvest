@@ -53,5 +53,23 @@ class DatabaseSeeder extends Seeder
             'no_rekening' => '081123123123',
             'saldo' => 16665000,
         ]);
+
+        Green::create([
+            'id' => 1,
+            'nama' => 'Green Sukuk',
+            'min_pembelian' => 1000000,
+        ]);
+
+        Green::create([
+            'id' => 2,
+            'nama' => 'Green Bond',
+            'min_pembelian' => 5000000,
+        ]);
+
+        Green::create([
+            'id' => 1,
+            'nama' => 'Green Taxonomy',
+            'min_pembelian' => 0,
+        ]);
     }
 }
