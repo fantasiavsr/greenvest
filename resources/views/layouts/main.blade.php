@@ -12,7 +12,7 @@
     {{-- bootstrap icon --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 
-    <title>Login</title>
+    <title>GreenVest</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/gv-logo-box.png') }}">
 </head>
 
