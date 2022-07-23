@@ -4,6 +4,19 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
+use App\Models\user_image;
+use App\Models\Bank;
+use App\Models\dummy_bankdef;
+use App\Models\dummy_laba;
+use App\Models\green;
+use App\Models\list_transaksi;
+use App\Models\produk_green;
+use App\Models\produk_image;
+use App\Models\charttest;
+use App\Models\google_finance;
+use App\Models\googlefin_format;
+use App\Models\temp_transaction;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,9 +29,22 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::create([
+            'nama_lengkap' => 'GV Admin',
+            'username' => 'admin',
+            'nohp' => '081212121212',
+            'email' => 'matahariku@gmail.com',
+            'level' => 'Admin',
+            'password' => bcrypt('matahariku'),
+        ]);
+
+        User::create([
+            'nama_lengkap' => 'Muhamad Alif Rizki',
+            'username' => 'fantasiavsr',
+            'nohp' => '082222222222',
+            'email' => 'fantasiavsr@gmail.com',
+            'level' => 'User',
+            'password' => bcrypt('matahariku'),
+        ]);
     }
 }
