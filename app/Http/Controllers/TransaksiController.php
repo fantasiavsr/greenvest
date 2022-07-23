@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\user_image;
 use App\Models\Green;
 use App\Models\list_transaksi;

@@ -2,23 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\user_image;
-use App\Models\Bank;
-use App\Models\dummy_bankdef;
 use App\Models\dummy_laba;
-use App\Models\green;
 use App\Models\list_transaksi;
 use App\Models\Produk_green;
 use App\Models\produk_image;
-use App\Models\charttest;
-use App\Models\google_finance;
 use App\Models\googlefin_format;
 use App\Models\temp_transaction;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 class PortofolioController extends Controller
 {

@@ -44,7 +44,7 @@
                             <input type="password" name="password" id="password" class="form-control" required>
                         </div>
 
-                        <input type="hidden" name="level" value="user">
+                        <input type="hidden" name="level" value="User">
 
                         {{-- <input type="hidden" id="role" name="role" value="0"> --}}
                         <!-- Submit button -->
