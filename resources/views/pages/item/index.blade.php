@@ -210,7 +210,7 @@
                                         </div>
 
                                         <div class="col-xl-2 pt-2">
-                                            <a href="{{ route('item.bandingtest') }}" class="btn btn-light mt-2"
+                                            <a href="{{ route('item.bandingtest' , ['id' => $produk_green->id]) }}" class="btn btn-light mt-2"
                                                 style="width:100%">Bandingkan</a>
                                             <div class="text-center pt-3">
                                                 <a href="#" class="text-light">

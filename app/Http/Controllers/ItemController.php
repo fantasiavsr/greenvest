@@ -139,14 +139,16 @@ class ItemController extends Controller
         return redirect()->route('item.simulasi', ['id' => $request->produk_green_id]);
     }
 
-    public function bandingtest()
+    public function bandingtest($id)
     {
         $user = Auth::user();
         $user_image = user_image::where('user_id', $user->id)->first();
+        $produk_green = Produk_green::where('id', $id)->first();
         return view('pages.item.perbandingan.indextest', [
             'title' => "Perbandingan",
             'user' => $user,
             'user_image' => $user_image,
+            'produk_green' => $produk_green,
         ]);
     }
 
@@ -172,7 +174,7 @@ class ItemController extends Controller
         $metodebayar = Bank::where('user_id', $user->id)->whereNotIn('bank_name', ["GreenVest",])->get();
         $greenvest = Bank::where('user_id', $user->id)->where('bank_name', "GreenVest")->first();
 
-        $produk_green = produk_green::where('id', $id)->first();
+        $produk_green = Produk_green::where('id', $id)->first();
         return view('pages.item.beli.index', [
             'title' => "Beli",
             'user' => $user,

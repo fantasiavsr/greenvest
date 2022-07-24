@@ -16,6 +16,7 @@ use App\Models\temp_transaction;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -461,5 +462,92 @@ class AdminController extends Controller
         $item = Produk_green::find($id);
         $item->delete();
         return redirect()->route('admin.item');
+    }
+
+    public function list_user()
+    {
+        $user = Auth::user();
+        $user_image = user_image::where('user_id', $user->id)->first();
+        $list_item = User::orderBy('nama_lengkap', 'ASC')->get();
+
+        return view('pages.admin.user.list-user', compact('user'), [
+            'title' => "Admin - List User",
+            'submenu' => "no",
+            'list_item' => $list_item,
+            'user_image' => $user_image,
+        ]);
+    }
+
+    public function delete_user($id)
+    {
+        $item = User::find($id);
+        $item->delete();
+        return redirect()->route('admin.user');
+    }
+
+    public function edit_user($id)
+    {
+        $user = Auth::user();
+        $this_item = User::find($id);
+        $user_image = user_image::where('user_id', $id)->first();
+
+        return view('pages.admin.user.edit.edit-user', compact('user'), [
+            'title' => "Admin - List User",
+            'submenu' => "no",
+            'user' => $user,
+            'user_image' => $user_image,
+            'this_item' => $this_item,
+        ]);
+    }
+
+    public function update_user(Request $request)
+    {
+
+       /* $request->validate([
+            'nama_lengkap' => 'required',
+            'username' => 'required',
+            'email' => 'required|unique:users,email',
+            'nohp' => 'required|unique:users,nohp|numeric',
+        ]); */
+
+        $user = User::find($request->user_id);
+        /* dd($request->all(), $user->nama_lengkap); */
+        $user->nama_lengkap = $request->nama_lengkap;
+        $user->email = $request->email;
+        $user->nohp = $request->nohp;
+        if (isset($request->password)) {
+            $user->password = Hash::make($request->password);
+        }
+
+        if ($request->profile_photo != null) {
+            $user_image = user_image::where('user_id', $user->id)->first();
+            if (isset($user_image)) {
+                $request->validate([
+                    'profile_photo' => 'required|image|max:20000',
+                ]);
+                $user_image->user_id = $user->id;
+
+                $fileName = $request->profile_photo->getClientOriginalName();
+                $request->profile_photo->move(public_path('img/profile'), $fileName);
+                /* dd($fileName); */
+                $user_image->image = $fileName;
+                $user_image->save();
+            } else {
+                $request->validate([
+                    'profile_photo' => 'required|image|max:20000',
+                ]);
+                $user_image = new user_image;
+                $user_image->user_id = $user->id;
+
+                $fileName = $request->profile_photo->getClientOriginalName();
+                $request->profile_photo->move(public_path('img/profile'), $fileName);
+                /* dd($fileName); */
+                $user_image->image = $fileName;
+                $user_image->save();
+            }
+        }
+
+        $user->save();
+        return redirect()->route('admin.user')->with('success', 'Profile Successfully Updated');
     }
 }
