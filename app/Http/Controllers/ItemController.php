@@ -123,6 +123,10 @@ class ItemController extends Controller
     }
 
     public function dummy_simulasi(Request $request){
+        $request->validate([
+            'jumInves' => 'required|numeric',
+        ]);
+
         $user = Auth::user();
         $dummy_simulasi = dummy_simulasi::where('user_id', $user->id)->first();
         if (isset($dummy_simulasi)) {

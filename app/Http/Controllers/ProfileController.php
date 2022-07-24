@@ -25,8 +25,11 @@ class ProfileController extends Controller
 
     public function update(Request $request)
     {
-        /* dd($request->all()); */
         $user = User::find(Auth::user()->id);
+        $request->validate([
+            'nohp' => 'numeric|unique:users',
+        ]);
+        /* dd($request->all()); */
         $user->nama_lengkap = $request->nama_lengkap;
         $user->email = $request->email;
         $user->nohp = $request->nohp;

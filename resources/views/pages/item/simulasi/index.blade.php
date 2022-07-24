@@ -21,6 +21,8 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
+
+
                     {{-- Sub Title --}}
                     <div class="d-sm-flex align-items-center justify-content-between pt-2 mt-1 mb-4">
                         <h1 class="h3 pb-2 mb-0 " style="font-weight:700; font-size:32px">
@@ -36,17 +38,24 @@
                             <div class="card shadow-custom mb-4" style="width:100%">
                                 <!-- Card Body -->
                                 <div class="card-body">
+
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
                                     <form action="{{ route('item.dummysimulasi') }}" method="POST">
                                         @csrf
                                         <div class="form-outline mb-4">
                                             <input type="hidden" name="user_id" value="{{ $user->id }}">
                                             <input type="hidden" name="produk_green_id" value="{{ $produk_green->id }}">
                                             <label class="form-label">Masukkan jumlah investasi</label>
-                                            <input type="text" name="jumInves" class="form-control"
-                                                autofocus required
-                                                @if (isset( $dummy_simulasi))
-                                                    placeholder="{{ $dummy_simulasi->jumInves }}"
-                                                @endif >
+                                            <input type="text" name="jumInves" class="form-control" autofocus required
+                                                @if (isset($dummy_simulasi)) placeholder="{{ $dummy_simulasi->jumInves }}" @endif>
                                         </div>
                                         {{-- <input type="hidden" id="role" name="role" value="0"> --}}
                                         <!-- Submit button -->
@@ -83,7 +92,8 @@
 
                                     <div class="row">
                                         <div class="col">
-                                            <h1 class="text-gray-900" style="font-weight: 600;">{{ number_format($nilai, 0, ',', '.') }}</h1>
+                                            <h1 class="text-gray-900" style="font-weight: 600;">
+                                                {{ number_format($nilai, 0, ',', '.') }}</h1>
                                         </div>
                                     </div>
 

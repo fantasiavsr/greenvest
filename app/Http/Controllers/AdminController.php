@@ -510,6 +510,10 @@ class AdminController extends Controller
             'nohp' => 'required|unique:users,nohp|numeric',
         ]); */
 
+        $request->validate([
+            'nohp' => 'numeric|unique:users',
+        ]);
+
         $user = User::find($request->user_id);
         /* dd($request->all(), $user->nama_lengkap); */
         $user->nama_lengkap = $request->nama_lengkap;
