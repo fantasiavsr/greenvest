@@ -24,7 +24,7 @@ class RegisterController extends Controller
             'nama_lengkap' => 'required',
             'username' => 'required',
             'email' => 'required|unique:users,email',
-            'nohp' => 'required|unique:users,nohp',
+            'nohp' => 'required|unique:users,nohp|numeric',
             'level' => 'required',
             'password' => 'required',
         ]);
