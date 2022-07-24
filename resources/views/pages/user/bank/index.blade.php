@@ -92,12 +92,13 @@
                                                         </td>
                                                         <td>
                                                             <form action="{{ route('bank.delete', ['id' => $item->id]) }}"
-                                                                method="POST" onclick="return confirm('Are you sure?')">
+                                                                @if ($item->bank_name != 'GreenVest') )
+                                                                method="POST" onclick="return confirm('Are you sure?')" @endif>
                                                                 @method('delete')
                                                                 @csrf
                                                                 <button type="submit"
                                                                     class="btn btn-sm btn-danger pr-4 pl-1"
-                                                                    @if ($item->bank_name == 'GreenVest') style:"pointer-events: none;"
+                                                                    @if ($item->bank_name == 'GreenVest') "
                                                                         disabled @endif>Delete</button>
                                                             </form>
                                                         </td>
