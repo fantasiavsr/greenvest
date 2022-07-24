@@ -82,18 +82,23 @@
                                                         </td>
                                                         <td>
                                                             <a href="{{ route('bank.edit', ['id' => $item->id]) }}"
-                                                                class="btn btn-sm btn-warning pr-5 pl-1">
-                                                                Edit
+                                                                class="">
+                                                                <button class="btn btn-sm btn-warning pr-5 pl-1"
+                                                                    @if ($item->bank_name == 'GreenVest') )
+                                                                    disabled style:"pointer-events: none;" @endif>
+                                                                    Edit
+                                                                </button>
                                                             </a>
                                                         </td>
                                                         <td>
-                                                            <form
-                                                                action="{{ route('bank.delete', ['id' => $item->id]) }}"
+                                                            <form action="{{ route('bank.delete', ['id' => $item->id]) }}"
                                                                 method="POST" onclick="return confirm('Are you sure?')">
                                                                 @method('delete')
                                                                 @csrf
                                                                 <button type="submit"
-                                                                    class="btn btn-sm btn-danger pr-4 pl-1">Delete</button>
+                                                                    class="btn btn-sm btn-danger pr-4 pl-1"
+                                                                    @if ($item->bank_name == 'GreenVest') style:"pointer-events: none;"
+                                                                        disabled @endif>Delete</button>
                                                             </form>
                                                         </td>
                                                     </tr>
