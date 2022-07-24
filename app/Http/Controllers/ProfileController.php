@@ -27,7 +27,7 @@ class ProfileController extends Controller
     {
         $user = User::find(Auth::user()->id);
         $request->validate([
-            'nohp' => 'numeric|unique:users',
+            'nohp' => 'numeric|unique:users,nohp,' . $user->id,
         ]);
         /* dd($request->all()); */
         $user->nama_lengkap = $request->nama_lengkap;
