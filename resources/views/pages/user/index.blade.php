@@ -373,10 +373,10 @@
                                                     </span></h4>
                                                 <div class="progress mb-4">
                                                     <div class="progress-bar" role="progressbar"
-                                                        @if (isset($p_nilai_porto)) style="width: {{ $p_nilai_porto }}%; background-color:#FFB020"
+                                                        @if (isset($p_nilai_porto)) style="width: {{ $p_nilai_porto }}%; background-color:#378AEC"
                                                         aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
                                                     @else
-                                                        style="width: 0%; background-color:#4FBEAB"
+                                                        style="width: 0%; background-color:#378AEC"
                                                         aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" @endif>
                                                     </div>
                                                 </div>

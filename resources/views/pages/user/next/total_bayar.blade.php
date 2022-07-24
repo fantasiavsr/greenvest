@@ -293,10 +293,10 @@
                                         @endif
 
                                         <div class="col">
-                                            <div class="h1 mb-0 font-weight-bold text-gray-800 text-center">
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800 text-center">
                                                 Rp{{ $total_bayar }}
                                             </div>
-                                            <div class="g5 font-weight-bold text-uppercase mb-1 text-center">
+                                            <div class="font-weight-bold text-uppercase mb-1 text-center">
                                                 Pembayaran
                                             </div>
                                             <h4 class="small font-weight-bold">Total Pembayaran<span
@@ -304,6 +304,23 @@
                                             <div class="progress mb-4">
                                                 <div class="progress-bar" role="progressbar"
                                                     style="width: {{ $p_total_bayar }}%; background-color:#FFB020"
+                                                    aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                </div>
+                                            </div>
+                                            <h4 class="small font-weight-bold">Saldo Greenvest<span
+                                                    class="float-right">{{ $p_saldo }}%</span>
+                                            </h4>
+                                            <div class="progress mb-4">
+                                                <div class="progress-bar" role="progressbar"
+                                                    style="width: {{ $p_saldo }}%; background-color:#4FBEAB"
+                                                    aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                </div>
+                                            </div>
+                                            <h4 class="small font-weight-bold">Nilai Portofolio<span
+                                                    class="float-right">{{ $p_nilai_porto }}%</span></h4>
+                                            <div class="progress mb-4">
+                                                <div class="progress-bar" role="progressbar"
+                                                    style="width: {{ $p_nilai_porto }}%; background-color:#378AEC"
                                                     aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                 </div>
                                             </div>
