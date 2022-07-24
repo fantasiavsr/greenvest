@@ -103,6 +103,23 @@
 
                                         <div class="row d-flex">
                                             <div class="col-sm form-outline mb-4">
+                                                <label class="form-label">Ganti Level (Admin, User)</label>
+                                                <select type="text" name="level" class="form-control" autofocus
+                                                    required>
+                                                    <option value="Admin"
+                                                        @if ($this_item->level == 'Admin') selected @endif>
+                                                        Admin
+                                                    </option>
+                                                    <option value="User"
+                                                        @if ($this_item->level == 'User') selected @endif>User
+                                                    </option>
+                                                    <option value="Developer"
+                                                        @if ($this_item->level == 'Developer') selected @endif>Developer
+                                                    </option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-sm form-outline mb-4">
                                                 <label class="form-label">Ganti Password</label>
                                                 <input type="password" name="password" class="form-control" value=""
                                                     autofocus>
