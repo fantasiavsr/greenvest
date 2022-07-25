@@ -11,9 +11,11 @@
                 {{-- <img src="img/clogo-wht-brand.png" class="img-fluid pb-5" alt="" style="width: 670px"> --}}
                 <h1 class="display-5 fw-bold text-white pb-3">Welcome to Greenvest</h1>
                 <div class="col-lg-6 mx-auto">
-                    <p class="fs-5 mb-4 text-light">Mendukung emiten untuk mendapatkan
-                        pembiayaan kemudian melakukan ekspansi di dunia industri dengan menerapkan prinsip
-                        Environmental Social Governance (ESG) dalam rangka beradaptasi menjadi smart-eco industry. </p>
+                    <p class="fs-5 mb-4 text-light">
+                        Greenvest (Green Investment) adalah sebuah platform dalam bentuk website yang mewadahi adanya
+                        aktivitas green investment baik dalam bentuk green company atau green project dan disatukan dalam
+                        tiga produk investment yaitu Green Bond, Green Sukuk, dan Green Taxonomy.
+                    </p>
                     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center pt-4">
                         <a href="{{ route('register') }}">
                             <button type="button" class="btn btn-lg rounded-pill btn-outline-light px-4 me-sm-3">Join
@@ -72,12 +74,11 @@
                     <div class="d-grid gap-5 d-sm-flex justify-content-sm-center pt-4">
 
                         <div class="col-md-5 pe-1">
-
                             <h3 class="col-md-9 display-6 fw-bold text-dark pb-2">Supportive
                                 Climate Action 2030</h3>
-                            <p class="fs-5 fw-light mb-4 text-dark">Mendukung emiten untuk mendapatkan
-                                pembiayaan kemudian melakukan ekspansi di dunia industri dengan menerapkan prinsip
-                                Environmental Social Governance (ESG) dalam rangka beradaptasi menjadi smart-eco industry.
+                            <p class="fs-5 fw-light mb-4 text-dark">
+                                Berkomitmen mengurangi emisi karbon sebanyak 41% pada 2030 dengan dukungan internasional
+                                untuk mencapai net-zero emission pada 2060 atau lebih cepat.
                             </p>
                         </div>
                         <div class="col-md-4 ps-4">
@@ -121,7 +122,8 @@
 
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center pt-4 text-center">
                     <a href="{{ route('register') }}">
-                        <button type="button" class="btn btn-md rounded-pill px-4 py-3 me-sm-3 text-light fw-bold shadow-custom-green   "
+                        <button type="button"
+                            class="btn btn-md rounded-pill px-4 py-3 me-sm-3 text-light fw-bold shadow-custom-green   "
                             style="background-color: #4FBEAB;">Join Now For Free</button>
                     </a>
 

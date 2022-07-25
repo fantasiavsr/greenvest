@@ -8,13 +8,13 @@
                 </div>
                 <div class="col">
                     <p>Home</p>
-                    <p>Course</p>
-                    <p>News</p>
+                    <p>Get Started</p>
+                    <p>Support</p>
                 </div>
                 <div class="col">
-                    <p>Programming</p>
-                    <p>Graphic Design</p>
-                    <p>UI UX Design</p>
+                    <p>Green Sukuk</p>
+                    <p>Green Bond</p>
+                    <p>Green Taxonomy</p>
                 </div>
                 <div class="col">
                     <p>About Us</p>
