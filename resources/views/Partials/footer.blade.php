@@ -24,7 +24,7 @@
 
             <div class="row text-light mt-5 pt-5">
                 <div class="col-md-12 mt-5">
-                    <p class="text-muted">© 2022 COURSITY / alif r. All rights reserved.</p>
+                    <p class="" style="color: #d1d1d1">© 2022 GreenVest / Tim Bernice All rights reserved.</p>
                 </div>
             </div>
 
