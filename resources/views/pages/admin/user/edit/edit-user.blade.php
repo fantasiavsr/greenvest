@@ -116,6 +116,9 @@
                                                     <option value="Developer"
                                                         @if ($this_item->level == 'Developer') selected @endif>Developer
                                                     </option>
+                                                    <option value="SubAdmin"
+                                                        @if ($this_item->level == 'SubAdmin') selected @endif>SubAdmin
+                                                    </option>
                                                 </select>
                                             </div>
 

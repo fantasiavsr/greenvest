@@ -267,7 +267,7 @@
                                     </a>
                                     <a href="{{ route('dashboard.total_bayar') }}" class="btn btn-light "
                                         style=" width: 100%">
-                                        Pemabayaran
+                                        Pembayaran
                                     </a>
                                     <a href="{{ route('dashboard.keuntungan') }}" class="btn text-light "
                                         style="background-color: #4FBEAB; width: 100%">
@@ -307,7 +307,7 @@
                                             @endif
                                         @endif
                                         <div class="col">
-                                            <div class="h4 mb-0 font-weight-bold text-gray-800 text-center">
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800 text-center">
                                                 Rp{{ $nilai_porto }}
                                             </div>
                                             <div class="text-uppercase mb-1 text-center">

@@ -167,6 +167,24 @@ class AdminController extends Controller
         ]);
     }
 
+    public function sub_list_item()
+    {
+        $user = Auth::user();
+        $user_image = user_image::where('user_id', $user->id)->first();
+        $list_item = Produk_green::orderBy('nama', 'ASC')->where('perusahaan', $user->nama_lengkap)->get();
+        $image = produk_image::all();
+        $googlefin_format = googlefin_format::all();
+
+        return view('pages.admin.item.list-item', compact('user'), [
+            'title' => "Admin - List Item",
+            'submenu' => "no",
+            'list_item' => $list_item,
+            'image' => $image,
+            'googlefin_format' => $googlefin_format,
+            'user_image' => $user_image,
+        ]);
+    }
+
     public function edit_item($id)
     {
         $user = Auth::user();

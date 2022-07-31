@@ -39,7 +39,7 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register.s
 /* Route::get('/home', [homeController::class, 'index'])->middleware('auth', 'User')->name('home'); */
 
 /* Resource */
-Route::resource('user', UserController::class)->middleware('auth', 'user', 'admin');
+Route::resource('user', UserController::class)->middleware('auth', 'user', 'admin', 'subadmin');
 /* Route::resource('developer', DeveloperController::class)->middleware('auth', 'developer'); */
 
 Route::get('dashboard-saldo', [DashboardController::class, 'dashboard_saldo'])->middleware('auth', 'user')->name('dashboard.saldo');
@@ -86,7 +86,6 @@ Route::get('item beli', [ItemController::class, 'belitest'])->middleware('auth',
 Route::get('item beli/{id}', [ItemController::class, 'beli'])->middleware('auth', 'user')->name('item.beli');
 Route::post('item beli', [TransaksiController::class, 'store'])->name('transaksi.store');
 
-
 Route::get('admin-transaksi', [AdminController::class, 'list_transaksi'])->middleware('auth', 'admin')->name('admin.transaksi');
 Route::get('admin-transaksi/{id}', [AdminController::class, 'edit_transaksi'])->middleware('auth', 'admin')->name('admin.edit.transaksi');
 Route::post('admin-transaksi', [AdminController::class, 'update_transaksi'])->middleware('auth', 'admin')->name('admin.update.transaksi');
@@ -109,3 +108,5 @@ Route::post('admin-user', [AdminController::class, 'update_user'])->middleware('
 /* Route::get('admin-createuser', [AdminController::class, 'create_user'])->middleware('auth', 'admin')->name('admin.create.user');
 Route::post('admin-createuser', [AdminController::class, 'store_user'])->middleware('auth', 'admin')->name('admin.store.user'); */
 Route::delete('admin-deleteuser/{id}', [AdminController::class, 'delete_user'])->middleware('auth', 'admin')->name('admin.delete.user');
+
+Route::get('subadmin-item', [AdminController::class, 'sub_list_item'])->middleware('auth', 'subadmin')->name('subadmin.item');

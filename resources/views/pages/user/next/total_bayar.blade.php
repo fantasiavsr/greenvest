@@ -252,7 +252,7 @@
                                     </a>
                                     <a href="{{ route('dashboard.total_bayar') }}" class="btn text-light "
                                         style="background-color: #4FBEAB; width: 100%">
-                                        Pemabayaran
+                                        Pembayaran
                                     </a>
                                     <a href="{{ route('dashboard.keuntungan') }}" class="btn btn-light "
                                         style=" width: 100%">

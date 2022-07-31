@@ -59,7 +59,7 @@
         </a>
     </li>
 
-    <!-- Heading -Transaksi -->
+    <!-- Heading - User -->
     <div class="sidebar-heading">
         User
     </div>
@@ -68,7 +68,7 @@
     <li class="nav-item {{ (request()->is('admin-user')) ? 'active' : '' }}">
         <a class="nav-link " href="{{ route('admin.user') }}"
             @if ($title === 'Admin - List User') style="color: #4FBEAB; background-color:#F9FAFC;  border-right: 8px solid #4FBEAB;" @endif>
-            <i class="fas fa-fw fa-credit-card"></i>
+            <i class="fas fa-fw fa-user"></i>
             <span>List User</span>
         </a>
     </li>

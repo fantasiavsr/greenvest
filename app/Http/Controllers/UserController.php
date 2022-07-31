@@ -68,6 +68,12 @@ class UserController extends Controller
                 'user' => $user,
                 'user_image' => $user_image,
             ]);
+        } else if ($level == "SubAdmin") {
+            return view('pages.subadmin.index', compact('user'), [
+                'title' => "Dashboard",
+                'user' => $user,
+                'user_image' => $user_image,
+            ]);
         } else {
             return back();
         }
